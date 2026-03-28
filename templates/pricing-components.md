@@ -1,0 +1,181 @@
+# Pricing Table Components
+> Pricing patterns: 3-tier cards, monthly/yearly toggle, feature comparison, and enterprise CTA
+> 가격표 패턴: 3단계 카드, 월/연 토글, 기능 비교, 엔터프라이즈 CTA
+
+**Category**: Components | **Tags**: pricing, plans, toggle, comparison, tailwind | **Difficulty**: Beginner
+
+## Preview
+```
++--------+  +----------+  +----------+
+| Starter|  |   Pro    |  |Enterprise|
+|  $9/mo |  | $29/mo   |  |  Custom  |
+| [...]  |  | POPULAR  |  | [...]    |
+| [CTA]  |  | [CTA]    |  | [CTA]   |
++--------+  +----------+  +----------+
+
+[Monthly] / [Yearly - Save 20%]
+```
+
+## Quick Start
+```bash
+# 1. Copy the pricing section you prefer
+# 2. Replace plan names, prices, and features
+# 3. Monthly/yearly toggle uses vanilla JS (framework-agnostic)
+```
+
+## Full Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Components</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 p-8 min-h-screen">
+  <div class="max-w-6xl mx-auto space-y-20">
+
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Pricing Components</h1>
+
+    <!-- 1. Three-Tier Pricing with Toggle -->
+    <section>
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Simple, transparent pricing</h2>
+        <p class="mt-2 text-gray-500">Choose the plan that fits your needs. Cancel anytime.</p>
+        <!-- Toggle -->
+        <div class="mt-6 inline-flex items-center gap-3 bg-gray-200 dark:bg-gray-700 p-1 rounded-xl">
+          <button id="btn-monthly" onclick="togglePricing('monthly')" class="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-sm font-medium shadow-sm text-gray-900 dark:text-white">Monthly</button>
+          <button id="btn-yearly" onclick="togglePricing('yearly')" class="px-4 py-2 text-sm text-gray-500 rounded-lg">Yearly <span class="text-xs text-emerald-600 font-bold">-20%</span></button>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- Starter -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Starter</h3>
+          <p class="mt-1 text-sm text-gray-500">For individuals and side projects</p>
+          <div class="mt-6">
+            <span class="price-monthly text-4xl font-black text-gray-900 dark:text-white">$9</span>
+            <span class="price-yearly text-4xl font-black text-gray-900 dark:text-white hidden">$7</span>
+            <span class="text-gray-400">/month</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-400">
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> Up to 3 projects</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> 5GB storage</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> Community support</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> Basic analytics</li>
+            <li class="flex gap-2"><span class="text-gray-300">&#10007;</span><span class="text-gray-400">Custom domains</span></li>
+            <li class="flex gap-2"><span class="text-gray-300">&#10007;</span><span class="text-gray-400">Team members</span></li>
+          </ul>
+          <button class="mt-8 w-full py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition text-gray-900 dark:text-white">Get Started</button>
+        </div>
+
+        <!-- Pro (Popular) -->
+        <div class="bg-indigo-600 text-white rounded-2xl p-8 shadow-xl shadow-indigo-600/20 relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-amber-400 text-amber-900 text-xs font-bold rounded-full">Most Popular</span>
+          <h3 class="text-lg font-semibold">Pro</h3>
+          <p class="mt-1 text-sm text-indigo-200">For growing teams and businesses</p>
+          <div class="mt-6">
+            <span class="price-monthly text-4xl font-black">$29</span>
+            <span class="price-yearly text-4xl font-black hidden">$23</span>
+            <span class="text-indigo-200">/month</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-indigo-100">
+            <li class="flex gap-2"><span class="text-emerald-300">&#10003;</span> Unlimited projects</li>
+            <li class="flex gap-2"><span class="text-emerald-300">&#10003;</span> 100GB storage</li>
+            <li class="flex gap-2"><span class="text-emerald-300">&#10003;</span> Priority support</li>
+            <li class="flex gap-2"><span class="text-emerald-300">&#10003;</span> Advanced analytics</li>
+            <li class="flex gap-2"><span class="text-emerald-300">&#10003;</span> Custom domains</li>
+            <li class="flex gap-2"><span class="text-emerald-300">&#10003;</span> Up to 10 team members</li>
+          </ul>
+          <button class="mt-8 w-full py-3 bg-white text-indigo-700 rounded-xl font-bold text-sm hover:bg-indigo-50 transition">Start Free Trial</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Enterprise</h3>
+          <p class="mt-1 text-sm text-gray-500">For large organizations</p>
+          <div class="mt-6">
+            <span class="text-4xl font-black text-gray-900 dark:text-white">Custom</span>
+          </div>
+          <ul class="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-400">
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> Everything in Pro</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> Unlimited storage</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> Dedicated support</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> SSO / SAML</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> SLA guarantee</li>
+            <li class="flex gap-2"><span class="text-emerald-500">&#10003;</span> Unlimited team members</li>
+          </ul>
+          <button class="mt-8 w-full py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition text-gray-900 dark:text-white">Contact Sales</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Feature Comparison Table -->
+    <section>
+      <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Feature Comparison</h2>
+      <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+              <th class="text-left px-6 py-4 font-medium text-gray-500 w-1/4">Feature</th>
+              <th class="text-center px-6 py-4 font-medium text-gray-500">Starter</th>
+              <th class="text-center px-6 py-4 font-medium text-indigo-600">Pro</th>
+              <th class="text-center px-6 py-4 font-medium text-gray-500">Enterprise</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+            <tr><td class="px-6 py-3 text-gray-700 dark:text-gray-300">Projects</td><td class="px-6 py-3 text-center">3</td><td class="px-6 py-3 text-center font-medium text-indigo-600">Unlimited</td><td class="px-6 py-3 text-center">Unlimited</td></tr>
+            <tr><td class="px-6 py-3 text-gray-700 dark:text-gray-300">Storage</td><td class="px-6 py-3 text-center">5 GB</td><td class="px-6 py-3 text-center font-medium text-indigo-600">100 GB</td><td class="px-6 py-3 text-center">Unlimited</td></tr>
+            <tr><td class="px-6 py-3 text-gray-700 dark:text-gray-300">Team members</td><td class="px-6 py-3 text-center">1</td><td class="px-6 py-3 text-center font-medium text-indigo-600">10</td><td class="px-6 py-3 text-center">Unlimited</td></tr>
+            <tr><td class="px-6 py-3 text-gray-700 dark:text-gray-300">Custom domains</td><td class="px-6 py-3 text-center text-gray-300">&#10007;</td><td class="px-6 py-3 text-center text-emerald-500">&#10003;</td><td class="px-6 py-3 text-center text-emerald-500">&#10003;</td></tr>
+            <tr><td class="px-6 py-3 text-gray-700 dark:text-gray-300">SSO / SAML</td><td class="px-6 py-3 text-center text-gray-300">&#10007;</td><td class="px-6 py-3 text-center text-gray-300">&#10007;</td><td class="px-6 py-3 text-center text-emerald-500">&#10003;</td></tr>
+            <tr><td class="px-6 py-3 text-gray-700 dark:text-gray-300">SLA</td><td class="px-6 py-3 text-center text-gray-300">&#10007;</td><td class="px-6 py-3 text-center text-gray-300">&#10007;</td><td class="px-6 py-3 text-center text-emerald-500">99.99%</td></tr>
+            <tr><td class="px-6 py-3 text-gray-700 dark:text-gray-300">Support</td><td class="px-6 py-3 text-center">Community</td><td class="px-6 py-3 text-center font-medium text-indigo-600">Priority</td><td class="px-6 py-3 text-center">Dedicated</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function togglePricing(period) {
+      const monthly = document.querySelectorAll('.price-monthly');
+      const yearly = document.querySelectorAll('.price-yearly');
+      const btnM = document.getElementById('btn-monthly');
+      const btnY = document.getElementById('btn-yearly');
+      if (period === 'yearly') {
+        monthly.forEach(el => el.classList.add('hidden'));
+        yearly.forEach(el => el.classList.remove('hidden'));
+        btnM.className = 'px-4 py-2 text-sm text-gray-500 rounded-lg';
+        btnY.className = 'px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-sm font-medium shadow-sm text-gray-900 dark:text-white';
+      } else {
+        monthly.forEach(el => el.classList.remove('hidden'));
+        yearly.forEach(el => el.classList.add('hidden'));
+        btnM.className = 'px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-sm font-medium shadow-sm text-gray-900 dark:text-white';
+        btnY.className = 'px-4 py-2 text-sm text-gray-500 rounded-lg';
+      }
+    }
+  </script>
+
+</body>
+</html>
+```
+
+## Customization Guide
+- **Prices**: Update dollar amounts in both monthly and yearly spans
+- **Toggle discount**: Change the "20%" discount in the yearly button badge
+- **Features**: Add or remove `<li>` items in each plan; use `&#10003;` for included, `&#10007;` for excluded
+- **Popular badge**: Move to a different plan or remove by deleting the `<span>` element
+- **Comparison table**: Add rows for more features; highlight the recommended column
+- **Payment links**: Replace button `onclick` with Stripe Checkout or Paddle links
+
+## 2026 Trend Notes
+- Monthly/yearly toggle is expected UX for SaaS pricing
+- Highlighted popular plan with contrasting color drives conversions
+- Feature comparison table below cards addresses "which plan" questions
+- Enterprise plan with "Custom" pricing and "Contact Sales" is standard B2B pattern
+- Checkmark/cross indicators provide instant visual scanning

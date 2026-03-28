@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TemplateClaw — 개발자를 위한 디자인+개발 템플릿 허브. 랜딩 페이지, 대시보드, 컴포넌트, 방법론까지.">
+  <title>TemplateClaw — Developer Template Hub</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            },
+            accent: '#EC4899',
+            surface: {
+              900: '#0A0E1A',
+              800: '#0D1224',
+              700: '#111730',
+              600: '#171D3B',
+              500: '#1E2547',
+            }
+          },
+          fontFamily: {
+            sans:    ['"Inter"', 'system-ui', 'sans-serif'],
+            display: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono:    ['"JetBrains Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================
+       TEMPLATECLAW — Custom Styles & Animations
+       ======================================================== */
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0A0E1A;
+      color: #cbd5e1;
+      margin: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* -- Animated dot grid background -- */
+    .dot-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(124,58,237,0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
+    }
+
+    /* -- Floating aurora blobs -- */
+    .aurora {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+    .aurora-1 {
+      width: 600px; height: 600px;
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+      top: -10%; left: -5%;
+      animation: aurora-drift-1 18s ease-in-out infinite;
+    }
+    .aurora-2 {
+      width: 500px; height: 500px;
+      background: linear-gradient(225deg, #EC4899, #7C3AED);
+      bottom: -10%; right: -8%;
+      animation: aurora-drift-2 22s ease-in-out infinite;
+    }
+    .aurora-3 {
+      width: 350px; height: 350px;
+      background: linear-gradient(180deg, #8b5cf6, #f472b6);
+      top: 40%; left: 50%;
+      animation: aurora-drift-3 15s ease-in-out infinite;
+      opacity: 0.10;
+    }
+
+    @keyframes aurora-drift-1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%      { transform: translate(60px, 40px) scale(1.08); }
+      66%      { transform: translate(-30px, 70px) scale(0.95); }
+    }
+    @keyframes aurora-drift-2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%      { transform: translate(-50px, -30px) scale(1.1); }
+      66%      { transform: translate(40px, -60px) scale(0.92); }
+    }
+    @keyframes aurora-drift-3 {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50%      { transform: translate(-45%, -55%) scale(1.15); }
+    }
+
+    /* -- Gradient text -- */
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa 0%, #c084fc 25%, #EC4899 50%, #f472b6 75%, #a78bfa 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 4s linear infinite;
+    }
+    @keyframes gradient-shift {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* -- Shimmer line -- */
+    .shimmer-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #7C3AED, #EC4899, transparent);
+      background-size: 200% 100%;
+      animation: shimmer-move 3s linear infinite;
+    }
+    @keyframes shimmer-move {
+      0%   { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* -- Fade-in-up on scroll (IntersectionObserver) -- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.23, 1, 0.32, 1),
+                  transform 0.65s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* -- Glass card -- */
+    .glass {
+      background: rgba(14, 18, 36, 0.55);
+      backdrop-filter: blur(20px) saturate(1.3);
+      -webkit-backdrop-filter: blur(20px) saturate(1.3);
+      border: 1px solid rgba(124, 58, 237, 0.12);
+      transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    }
+    .glass:hover {
+      border-color: rgba(124, 58, 237, 0.35);
+      box-shadow:
+        0 0 0 1px rgba(124,58,237,0.10),
+        0 8px 40px -12px rgba(124,58,237,0.18),
+        0 2px 12px -4px rgba(236,72,153,0.10);
+      transform: translateY(-4px);
+    }
+
+    /* -- Category badge colors -- */
+    .badge-landing    { background: rgba(124,58,237,0.18); color: #c4b5fd; border: 1px solid rgba(124,58,237,0.25); }
+    .badge-dashboard  { background: rgba(236,72,153,0.18); color: #f9a8d4; border: 1px solid rgba(236,72,153,0.25); }
+    .badge-components { background: rgba(34,211,238,0.15); color: #67e8f9; border: 1px solid rgba(34,211,238,0.22); }
+    .badge-methodology{ background: rgba(250,204,21,0.15); color: #fde047; border: 1px solid rgba(250,204,21,0.22); }
+    .badge-setup      { background: rgba(52,211,153,0.15); color: #6ee7b7; border: 1px solid rgba(52,211,153,0.22); }
+    .badge-refactoring{ background: rgba(251,146,60,0.15); color: #fdba74; border: 1px solid rgba(251,146,60,0.22); }
+
+    /* -- Tag chips -- */
+    .tag-chip {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      background: rgba(124,58,237,0.10);
+      color: #a78bfa;
+      border: 1px solid rgba(124,58,237,0.15);
+      transition: background 0.2s;
+    }
+    .tag-chip:hover {
+      background: rgba(124,58,237,0.22);
+    }
+
+    /* -- Download button -- */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+      background-size: 200% 200%;
+      text-decoration: none;
+      transition: background-position 0.4s ease, box-shadow 0.3s ease, transform 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .download-btn:hover {
+      background-position: 100% 100%;
+      box-shadow: 0 4px 20px -4px rgba(124,58,237,0.45);
+      transform: scale(1.04);
+    }
+    .download-btn svg {
+      width: 14px; height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* -- Filter tabs -- */
+    .filter-tab {
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #94a3b8;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .filter-tab:hover {
+      color: #e2e8f0;
+      background: rgba(124,58,237,0.08);
+    }
+    .filter-tab.active {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(124,58,237,0.22), rgba(236,72,153,0.15));
+      border-color: rgba(124,58,237,0.30);
+      box-shadow: 0 0 12px -4px rgba(124,58,237,0.30);
+    }
+    .filter-tab .tab-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      margin-left: 6px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(124,58,237,0.15);
+      color: #a78bfa;
+    }
+    .filter-tab.active .tab-count {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    /* -- Search input -- */
+    .search-input {
+      background: rgba(14,18,36,0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(124,58,237,0.15);
+      border-radius: 12px;
+      padding: 12px 16px 12px 44px;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .search-input::placeholder { color: #475569; }
+    .search-input:focus {
+      border-color: rgba(124,58,237,0.45);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.10);
+    }
+
+    /* -- Stats number counter feel -- */
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* -- Scroll-to-top -- */
+    .scroll-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 100;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #7C3AED, #EC4899);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      box-shadow: 0 4px 20px -4px rgba(124,58,237,0.40);
+    }
+    .scroll-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .scroll-top:hover { transform: translateY(-2px) scale(1.06); }
+
+    /* -- No-results state -- */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: #475569;
+    }
+    .no-results.active { display: block; }
+    .no-results svg { opacity: 0.3; margin-bottom: 16px; }
+
+    /* -- Stagger children animation -- */
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: stagger-in 0.5s ease forwards;
+    }
+    @keyframes stagger-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* -- Navbar blur -- */
+    .navbar-glass {
+      background: rgba(10, 14, 26, 0.72);
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+      border-bottom: 1px solid rgba(124,58,237,0.08);
+    }
+
+    /* -- Glow ring for hero badge -- */
+    .glow-ring {
+      box-shadow:
+        0 0 0 1px rgba(124,58,237,0.20),
+        0 0 20px -4px rgba(124,58,237,0.30),
+        0 0 40px -8px rgba(236,72,153,0.15);
+    }
+
+    /* -- Template card internal glow line at top -- */
+    .card-glow-top {
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(236,72,153,0.3), transparent);
+      border-radius: 1px;
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .glass:hover .card-glow-top { opacity: 1; }
+
+    /* -- Responsive grid -- */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) {
+      .template-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .template-grid { grid-template-columns: 1fr; }
+    }
+
+    /* -- Hide template cards when filtered out -- */
+    .template-card.hidden { display: none; }
+
+    /* -- Pulse dot (live indicator) -- */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(1.6); }
+    }
+    .pulse-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #34d399;
+      display: inline-block;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- Background effects -->
+  <div class="dot-grid" aria-hidden="true"></div>
+  <div class="aurora aurora-1" aria-hidden="true"></div>
+  <div class="aurora aurora-2" aria-hidden="true"></div>
+  <div class="aurora aurora-3" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar-glass fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-600 to-accent flex items-center justify-center shadow-lg shadow-brand-600/20 group-hover:shadow-brand-600/40 transition-shadow">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+          </svg>
+        </div>
+        <span class="text-white font-bold text-lg tracking-tight">Template<span class="text-brand-400">Claw</span></span>
+      </a>
+
+      <!-- Nav links -->
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#templates" class="text-slate-400 hover:text-white transition-colors">Templates</a>
+        <a href="#stats" class="text-slate-400 hover:text-white transition-colors">Stats</a>
+        <a href="https://github.com/jeromwolf" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-400 hover:text-white p-2" aria-label="Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 space-y-2">
+      <a href="#templates" class="block text-slate-400 hover:text-white py-2 text-sm">Templates</a>
+      <a href="#stats" class="block text-slate-400 hover:text-white py-2 text-sm">Stats</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="relative z-10 pt-32 pb-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Live badge -->
+      <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full glass glow-ring mb-8 text-sm font-medium text-brand-300">
+        <span class="pulse-dot"></span>
+        <span class="font-mono font-semibold">30</span> templates available
+      </div>
+
+      <!-- Title -->
+      <h1 class="reveal text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.08]">
+        <span class="gradient-text">TemplateClaw</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="reveal text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-4 leading-relaxed">
+        개발자를 위한 디자인+개발 템플릿 허브
+      </p>
+      <p class="reveal text-sm text-slate-500 max-w-xl mx-auto mb-10">
+        Production-quality Markdown templates. Landing pages, dashboards, components, dev methodology, and more.
+        <span class="text-brand-400 font-semibold">Free &amp; open source.</span>
+      </p>
+
+      <!-- Shimmer divider -->
+      <div class="shimmer-line max-w-md mx-auto mb-10"></div>
+
+      <!-- Search bar -->
+      <div class="reveal max-w-xl mx-auto relative">
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input
+          id="search-input"
+          type="text"
+          class="search-input"
+          placeholder="Search templates... (e.g. 'saas', 'dashboard', 'tailwind')"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATS
+       ============================================================ -->
+  <section id="stats" class="relative z-10 py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="reveal glass rounded-2xl p-6 text-center">
+          <div class="stat-value gradient-text">30<span class="text-lg">+</span></div>
+          <div class="text-slate-500 text-sm mt-2 font-medium">Templates</div>
+        </div>
+        <div class="reveal glass rounded-2xl p-6 text-center">
+          <div class="stat-value gradient-text">6</div>
+          <div class="text-slate-500 text-sm mt-2 font-medium">Categories</div>
+        </div>
+        <div class="reveal glass rounded-2xl p-6 text-center">
+          <div class="stat-value gradient-text">$0</div>
+          <div class="text-slate-500 text-sm mt-2 font-medium">Cost</div>
+        </div>
+        <div class="reveal glass rounded-2xl p-6 text-center">
+          <div class="stat-value gradient-text font-mono text-xl">Weekly</div>
+          <div class="text-slate-500 text-sm mt-2 font-medium">Updates</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TEMPLATES
+       ============================================================ -->
+  <section id="templates" class="relative z-10 py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section header -->
+      <div class="reveal text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">Browse Templates</h2>
+        <p class="text-slate-500 text-sm">Click a category to filter, or search above</p>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="reveal flex flex-wrap justify-center gap-2 mb-10" id="filter-tabs" role="tablist">
+        <button class="filter-tab active" data-category="all" role="tab" aria-selected="true">
+          <span>All</span>
+          <span class="tab-count" id="count-all">0</span>
+        </button>
+        <button class="filter-tab" data-category="landing-pages" role="tab" aria-selected="false">
+          <span>&#x1F680; Landing Pages</span>
+          <span class="tab-count" id="count-landing-pages">0</span>
+        </button>
+        <button class="filter-tab" data-category="dashboard" role="tab" aria-selected="false">
+          <span>&#x1F4CA; Dashboard</span>
+          <span class="tab-count" id="count-dashboard">0</span>
+        </button>
+        <button class="filter-tab" data-category="components" role="tab" aria-selected="false">
+          <span>&#x1F9E9; Components</span>
+          <span class="tab-count" id="count-components">0</span>
+        </button>
+        <button class="filter-tab" data-category="methodology" role="tab" aria-selected="false">
+          <span>&#x1F4D6; Dev Methodology</span>
+          <span class="tab-count" id="count-methodology">0</span>
+        </button>
+        <button class="filter-tab" data-category="setup" role="tab" aria-selected="false">
+          <span>&#x2699;&#xFE0F; Project Setup</span>
+          <span class="tab-count" id="count-setup">0</span>
+        </button>
+        <button class="filter-tab" data-category="refactoring" role="tab" aria-selected="false">
+          <span>&#x1F527; Refactoring</span>
+          <span class="tab-count" id="count-refactoring">0</span>
+        </button>
+      </div>
+
+      <!-- Template grid -->
+      <div class="template-grid" id="template-grid">
+        
+    <div class="template-card" data-category="dashboard" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dashboard</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">Admin Dashboard</h3>
+      <p class="card-description">Admin panel with sidebar navigation, stats cards, data table, and chart placeholders</p>
+      <div class="card-tags"><span class="tag">admin</span><span class="tag">dashboard</span><span class="tag">sidebar</span><span class="tag">table</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/admin-dashboard.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="project-setup" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">project-setup</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">AGENTS.md Template</h3>
+      <p class="card-description">AGENTS.md template for documenting codebase for AI agents (architecture, modules, dependencies)</p>
+      <div class="card-tags"><span class="tag">agents</span><span class="tag">ai</span><span class="tag">documentation</span><span class="tag">codebase</span><span class="tag">architecture</span></div>
+      <div class="card-footer">
+        <a href="templates/agents-md-template.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dashboard" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dashboard</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">Analytics Dashboard</h3>
+      <p class="card-description">Analytics dashboard with KPI cards, chart areas, date filters, and metric breakdowns</p>
+      <div class="card-tags"><span class="tag">analytics</span><span class="tag">kpi</span><span class="tag">charts</span><span class="tag">metrics</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/analytics-dashboard.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dev-methodology" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dev-methodology</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">REST API Design Guide</h3>
+      <p class="card-description">REST API design guide: naming conventions, versioning, pagination, error handling, and OpenAPI spec</p>
+      <div class="card-tags"><span class="tag">api</span><span class="tag">rest</span><span class="tag">openapi</span><span class="tag">pagination</span><span class="tag">error-handling</span></div>
+      <div class="card-footer">
+        <a href="templates/api-design.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="landing-pages" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">landing-pages</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Mobile App Landing Page</h3>
+      <p class="card-description">Mobile app landing page with app store badges, screenshot mockups, and feature highlights</p>
+      <div class="card-tags"><span class="tag">mobile</span><span class="tag">app</span><span class="tag">ios</span><span class="tag">android</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/app-landing.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Card Components</h3>
+      <p class="card-description">8 card variants: product, profile, pricing, stat, testimonial, blog, feature, and glass morphism</p>
+      <div class="card-tags"><span class="tag">cards</span><span class="tag">ui</span><span class="tag">tailwind</span><span class="tag">responsive</span><span class="tag">glassmorphism</span></div>
+      <div class="card-footer">
+        <a href="templates/card-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dev-methodology" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dev-methodology</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">CI/CD Pipeline Setup</h3>
+      <p class="card-description">CI/CD pipeline with GitHub Actions: lint, test, build, deploy stages with secrets management</p>
+      <div class="card-tags"><span class="tag">cicd</span><span class="tag">github-actions</span><span class="tag">deployment</span><span class="tag">automation</span><span class="tag">devops</span></div>
+      <div class="card-footer">
+        <a href="templates/cicd-setup.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="project-setup" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">project-setup</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">CLAUDE.md Template</h3>
+      <p class="card-description">CLAUDE.md template for AI-assisted development with project structure, rules, and patterns</p>
+      <div class="card-tags"><span class="tag">claude</span><span class="tag">ai</span><span class="tag">llm</span><span class="tag">cursor</span><span class="tag">windsurf</span></div>
+      <div class="card-footer">
+        <a href="templates/claude-md-template.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dev-methodology" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dev-methodology</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">Code Review Checklist</h3>
+      <p class="card-description">Comprehensive code review checklist covering security, performance, readability, and testing</p>
+      <div class="card-tags"><span class="tag">code-review</span><span class="tag">security</span><span class="tag">performance</span><span class="tag">quality</span><span class="tag">checklist</span></div>
+      <div class="card-footer">
+        <a href="templates/code-review-checklist.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dashboard" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dashboard</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">CRM Dashboard</h3>
+      <p class="card-description">CRM dashboard with sales pipeline, contacts list, activities feed, and deal tracking</p>
+      <div class="card-tags"><span class="tag">crm</span><span class="tag">sales</span><span class="tag">pipeline</span><span class="tag">contacts</span><span class="tag">deals</span></div>
+      <div class="card-footer">
+        <a href="templates/crm-dashboard.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="refactoring" data-difficulty="advanced">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">refactoring</span>
+        <span class="badge" style="background:#EF4444;color:#fff">advanced</span>
+      </div>
+      <h3 class="card-title">Database Migration Guide</h3>
+      <p class="card-description">Database migration guide: schema versioning, rollback strategies, and zero-downtime migrations</p>
+      <div class="card-tags"><span class="tag">database</span><span class="tag">migration</span><span class="tag">schema</span><span class="tag">rollback</span><span class="tag">zero-downtime</span></div>
+      <div class="card-footer">
+        <a href="templates/db-migration.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="project-setup" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">project-setup</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">Docker Compose Template</h3>
+      <p class="card-description">Docker Compose setup with web app, PostgreSQL, Redis, and Nginx reverse proxy with health checks</p>
+      <div class="card-tags"><span class="tag">docker</span><span class="tag">compose</span><span class="tag">postgresql</span><span class="tag">redis</span><span class="tag">nginx</span></div>
+      <div class="card-footer">
+        <a href="templates/docker-compose-template.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="project-setup" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">project-setup</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Environment Variables Template</h3>
+      <p class="card-description">Comprehensive .env template organized by category: database, auth, APIs, feature flags</p>
+      <div class="card-tags"><span class="tag">env</span><span class="tag">configuration</span><span class="tag">secrets</span><span class="tag">environment</span><span class="tag">dotenv</span></div>
+      <div class="card-footer">
+        <a href="templates/env-template.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Footer Components</h3>
+      <p class="card-description">Footer patterns: simple, mega footer, newsletter signup, social links, and sitemap footer</p>
+      <div class="card-tags"><span class="tag">footer</span><span class="tag">navigation</span><span class="tag">newsletter</span><span class="tag">social</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/footer-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Form Components</h3>
+      <p class="card-description">Form patterns: login, signup, contact, search bar, multi-step wizard, and settings panel</p>
+      <div class="card-tags"><span class="tag">forms</span><span class="tag">login</span><span class="tag">signup</span><span class="tag">wizard</span><span class="tag">validation</span></div>
+      <div class="card-footer">
+        <a href="templates/form-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dev-methodology" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dev-methodology</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Git Workflow Guide</h3>
+      <p class="card-description">Git workflow with branching strategy, commit conventions, PR template, and common operations</p>
+      <div class="card-tags"><span class="tag">git</span><span class="tag">branching</span><span class="tag">commits</span><span class="tag">pull-request</span><span class="tag">workflow</span></div>
+      <div class="card-footer">
+        <a href="templates/git-workflow.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Hero Section Components</h3>
+      <p class="card-description">Hero section variants: centered text, split layout, video background, animated gradient, and minimal</p>
+      <div class="card-tags"><span class="tag">hero</span><span class="tag">header</span><span class="tag">above-fold</span><span class="tag">animation</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/hero-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">Modal Components</h3>
+      <p class="card-description">Modal patterns: confirm dialog, form modal, image gallery, notification toast, and bottom sheet</p>
+      <div class="card-tags"><span class="tag">modal</span><span class="tag">dialog</span><span class="tag">toast</span><span class="tag">popup</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/modal-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dashboard" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dashboard</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">System Monitoring Dashboard</h3>
+      <p class="card-description">System monitoring dashboard with status indicators, uptime metrics, alerts log, and service health</p>
+      <div class="card-tags"><span class="tag">monitoring</span><span class="tag">devops</span><span class="tag">status</span><span class="tag">uptime</span><span class="tag">alerts</span></div>
+      <div class="card-footer">
+        <a href="templates/monitoring-dashboard.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Navigation Components</h3>
+      <p class="card-description">Nav patterns: top bar, sidebar, mobile hamburger, breadcrumb, and tabbed navigation</p>
+      <div class="card-tags"><span class="tag">navigation</span><span class="tag">navbar</span><span class="tag">sidebar</span><span class="tag">tabs</span><span class="tag">breadcrumb</span></div>
+      <div class="card-footer">
+        <a href="templates/navigation-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="refactoring" data-difficulty="advanced">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">refactoring</span>
+        <span class="badge" style="background:#EF4444;color:#fff">advanced</span>
+      </div>
+      <h3 class="card-title">Performance Optimization Checklist</h3>
+      <p class="card-description">Performance checklist covering frontend, backend, database, caching, and infrastructure</p>
+      <div class="card-tags"><span class="tag">performance</span><span class="tag">optimization</span><span class="tag">caching</span><span class="tag">database</span><span class="tag">frontend</span></div>
+      <div class="card-footer">
+        <a href="templates/performance-checklist.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="landing-pages" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">landing-pages</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Developer Portfolio Landing Page</h3>
+      <p class="card-description">Clean developer portfolio with project grid, skills visualization, and contact form</p>
+      <div class="card-tags"><span class="tag">portfolio</span><span class="tag">developer</span><span class="tag">tailwind</span><span class="tag">responsive</span><span class="tag">minimal</span></div>
+      <div class="card-footer">
+        <a href="templates/portfolio-landing.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Pricing Table Components</h3>
+      <p class="card-description">Pricing patterns: 3-tier cards, monthly/yearly toggle, feature comparison, and enterprise CTA</p>
+      <div class="card-tags"><span class="tag">pricing</span><span class="tag">plans</span><span class="tag">toggle</span><span class="tag">comparison</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/pricing-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="landing-pages" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">landing-pages</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">Product Launch Landing Page</h3>
+      <p class="card-description">Product launch page with hero video area, feature carousel, and testimonials</p>
+      <div class="card-tags"><span class="tag">product</span><span class="tag">launch</span><span class="tag">video</span><span class="tag">testimonials</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/product-landing.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="project-setup" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">project-setup</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">README Template</h3>
+      <p class="card-description">Comprehensive README.md template with badges, install instructions, usage, API docs, and contributing guide</p>
+      <div class="card-tags"><span class="tag">readme</span><span class="tag">documentation</span><span class="tag">open-source</span><span class="tag">markdown</span><span class="tag">badges</span></div>
+      <div class="card-footer">
+        <a href="templates/readme-template.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="landing-pages" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">landing-pages</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">SaaS Landing Page</h3>
+      <p class="card-description">Modern SaaS landing page with hero, features, pricing, and CTA sections built with Tailwind CSS</p>
+      <div class="card-tags"><span class="tag">saas</span><span class="tag">tailwind</span><span class="tag">landing</span><span class="tag">responsive</span><span class="tag">dark-mode</span></div>
+      <div class="card-footer">
+        <a href="templates/saas-landing.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="refactoring" data-difficulty="advanced">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">refactoring</span>
+        <span class="badge" style="background:#EF4444;color:#fff">advanced</span>
+      </div>
+      <h3 class="card-title">Security Audit Checklist</h3>
+      <p class="card-description">Security audit checklist based on OWASP Top 10: auth, input validation, secrets, and infrastructure</p>
+      <div class="card-tags"><span class="tag">security</span><span class="tag">owasp</span><span class="tag">authentication</span><span class="tag">encryption</span><span class="tag">audit</span></div>
+      <div class="card-footer">
+        <a href="templates/security-audit.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="landing-pages" data-difficulty="beginner">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">landing-pages</span>
+        <span class="badge" style="background:#10B981;color:#fff">beginner</span>
+      </div>
+      <h3 class="card-title">Startup Pitch Landing Page</h3>
+      <p class="card-description">Startup pitch page with problem/solution framework, team section, and investor highlights</p>
+      <div class="card-tags"><span class="tag">startup</span><span class="tag">pitch</span><span class="tag">investors</span><span class="tag">team</span><span class="tag">tailwind</span></div>
+      <div class="card-footer">
+        <a href="templates/startup-landing.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="components" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">components</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">Table Components</h3>
+      <p class="card-description">Table patterns: sortable, filterable, paginated, responsive, and expandable row tables</p>
+      <div class="card-tags"><span class="tag">table</span><span class="tag">data</span><span class="tag">sortable</span><span class="tag">pagination</span><span class="tag">responsive</span></div>
+      <div class="card-footer">
+        <a href="templates/table-components.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+    <div class="template-card" data-category="dev-methodology" data-difficulty="intermediate">
+      <div class="card-header">
+        <span class="badge" style="background:#6B7280;color:#fff">dev-methodology</span>
+        <span class="badge" style="background:#F59E0B;color:#fff">intermediate</span>
+      </div>
+      <h3 class="card-title">TDD Workflow Guide</h3>
+      <p class="card-description">Test-Driven Development workflow: Red-Green-Refactor cycle, testing pyramid, and practical patterns</p>
+      <div class="card-tags"><span class="tag">tdd</span><span class="tag">testing</span><span class="tag">red-green-refactor</span><span class="tag">pytest</span><span class="tag">jest</span></div>
+      <div class="card-footer">
+        <a href="templates/tdd-guide.md" class="download-btn" download>Download MD</a>
+      </div>
+    </div>
+      </div>
+
+      <!-- No results -->
+      <div class="no-results" id="no-results">
+        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-lg font-semibold text-slate-500">No templates found</p>
+        <p class="text-sm text-slate-600 mt-1">Try a different search term or category</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="relative z-10 py-12 px-6 mt-12">
+    <div class="shimmer-line max-w-3xl mx-auto mb-10"></div>
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-accent flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+          </svg>
+        </div>
+        <span class="text-white font-bold text-lg">Template<span class="text-brand-400">Claw</span></span>
+      </div>
+      <p class="text-slate-500 text-sm mb-2">
+        Built by <a href="https://github.com/jeromwolf" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-300 transition-colors">Kelly</a>
+        &middot; Part of the <span class="text-slate-400 font-medium">ClawFlux</span> ecosystem
+      </p>
+      <p class="text-slate-600 text-xs font-mono">
+        Last updated: {{LAST_UPDATED}}
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCROLL-TO-TOP
+       ============================================================ -->
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ---- IntersectionObserver: scroll reveal ----
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              // Stagger delay based on position in parent
+              const siblings = entry.target.parentElement
+                ? Array.from(entry.target.parentElement.children).filter(c => c.classList.contains('reveal'))
+                : [];
+              const idx = siblings.indexOf(entry.target);
+              const delay = Math.min(idx * 80, 400);
+              setTimeout(() => entry.target.classList.add('visible'), delay);
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      // ---- DOM refs ----
+      const grid          = document.getElementById('template-grid');
+      const searchInput   = document.getElementById('search-input');
+      const filterTabs    = document.getElementById('filter-tabs');
+      const noResults     = document.getElementById('no-results');
+      const scrollTopBtn  = document.getElementById('scroll-top-btn');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu    = document.getElementById('mobile-menu');
+
+      let activeCategory = 'all';
+
+      // ---- Compute counts ----
+      function computeCounts() {
+        const cards = grid.querySelectorAll('.template-card');
+        const counts = { all: cards.length };
+        cards.forEach(card => {
+          const cat = card.dataset.category;
+          counts[cat] = (counts[cat] || 0) + 1;
+        });
+
+        // Update tab count badges
+        filterTabs.querySelectorAll('.filter-tab').forEach(tab => {
+          const cat = tab.dataset.category;
+          const countEl = tab.querySelector('.tab-count');
+          if (countEl) {
+            countEl.textContent = counts[cat] || 0;
+          }
+        });
+      }
+
+      // ---- Filter & Search ----
+      function applyFilters() {
+        const query = (searchInput.value || '').toLowerCase().trim();
+        const cards = grid.querySelectorAll('.template-card');
+        let visibleCount = 0;
+
+        cards.forEach((card, i) => {
+          const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
+          const title = (card.querySelector('.card-title')?.textContent || '').toLowerCase();
+          const desc  = (card.querySelector('.card-description')?.textContent || '').toLowerCase();
+          const tags  = (card.dataset.tags || '').toLowerCase();
+          const matchesSearch = !query || title.includes(query) || desc.includes(query) || tags.includes(query);
+
+          const visible = matchesCategory && matchesSearch;
+          card.classList.toggle('hidden', !visible);
+
+          if (visible) {
+            visibleCount++;
+            // Animate in with stagger
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(16px)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, Math.min(visibleCount * 50, 300));
+          }
+        });
+
+        noResults.classList.toggle('active', visibleCount === 0);
+      }
+
+      // ---- Tab click ----
+      filterTabs.addEventListener('click', (e) => {
+        const tab = e.target.closest('.filter-tab');
+        if (!tab) return;
+
+        filterTabs.querySelectorAll('.filter-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        activeCategory = tab.dataset.category;
+        applyFilters();
+      });
+
+      // ---- Search input ----
+      let searchTimeout;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(applyFilters, 150);
+      });
+
+      // ---- Scroll-to-top ----
+      window.addEventListener('scroll', () => {
+        scrollTopBtn.classList.toggle('show', window.scrollY > 500);
+      }, { passive: true });
+
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // ---- Mobile menu ----
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+
+      // ---- Observe template cards for scroll reveal ----
+      function observeCards() {
+        grid.querySelectorAll('.template-card').forEach(card => {
+          card.classList.add('reveal');
+          revealObserver.observe(card);
+        });
+      }
+
+      // ---- Init ----
+      computeCounts();
+      observeCards();
+      applyFilters();
+    })();
+  </script>
+</body>
+</html>
