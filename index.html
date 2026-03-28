@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko" class="scroll-smooth" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,17 +49,101 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Restore theme before paint to prevent flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('tc-theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+
   <style>
     /* ========================================================
        TEMPLATECLAW — Custom Styles & Animations
        ======================================================== */
 
+    /* -- CSS custom properties: Dark (default) -- */
+    :root {
+      --bg-body: #0A0E1A;
+      --bg-glass: rgba(14, 18, 36, 0.55);
+      --bg-glass-hover: rgba(14, 18, 36, 0.70);
+      --bg-input: rgba(14,18,36,0.6);
+      --bg-navbar: rgba(10, 14, 26, 0.72);
+      --bg-code: #0D1224;
+      --text-primary: #e2e8f0;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-faint: #475569;
+      --text-heading: #ffffff;
+      --border-base: rgba(124, 58, 237, 0.12);
+      --border-hover: rgba(124, 58, 237, 0.35);
+      --border-input: rgba(124,58,237,0.15);
+      --dot-color: rgba(124,58,237,0.08);
+      --aurora-opacity: 0.18;
+      --card-preview-bg: #0D1224;
+      --modal-surface: #111730;
+      --modal-border: rgba(124,58,237,0.20);
+      --sort-active-bg: rgba(124,58,237,0.18);
+    }
+
+    /* -- Light theme overrides -- */
+    [data-theme="light"] {
+      --bg-body: #f8f7ff;
+      --bg-glass: rgba(255, 255, 255, 0.72);
+      --bg-glass-hover: rgba(255, 255, 255, 0.88);
+      --bg-input: rgba(255,255,255,0.8);
+      --bg-navbar: rgba(255, 255, 255, 0.82);
+      --bg-code: #1e1b4b;
+      --text-primary: #1e1b4b;
+      --text-body: #374151;
+      --text-muted: #6b7280;
+      --text-faint: #9ca3af;
+      --text-heading: #111827;
+      --border-base: rgba(124, 58, 237, 0.15);
+      --border-hover: rgba(124, 58, 237, 0.40);
+      --border-input: rgba(124,58,237,0.20);
+      --dot-color: rgba(124,58,237,0.06);
+      --aurora-opacity: 0.08;
+      --card-preview-bg: #ede9fe;
+      --modal-surface: #ffffff;
+      --modal-border: rgba(124,58,237,0.15);
+      --sort-active-bg: rgba(124,58,237,0.12);
+    }
+
+    [data-theme="light"] body { background: var(--bg-body); color: var(--text-body); }
+    [data-theme="light"] .dot-grid { background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px); }
+    [data-theme="light"] .aurora { opacity: var(--aurora-opacity); }
+    [data-theme="light"] .glass { background: var(--bg-glass); border-color: var(--border-base); }
+    [data-theme="light"] .glass:hover { background: var(--bg-glass-hover); border-color: var(--border-hover); box-shadow: 0 8px 40px -12px rgba(124,58,237,0.12), 0 2px 12px -4px rgba(236,72,153,0.06); }
+    [data-theme="light"] .navbar-glass { background: var(--bg-navbar); border-bottom-color: rgba(124,58,237,0.10); }
+    [data-theme="light"] .navbar-glass a, [data-theme="light"] .navbar-glass span { color: var(--text-body); }
+    [data-theme="light"] .navbar-glass .text-white, [data-theme="light"] .navbar-glass .font-bold { color: var(--text-heading); }
+    [data-theme="light"] .search-input { background: var(--bg-input); border-color: var(--border-input); color: var(--text-primary); }
+    [data-theme="light"] .search-input::placeholder { color: var(--text-faint); }
+    [data-theme="light"] .text-white { color: var(--text-heading); }
+    [data-theme="light"] .text-slate-400, [data-theme="light"] .text-slate-500 { color: var(--text-muted); }
+    [data-theme="light"] .text-slate-600 { color: var(--text-faint); }
+    [data-theme="light"] .card-title { color: var(--text-heading) !important; }
+    [data-theme="light"] .card-description { color: var(--text-body) !important; }
+    [data-theme="light"] .filter-tab { color: var(--text-muted); }
+    [data-theme="light"] .filter-tab:hover { color: var(--text-primary); background: rgba(124,58,237,0.06); }
+    [data-theme="light"] .filter-tab.active { color: var(--text-heading); background: linear-gradient(135deg, rgba(124,58,237,0.14), rgba(236,72,153,0.08)); }
+    [data-theme="light"] .gradient-text {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 25%, #EC4899 50%, #f472b6 75%, #7c3aed 100%);
+      background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    [data-theme="light"] .stat-value { -webkit-text-fill-color: transparent; }
+    [data-theme="light"] .no-results { color: var(--text-faint); }
+    [data-theme="light"] .scroll-top { box-shadow: 0 4px 20px -4px rgba(124,58,237,0.25); }
+    [data-theme="light"] .tag-chip { background: rgba(124,58,237,0.08); color: #6d28d9; border-color: rgba(124,58,237,0.12); }
+    [data-theme="light"] .sort-pill.active { color: #6d28d9; }
+
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: #0A0E1A;
-      color: #cbd5e1;
+      background: var(--bg-body);
+      color: var(--text-body);
       margin: 0;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -67,12 +151,8 @@
 
     /* -- Animated dot grid background -- */
     .dot-grid {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgba(124,58,237,0.08) 1px, transparent 1px);
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
       background-size: 32px 32px;
       mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
       -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
@@ -80,101 +160,43 @@
 
     /* -- Floating aurora blobs -- */
     .aurora {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.18;
-      pointer-events: none;
-      z-index: 0;
-      will-change: transform;
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      opacity: var(--aurora-opacity); pointer-events: none; z-index: 0; will-change: transform;
     }
-    .aurora-1 {
-      width: 600px; height: 600px;
-      background: linear-gradient(135deg, #7C3AED, #EC4899);
-      top: -10%; left: -5%;
-      animation: aurora-drift-1 18s ease-in-out infinite;
-    }
-    .aurora-2 {
-      width: 500px; height: 500px;
-      background: linear-gradient(225deg, #EC4899, #7C3AED);
-      bottom: -10%; right: -8%;
-      animation: aurora-drift-2 22s ease-in-out infinite;
-    }
-    .aurora-3 {
-      width: 350px; height: 350px;
-      background: linear-gradient(180deg, #8b5cf6, #f472b6);
-      top: 40%; left: 50%;
-      animation: aurora-drift-3 15s ease-in-out infinite;
-      opacity: 0.10;
-    }
+    .aurora-1 { width: 600px; height: 600px; background: linear-gradient(135deg, #7C3AED, #EC4899); top: -10%; left: -5%; animation: aurora-drift-1 18s ease-in-out infinite; }
+    .aurora-2 { width: 500px; height: 500px; background: linear-gradient(225deg, #EC4899, #7C3AED); bottom: -10%; right: -8%; animation: aurora-drift-2 22s ease-in-out infinite; }
+    .aurora-3 { width: 350px; height: 350px; background: linear-gradient(180deg, #8b5cf6, #f472b6); top: 40%; left: 50%; animation: aurora-drift-3 15s ease-in-out infinite; opacity: 0.10; }
 
-    @keyframes aurora-drift-1 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33%      { transform: translate(60px, 40px) scale(1.08); }
-      66%      { transform: translate(-30px, 70px) scale(0.95); }
-    }
-    @keyframes aurora-drift-2 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33%      { transform: translate(-50px, -30px) scale(1.1); }
-      66%      { transform: translate(40px, -60px) scale(0.92); }
-    }
-    @keyframes aurora-drift-3 {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); }
-      50%      { transform: translate(-45%, -55%) scale(1.15); }
-    }
+    @keyframes aurora-drift-1 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(60px, 40px) scale(1.08); } 66% { transform: translate(-30px, 70px) scale(0.95); } }
+    @keyframes aurora-drift-2 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(-50px, -30px) scale(1.1); } 66% { transform: translate(40px, -60px) scale(0.92); } }
+    @keyframes aurora-drift-3 { 0%, 100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-45%, -55%) scale(1.15); } }
 
     /* -- Gradient text -- */
     .gradient-text {
       background: linear-gradient(135deg, #a78bfa 0%, #c084fc 25%, #EC4899 50%, #f472b6 75%, #a78bfa 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       animation: gradient-shift 4s linear infinite;
     }
-    @keyframes gradient-shift {
-      0%   { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
+    @keyframes gradient-shift { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
 
     /* -- Shimmer line -- */
-    .shimmer-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #7C3AED, #EC4899, transparent);
-      background-size: 200% 100%;
-      animation: shimmer-move 3s linear infinite;
-    }
-    @keyframes shimmer-move {
-      0%   { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
+    .shimmer-line { height: 1px; background: linear-gradient(90deg, transparent, #7C3AED, #EC4899, transparent); background-size: 200% 100%; animation: shimmer-move 3s linear infinite; }
+    @keyframes shimmer-move { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 
-    /* -- Fade-in-up on scroll (IntersectionObserver) -- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s cubic-bezier(0.23, 1, 0.32, 1),
-                  transform 0.65s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* -- Fade-in-up on scroll -- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.23, 1, 0.32, 1), transform 0.65s cubic-bezier(0.23, 1, 0.32, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* -- Glass card -- */
     .glass {
-      background: rgba(14, 18, 36, 0.55);
-      backdrop-filter: blur(20px) saturate(1.3);
-      -webkit-backdrop-filter: blur(20px) saturate(1.3);
-      border: 1px solid rgba(124, 58, 237, 0.12);
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3);
+      border: 1px solid var(--border-base);
       transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
     }
     .glass:hover {
-      border-color: rgba(124, 58, 237, 0.35);
-      box-shadow:
-        0 0 0 1px rgba(124,58,237,0.10),
-        0 8px 40px -12px rgba(124,58,237,0.18),
-        0 2px 12px -4px rgba(236,72,153,0.10);
+      border-color: var(--border-hover);
+      box-shadow: 0 0 0 1px rgba(124,58,237,0.10), 0 8px 40px -12px rgba(124,58,237,0.18), 0 2px 12px -4px rgba(236,72,153,0.10);
       transform: translateY(-4px);
     }
 
@@ -187,223 +209,163 @@
     .badge-refactoring{ background: rgba(251,146,60,0.15); color: #fdba74; border: 1px solid rgba(251,146,60,0.22); }
 
     /* -- Tag chips -- */
-    .tag-chip {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      background: rgba(124,58,237,0.10);
-      color: #a78bfa;
-      border: 1px solid rgba(124,58,237,0.15);
-      transition: background 0.2s;
-    }
-    .tag-chip:hover {
-      background: rgba(124,58,237,0.22);
-    }
+    .tag-chip { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.02em; background: rgba(124,58,237,0.10); color: #a78bfa; border: 1px solid rgba(124,58,237,0.15); transition: background 0.2s; }
+    .tag-chip:hover { background: rgba(124,58,237,0.22); }
 
     /* -- Download button -- */
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 18px;
-      border-radius: 10px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(135deg, #7C3AED, #EC4899);
-      background-size: 200% 200%;
-      text-decoration: none;
-      transition: background-position 0.4s ease, box-shadow 0.3s ease, transform 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-    .download-btn:hover {
-      background-position: 100% 100%;
-      box-shadow: 0 4px 20px -4px rgba(124,58,237,0.45);
-      transform: scale(1.04);
-    }
-    .download-btn svg {
-      width: 14px; height: 14px;
-      flex-shrink: 0;
-    }
+    .download-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 10px; font-size: 0.82rem; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7C3AED, #EC4899); background-size: 200% 200%; text-decoration: none; transition: background-position 0.4s ease, box-shadow 0.3s ease, transform 0.2s; cursor: pointer; border: none; }
+    .download-btn:hover { background-position: 100% 100%; box-shadow: 0 4px 20px -4px rgba(124,58,237,0.45); transform: scale(1.04); }
+    .download-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* -- Filter tabs -- */
-    .filter-tab {
-      padding: 8px 18px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #94a3b8;
-      background: transparent;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-    }
-    .filter-tab:hover {
-      color: #e2e8f0;
-      background: rgba(124,58,237,0.08);
-    }
-    .filter-tab.active {
-      color: #fff;
-      background: linear-gradient(135deg, rgba(124,58,237,0.22), rgba(236,72,153,0.15));
-      border-color: rgba(124,58,237,0.30);
-      box-shadow: 0 0 12px -4px rgba(124,58,237,0.30);
-    }
-    .filter-tab .tab-count {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 20px;
-      height: 20px;
-      padding: 0 5px;
-      margin-left: 6px;
-      border-radius: 6px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      font-family: 'JetBrains Mono', monospace;
-      background: rgba(124,58,237,0.15);
-      color: #a78bfa;
-    }
-    .filter-tab.active .tab-count {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-    }
+    .filter-tab { padding: 8px 18px; border-radius: 10px; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); background: transparent; border: 1px solid transparent; cursor: pointer; transition: all 0.25s ease; white-space: nowrap; }
+    .filter-tab:hover { color: var(--text-primary); background: rgba(124,58,237,0.08); }
+    .filter-tab.active { color: #fff; background: linear-gradient(135deg, rgba(124,58,237,0.22), rgba(236,72,153,0.15)); border-color: rgba(124,58,237,0.30); box-shadow: 0 0 12px -4px rgba(124,58,237,0.30); }
+    .filter-tab .tab-count { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 5px; margin-left: 6px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; background: rgba(124,58,237,0.15); color: #a78bfa; }
+    .filter-tab.active .tab-count { background: rgba(255,255,255,0.12); color: #fff; }
 
     /* -- Search input -- */
-    .search-input {
-      background: rgba(14,18,36,0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(124,58,237,0.15);
-      border-radius: 12px;
-      padding: 12px 16px 12px 44px;
-      font-size: 0.9rem;
-      color: #e2e8f0;
-      width: 100%;
-      outline: none;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .search-input::placeholder { color: #475569; }
-    .search-input:focus {
-      border-color: rgba(124,58,237,0.45);
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.10);
-    }
+    .search-input { background: var(--bg-input); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-input); border-radius: 12px; padding: 12px 16px 12px 44px; font-size: 0.9rem; color: var(--text-primary); width: 100%; outline: none; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    .search-input::placeholder { color: var(--text-faint); }
+    .search-input:focus { border-color: rgba(124,58,237,0.45); box-shadow: 0 0 0 3px rgba(124,58,237,0.10); }
+
+    /* -- Sort pills -- */
+    .sort-bar { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .sort-label { font-size: 0.72rem; font-weight: 600; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; margin-right: 2px; }
+    .sort-pill { padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 500; color: var(--text-muted); background: transparent; border: 1px solid transparent; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; }
+    .sort-pill:hover { color: var(--text-primary); background: rgba(124,58,237,0.06); }
+    .sort-pill.active { color: #c4b5fd; background: var(--sort-active-bg); border-color: rgba(124,58,237,0.22); }
 
     /* -- Stats number counter feel -- */
-    .stat-value {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      font-size: 2rem;
-      line-height: 1;
-    }
+    .stat-value { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 2rem; line-height: 1; }
+
+    /* -- Theme toggle -- */
+    .theme-toggle { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: transparent; border: 1px solid rgba(124,58,237,0.12); color: var(--text-muted); cursor: pointer; transition: all 0.25s ease; }
+    .theme-toggle:hover { color: var(--text-primary); background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.25); }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
     /* -- Scroll-to-top -- */
-    .scroll-top {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 100;
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #7C3AED, #EC4899);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.3s, transform 0.3s;
-      pointer-events: none;
-      box-shadow: 0 4px 20px -4px rgba(124,58,237,0.40);
-    }
-    .scroll-top.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+    .scroll-top { position: fixed; bottom: 28px; right: 28px; z-index: 100; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #7C3AED, #EC4899); color: #fff; border: none; cursor: pointer; opacity: 0; transform: translateY(16px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; box-shadow: 0 4px 20px -4px rgba(124,58,237,0.40); }
+    .scroll-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
     .scroll-top:hover { transform: translateY(-2px) scale(1.06); }
 
     /* -- No-results state -- */
-    .no-results {
-      display: none;
-      text-align: center;
-      padding: 60px 20px;
-      color: #475569;
-    }
+    .no-results { display: none; text-align: center; padding: 60px 20px; color: var(--text-faint); }
     .no-results.active { display: block; }
     .no-results svg { opacity: 0.3; margin-bottom: 16px; }
 
     /* -- Stagger children animation -- */
-    .stagger-children > * {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: stagger-in 0.5s ease forwards;
-    }
-    @keyframes stagger-in {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .stagger-children > * { opacity: 0; transform: translateY(20px); animation: stagger-in 0.5s ease forwards; }
+    @keyframes stagger-in { to { opacity: 1; transform: translateY(0); } }
 
     /* -- Navbar blur -- */
-    .navbar-glass {
-      background: rgba(10, 14, 26, 0.72);
-      backdrop-filter: blur(16px) saturate(1.4);
-      -webkit-backdrop-filter: blur(16px) saturate(1.4);
-      border-bottom: 1px solid rgba(124,58,237,0.08);
-    }
+    .navbar-glass { background: var(--bg-navbar); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid rgba(124,58,237,0.08); }
 
     /* -- Glow ring for hero badge -- */
-    .glow-ring {
-      box-shadow:
-        0 0 0 1px rgba(124,58,237,0.20),
-        0 0 20px -4px rgba(124,58,237,0.30),
-        0 0 40px -8px rgba(236,72,153,0.15);
-    }
+    .glow-ring { box-shadow: 0 0 0 1px rgba(124,58,237,0.20), 0 0 20px -4px rgba(124,58,237,0.30), 0 0 40px -8px rgba(236,72,153,0.15); }
 
     /* -- Template card internal glow line at top -- */
-    .card-glow-top {
-      position: absolute;
-      top: 0; left: 10%; right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(236,72,153,0.3), transparent);
-      border-radius: 1px;
-      opacity: 0;
-      transition: opacity 0.35s;
-    }
+    .card-glow-top { position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(236,72,153,0.3), transparent); border-radius: 1px; opacity: 0; transition: opacity 0.35s; }
     .glass:hover .card-glow-top { opacity: 1; }
 
+    /* -- Clickable card cursor -- */
+    .template-card { cursor: pointer; }
+
     /* -- Responsive grid -- */
-    .template-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 1024px) {
-      .template-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .template-grid { grid-template-columns: 1fr; }
-    }
+    .template-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 1024px) { .template-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .template-grid { grid-template-columns: 1fr; } }
 
     /* -- Hide template cards when filtered out -- */
     .template-card.hidden { display: none; }
 
     /* -- Pulse dot (live indicator) -- */
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: 0.5; transform: scale(1.6); }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.6); } }
+    .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; display: inline-block; animation: pulse-dot 2s ease-in-out infinite; }
+
+    /* ========================================================
+       PREVIEW MODAL
+       ======================================================== */
+    .preview-overlay {
+      position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; padding: 24px;
+      background: rgba(0, 0, 0, 0.70); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      opacity: 0; transition: opacity 0.3s ease;
     }
-    .pulse-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #34d399;
-      display: inline-block;
-      animation: pulse-dot 2s ease-in-out infinite;
+    .preview-overlay.open { display: flex; opacity: 1; }
+    .preview-overlay.fade-out { opacity: 0; }
+
+    .preview-modal {
+      position: relative; width: 100%; max-width: 900px; max-height: 88vh;
+      display: flex; flex-direction: column;
+      background: var(--modal-surface); border: 1px solid var(--modal-border); border-radius: 20px;
+      box-shadow: 0 0 0 1px rgba(124,58,237,0.08), 0 24px 80px -12px rgba(0,0,0,0.50), 0 0 60px -20px rgba(124,58,237,0.20);
+      overflow: hidden; transform: translateY(20px) scale(0.97); transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .preview-overlay.open .preview-modal { transform: translateY(0) scale(1); }
+
+    .preview-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px 16px; border-bottom: 1px solid var(--modal-border); flex-shrink: 0; }
+    .preview-header h2 { font-size: 1.15rem; font-weight: 700; color: var(--text-heading); margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 60%; }
+    .preview-header-actions { display: flex; align-items: center; gap: 8px; }
+    .preview-close { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--border-base); color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+    .preview-close:hover { color: var(--text-primary); background: rgba(239,68,68,0.10); border-color: rgba(239,68,68,0.25); }
+    .preview-close svg { width: 16px; height: 16px; }
+
+    .preview-tabs { display: flex; gap: 0; padding: 0 24px; border-bottom: 1px solid var(--modal-border); flex-shrink: 0; }
+    .preview-tab { padding: 10px 20px; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); background: transparent; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; }
+    .preview-tab:hover { color: var(--text-primary); }
+    .preview-tab.active { color: #a78bfa; border-bottom-color: #7C3AED; }
+    [data-theme="light"] .preview-tab.active { color: #6d28d9; border-bottom-color: #7C3AED; }
+
+    .preview-body { flex: 1; overflow-y: auto; padding: 24px; min-height: 200px; }
+    .preview-body::-webkit-scrollbar { width: 6px; }
+    .preview-body::-webkit-scrollbar-track { background: transparent; }
+    .preview-body::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.20); border-radius: 3px; }
+
+    /* Rendered markdown */
+    .md-rendered h1, .md-rendered h2, .md-rendered h3, .md-rendered h4 { color: var(--text-heading); font-weight: 700; margin: 1.2em 0 0.5em; line-height: 1.3; }
+    .md-rendered h1 { font-size: 1.6rem; }
+    .md-rendered h2 { font-size: 1.3rem; border-bottom: 1px solid var(--border-base); padding-bottom: 6px; }
+    .md-rendered h3 { font-size: 1.1rem; }
+    .md-rendered h4 { font-size: 0.95rem; }
+    .md-rendered p { margin: 0.6em 0; line-height: 1.65; color: var(--text-body); }
+    .md-rendered ul, .md-rendered ol { margin: 0.5em 0; padding-left: 1.5em; color: var(--text-body); }
+    .md-rendered li { margin: 0.25em 0; line-height: 1.55; }
+    .md-rendered blockquote { margin: 0.8em 0; padding: 8px 16px; border-left: 3px solid #7C3AED; background: rgba(124,58,237,0.06); border-radius: 0 8px 8px 0; color: var(--text-muted); font-style: italic; }
+    .md-rendered code { font-family: 'JetBrains Mono', monospace; font-size: 0.82em; background: rgba(124,58,237,0.08); color: #c4b5fd; padding: 2px 6px; border-radius: 4px; }
+    [data-theme="light"] .md-rendered code { color: #6d28d9; background: rgba(124,58,237,0.08); }
+    .md-rendered pre { position: relative; margin: 1em 0; padding: 16px 20px; background: var(--bg-code); border: 1px solid var(--border-base); border-radius: 12px; overflow-x: auto; font-size: 0.82rem; line-height: 1.6; }
+    .md-rendered pre code { background: transparent; padding: 0; color: #e2e8f0; font-size: inherit; }
+    .md-rendered strong { color: var(--text-heading); font-weight: 600; }
+    .md-rendered hr { border: none; border-top: 1px solid var(--border-base); margin: 1.5em 0; }
+    .md-rendered table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.85rem; }
+    .md-rendered th, .md-rendered td { padding: 8px 12px; border: 1px solid var(--border-base); text-align: left; }
+    .md-rendered th { background: rgba(124,58,237,0.06); color: var(--text-heading); font-weight: 600; }
+
+    /* Code-only view */
+    .code-view { position: relative; background: var(--bg-code); border-radius: 12px; padding: 20px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.65; color: #e2e8f0; white-space: pre-wrap; word-break: break-word; }
+
+    /* Copy button */
+    .copy-btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); background: transparent; border: 1px solid var(--border-base); cursor: pointer; transition: all 0.2s; }
+    .copy-btn:hover { color: var(--text-primary); background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.25); }
+    .copy-btn.copied { color: #34d399; border-color: rgba(52,211,153,0.30); }
+    .copy-btn svg { width: 14px; height: 14px; }
+
+    .preview-footer { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 14px 24px; border-top: 1px solid var(--modal-border); flex-shrink: 0; }
+
+    .preview-loading { display: flex; align-items: center; justify-content: center; min-height: 200px; color: var(--text-faint); font-size: 0.9rem; }
+    .preview-loading .spinner { width: 24px; height: 24px; border: 2px solid rgba(124,58,237,0.15); border-top-color: #7C3AED; border-radius: 50%; animation: spin 0.7s linear infinite; margin-right: 10px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 640px) {
+      .preview-modal { max-height: 95vh; border-radius: 14px; }
+      .preview-header { padding: 16px 16px 12px; }
+      .preview-body { padding: 16px; }
+      .preview-footer { padding: 12px 16px; }
+      .preview-tabs { padding: 0 16px; }
     }
   
     /* -- Card SVG wireframe preview -- */
@@ -450,22 +412,33 @@
         <span class="text-white font-bold text-lg tracking-tight">Template<span class="text-brand-400">Claw</span></span>
       </a>
 
-      <!-- Nav links -->
-      <div class="hidden md:flex items-center gap-6 text-sm">
+      <!-- Nav links + theme toggle -->
+      <div class="hidden md:flex items-center gap-5 text-sm">
         <a href="#templates" class="text-slate-400 hover:text-white transition-colors">Templates</a>
         <a href="#stats" class="text-slate-400 hover:text-white transition-colors">Stats</a>
         <a href="https://github.com/jeromwolf" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           GitHub
         </a>
+        <!-- Dark/Light toggle -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+          <svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        </button>
       </div>
 
       <!-- Mobile menu button -->
-      <button id="mobile-menu-btn" class="md:hidden text-slate-400 hover:text-white p-2" aria-label="Menu">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
+      <div class="flex md:hidden items-center gap-3">
+        <button class="theme-toggle" id="theme-toggle-btn-mobile" aria-label="Toggle dark/light mode">
+          <svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+          <svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        </button>
+        <button id="mobile-menu-btn" class="text-slate-400 hover:text-white p-2" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile nav -->
@@ -483,7 +456,7 @@
       <!-- Live badge -->
       <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full glass glow-ring mb-8 text-sm font-medium text-brand-300">
         <span class="pulse-dot"></span>
-        <span class="font-mono font-semibold">30</span> templates available
+        <span class="font-mono font-semibold">32</span> templates available
       </div>
 
       <!-- Title -->
@@ -503,19 +476,29 @@
       <!-- Shimmer divider -->
       <div class="shimmer-line max-w-md mx-auto mb-10"></div>
 
-      <!-- Search bar -->
-      <div class="reveal max-w-xl mx-auto relative">
-        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-        </svg>
-        <input
-          id="search-input"
-          type="text"
-          class="search-input"
-          placeholder="Search templates... (e.g. 'saas', 'dashboard', 'tailwind')"
-          autocomplete="off"
-          spellcheck="false"
-        >
+      <!-- Search bar + Sort controls -->
+      <div class="reveal max-w-xl mx-auto">
+        <div class="relative mb-4">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input
+            id="search-input"
+            type="text"
+            class="search-input"
+            placeholder="Search templates... (e.g. 'saas', 'dashboard', 'tailwind')"
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </div>
+        <!-- Sort pills -->
+        <div class="sort-bar justify-center" id="sort-bar">
+          <span class="sort-label">Sort</span>
+          <button class="sort-pill active" data-sort="category">Category</button>
+          <button class="sort-pill" data-sort="name">Name A-Z</button>
+          <button class="sort-pill" data-sort="difficulty">Difficulty</button>
+          <button class="sort-pill" data-sort="newest">Newest</button>
+        </div>
       </div>
     </div>
   </section>
@@ -527,7 +510,7 @@
     <div class="max-w-5xl mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="reveal glass rounded-2xl p-6 text-center">
-          <div class="stat-value gradient-text">30<span class="text-lg">+</span></div>
+          <div class="stat-value gradient-text">32<span class="text-lg">+</span></div>
           <div class="text-slate-500 text-sm mt-2 font-medium">Templates</div>
         </div>
         <div class="reveal glass rounded-2xl p-6 text-center">
@@ -547,6 +530,63 @@
   </section>
 
   <!-- ============================================================
+       AGENT INTEGRATION BANNER
+       ============================================================ -->
+  <section class="relative z-10 py-8 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal glass rounded-2xl overflow-hidden" style="border-color: rgba(124,58,237,0.25);">
+        <div style="height:2px; background: linear-gradient(90deg, #7C3AED, #EC4899, #7C3AED); opacity: 0.7;"></div>
+        <div class="p-6 sm:p-8" style="background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(236,72,153,0.04) 100%);">
+          <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(236,72,153,0.2)); border: 1px solid rgba(124,58,237,0.3);">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="url(#agent-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <defs><linearGradient id="agent-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                    <rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="9" cy="16" r="1" fill="#a78bfa" stroke="none"/><circle cx="15" cy="16" r="1" fill="#EC4899" stroke="none"/><path d="M10 19h4"/><path d="M12 2v2"/><path d="M17 4l-1.5 1.5"/><path d="M7 4l1.5 1.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-white font-bold text-lg tracking-tight">AI Agent Ready</h3>
+                  <p class="text-slate-400 text-sm mt-0.5">CLAUDE.md / .cursorrules / .windsurfrules</p>
+                </div>
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                에이전트가 바로 사용할 수 있습니다. <span class="text-brand-300 font-medium">CLAUDE.md에 한 줄만 추가</span>하면 AI가 새 페이지를 만들 때 자동으로 템플릿을 찾아 적용합니다.
+              </p>
+              <div class="relative group">
+                <div id="agent-snippet-block" class="font-mono text-xs leading-relaxed rounded-xl p-4 overflow-hidden transition-all duration-300" style="background: rgba(10,14,26,0.7); border: 1px solid rgba(124,58,237,0.12); max-height: 96px;">
+                  <pre id="agent-snippet-text" class="text-slate-400 whitespace-pre-wrap"><span class="text-brand-400">## Template Resources (TemplateClaw)</span>
+
+<span class="text-slate-500">When creating new components, pages, or project files, check TemplateClaw first:</span>
+<span class="text-slate-300">- <span class="text-accent">Catalog</span>: https://jeromwolf.github.io/templateclaw/api.json</span>
+<span class="text-slate-300">- <span class="text-accent">Usage</span>: Fetch the catalog, find relevant template by category/tags,</span>
+<span class="text-slate-300">  download the .md file, extract the code section, and adapt it.</span>
+<span class="text-slate-300">- <span class="text-accent">Categories</span>: Landing Pages, Dashboard, Components, Dev Methodology,</span>
+<span class="text-slate-300">  Project Setup, Refactoring</span></pre>
+                </div>
+                <button id="agent-snippet-toggle" onclick="toggleSnippet()" class="w-full text-center py-2 text-xs font-medium text-brand-400 hover:text-brand-300 transition-colors cursor-pointer" style="background: linear-gradient(to top, rgba(10,14,26,0.95) 0%, transparent 100%); margin-top: -32px; position: relative; z-index: 2;">
+                  Show more
+                </button>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 lg:flex-shrink-0 lg:w-48">
+              <button onclick="copyAgentSnippet()" id="agent-copy-btn" class="download-btn justify-center text-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                <span id="agent-copy-label">Copy Snippet</span>
+              </button>
+              <a href="https://jeromwolf.github.io/templateclaw/content/agent-integration-guide.md" class="download-btn justify-center text-sm" style="background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);" download>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Full Guide
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        TEMPLATES
        ============================================================ -->
   <section id="templates" class="relative z-10 py-12 px-6">
@@ -555,7 +595,7 @@
       <!-- Section header -->
       <div class="reveal text-center mb-10">
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">Browse Templates</h2>
-        <p class="text-slate-500 text-sm">Click a category to filter, or search above</p>
+        <p class="text-slate-500 text-sm">Click a card to preview, or use filters and search above</p>
       </div>
 
       <!-- Filter tabs -->
@@ -595,7 +635,9 @@
         
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="dashboard"
-         data-tags="admin,dashboard,sidebar,table,tailwind">
+         data-tags="admin,dashboard,sidebar,table,tailwind"
+         data-filename="admin-dashboard.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -629,11 +671,66 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Admin Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Admin panel with sidebar navigation, stats cards, data table, and chart placeholders</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">admin</span><span class="tag-chip">dashboard</span><span class="tag-chip">sidebar</span><span class="tag-chip">table</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/admin-dashboard.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/admin-dashboard.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="setup"
-         data-tags="agents,ai,documentation,codebase,architecture">
+         data-tags="agent,claude,cursor,windsurf,ai,integration"
+         data-filename="agent-integration-guide.md"
+         data-difficulty="beginner">
+      <div class="card-glow-top"></div>
+      <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
+      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- folder icon at top -->
+      <rect x="24" y="8" width="14" height="4" rx="1.5" fill="rgba(52,211,153,0.40)"/>
+      <rect x="20" y="11" width="22" height="12" rx="2" fill="rgba(52,211,153,0.25)"/>
+      <rect x="48" y="14" width="60" height="4" rx="1" fill="rgba(52,211,153,0.30)"/>
+      <!-- tree lines -->
+      <line x1="30" y1="30" x2="30" y2="88" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <!-- level 1 items -->
+      <line x1="30" y1="34" x2="44" y2="34" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="46" y="31" width="10" height="6" rx="1" fill="rgba(52,211,153,0.20)"/>
+      <rect x="60" y="32" width="44" height="4" rx="1" fill="rgba(52,211,153,0.18)"/>
+      <!-- subfolder -->
+      <line x1="30" y1="46" x2="44" y2="46" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="44" y="42" width="14" height="4" rx="1.5" fill="rgba(52,211,153,0.30)"/>
+      <rect x="44" y="45" width="18" height="8" rx="1.5" fill="rgba(52,211,153,0.18)"/>
+      <rect x="66" y="46" width="36" height="4" rx="1" fill="rgba(52,211,153,0.22)"/>
+      <!-- sub-items -->
+      <line x1="52" y1="54" x2="52" y2="72" stroke="rgba(52,211,153,0.10)" stroke-width="0.8"/>
+      <line x1="52" y1="58" x2="64" y2="58" stroke="rgba(52,211,153,0.10)" stroke-width="0.8"/>
+      <rect x="66" y="56" width="8" height="5" rx="1" fill="rgba(34,211,238,0.20)"/>
+      <rect x="78" y="57" width="50" height="3" rx="1" fill="rgba(52,211,153,0.12)"/>
+      <line x1="52" y1="66" x2="64" y2="66" stroke="rgba(52,211,153,0.10)" stroke-width="0.8"/>
+      <rect x="66" y="64" width="8" height="5" rx="1" fill="rgba(34,211,238,0.20)"/>
+      <rect x="78" y="65" width="42" height="3" rx="1" fill="rgba(52,211,153,0.12)"/>
+      <!-- more root items -->
+      <line x1="30" y1="78" x2="44" y2="78" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="46" y="76" width="8" height="5" rx="1" fill="rgba(250,204,21,0.20)"/>
+      <rect x="58" y="77" width="56" height="3" rx="1" fill="rgba(52,211,153,0.15)"/>
+      <line x1="30" y1="88" x2="44" y2="88" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="46" y="86" width="8" height="5" rx="1" fill="rgba(236,72,153,0.20)"/>
+      <rect x="58" y="87" width="48" height="3" rx="1" fill="rgba(52,211,153,0.12)"/>
+      <!-- right side: config preview -->
+      <rect x="150" y="8" width="118" height="84" rx="4" fill="rgba(52,211,153,0.05)" stroke="rgba(52,211,153,0.12)" stroke-width="0.5"/>
+      <rect x="158" y="16" width="48" height="3" rx="1" fill="rgba(52,211,153,0.25)"/>
+      <rect x="158" y="24" width="80" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+      <rect x="158" y="30" width="72" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+      <rect x="158" y="36" width="88" height="2" rx="0.5" fill="rgba(52,211,153,0.08)"/>
+      <rect x="158" y="44" width="48" height="3" rx="1" fill="rgba(52,211,153,0.25)"/>
+      <rect x="158" y="52" width="64" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+      <rect x="158" y="58" width="56" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+    </svg></div>
+      <h3 class="card-title text-white font-bold text-lg mb-2">Agent Integration Guide</h3>
+      <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">How to make AI agents automatically use TemplateClaw templates in your projects</p>
+      <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">agent</span><span class="tag-chip">claude</span><span class="tag-chip">cursor</span><span class="tag-chip">windsurf</span><span class="tag-chip">ai</span></div>
+      <a href="templates/agent-integration-guide.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+    </div>
+    <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
+         data-category="setup"
+         data-tags="agents,ai,documentation,codebase,architecture"
+         data-filename="agents-md-template.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -680,11 +777,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">AGENTS.md Template</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">AGENTS.md template for documenting codebase for AI agents (architecture, modules, dependencies)</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">agents</span><span class="tag-chip">ai</span><span class="tag-chip">documentation</span><span class="tag-chip">codebase</span><span class="tag-chip">architecture</span></div>
-      <a href="templates/agents-md-template.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/agents-md-template.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="dashboard"
-         data-tags="analytics,kpi,charts,metrics,tailwind">
+         data-tags="analytics,kpi,charts,metrics,tailwind"
+         data-filename="analytics-dashboard.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -718,11 +817,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Analytics Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Analytics dashboard with KPI cards, chart areas, date filters, and metric breakdowns</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">analytics</span><span class="tag-chip">kpi</span><span class="tag-chip">charts</span><span class="tag-chip">metrics</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/analytics-dashboard.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/analytics-dashboard.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="methodology"
-         data-tags="api,rest,openapi,pagination,error-handling">
+         data-tags="api,rest,openapi,pagination,error-handling"
+         data-filename="api-design.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -753,11 +854,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">REST API Design Guide</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">REST API design guide: naming conventions, versioning, pagination, error handling, and OpenAPI spec</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">api</span><span class="tag-chip">rest</span><span class="tag-chip">openapi</span><span class="tag-chip">pagination</span><span class="tag-chip">error-handling</span></div>
-      <a href="templates/api-design.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/api-design.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="landing-pages"
-         data-tags="mobile,app,ios,android,tailwind">
+         data-tags="mobile,app,ios,android,tailwind"
+         data-filename="app-landing.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -789,11 +892,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Mobile App Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Mobile app landing page with app store badges, screenshot mockups, and feature highlights</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">mobile</span><span class="tag-chip">app</span><span class="tag-chip">ios</span><span class="tag-chip">android</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/app-landing.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/app-landing.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="cards,ui,tailwind,responsive,glassmorphism">
+         data-tags="cards,ui,tailwind,responsive,glassmorphism"
+         data-filename="card-components.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -826,11 +931,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Card Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">8 card variants: product, profile, pricing, stat, testimonial, blog, feature, and glass morphism</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">cards</span><span class="tag-chip">ui</span><span class="tag-chip">tailwind</span><span class="tag-chip">responsive</span><span class="tag-chip">glassmorphism</span></div>
-      <a href="templates/card-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/card-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="methodology"
-         data-tags="cicd,github-actions,deployment,automation,devops">
+         data-tags="cicd,github-actions,deployment,automation,devops"
+         data-filename="cicd-setup.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -861,11 +968,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">CI/CD Pipeline Setup</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">CI/CD pipeline with GitHub Actions: lint, test, build, deploy stages with secrets management</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">cicd</span><span class="tag-chip">github-actions</span><span class="tag-chip">deployment</span><span class="tag-chip">automation</span><span class="tag-chip">devops</span></div>
-      <a href="templates/cicd-setup.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/cicd-setup.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="setup"
-         data-tags="claude,ai,llm,cursor,windsurf,development">
+         data-tags="claude,ai,llm,cursor,windsurf,development"
+         data-filename="claude-md-template.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -912,11 +1021,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">CLAUDE.md Template</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">CLAUDE.md template for AI-assisted development with project structure, rules, and patterns</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">claude</span><span class="tag-chip">ai</span><span class="tag-chip">llm</span><span class="tag-chip">cursor</span><span class="tag-chip">windsurf</span></div>
-      <a href="templates/claude-md-template.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/claude-md-template.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="methodology"
-         data-tags="code-review,security,performance,quality,checklist">
+         data-tags="code-review,security,performance,quality,checklist"
+         data-filename="code-review-checklist.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -947,11 +1058,66 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Code Review Checklist</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Comprehensive code review checklist covering security, performance, readability, and testing</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">code-review</span><span class="tag-chip">security</span><span class="tag-chip">performance</span><span class="tag-chip">quality</span><span class="tag-chip">checklist</span></div>
-      <a href="templates/code-review-checklist.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/code-review-checklist.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+    </div>
+    <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
+         data-category="setup"
+         data-tags="contributing,templates,open-source,documentation,guide"
+         data-filename="community-templates-guide.md"
+         data-difficulty="beginner">
+      <div class="card-glow-top"></div>
+      <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
+      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- folder icon at top -->
+      <rect x="24" y="8" width="14" height="4" rx="1.5" fill="rgba(52,211,153,0.40)"/>
+      <rect x="20" y="11" width="22" height="12" rx="2" fill="rgba(52,211,153,0.25)"/>
+      <rect x="48" y="14" width="60" height="4" rx="1" fill="rgba(52,211,153,0.30)"/>
+      <!-- tree lines -->
+      <line x1="30" y1="30" x2="30" y2="88" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <!-- level 1 items -->
+      <line x1="30" y1="34" x2="44" y2="34" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="46" y="31" width="10" height="6" rx="1" fill="rgba(52,211,153,0.20)"/>
+      <rect x="60" y="32" width="44" height="4" rx="1" fill="rgba(52,211,153,0.18)"/>
+      <!-- subfolder -->
+      <line x1="30" y1="46" x2="44" y2="46" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="44" y="42" width="14" height="4" rx="1.5" fill="rgba(52,211,153,0.30)"/>
+      <rect x="44" y="45" width="18" height="8" rx="1.5" fill="rgba(52,211,153,0.18)"/>
+      <rect x="66" y="46" width="36" height="4" rx="1" fill="rgba(52,211,153,0.22)"/>
+      <!-- sub-items -->
+      <line x1="52" y1="54" x2="52" y2="72" stroke="rgba(52,211,153,0.10)" stroke-width="0.8"/>
+      <line x1="52" y1="58" x2="64" y2="58" stroke="rgba(52,211,153,0.10)" stroke-width="0.8"/>
+      <rect x="66" y="56" width="8" height="5" rx="1" fill="rgba(34,211,238,0.20)"/>
+      <rect x="78" y="57" width="50" height="3" rx="1" fill="rgba(52,211,153,0.12)"/>
+      <line x1="52" y1="66" x2="64" y2="66" stroke="rgba(52,211,153,0.10)" stroke-width="0.8"/>
+      <rect x="66" y="64" width="8" height="5" rx="1" fill="rgba(34,211,238,0.20)"/>
+      <rect x="78" y="65" width="42" height="3" rx="1" fill="rgba(52,211,153,0.12)"/>
+      <!-- more root items -->
+      <line x1="30" y1="78" x2="44" y2="78" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="46" y="76" width="8" height="5" rx="1" fill="rgba(250,204,21,0.20)"/>
+      <rect x="58" y="77" width="56" height="3" rx="1" fill="rgba(52,211,153,0.15)"/>
+      <line x1="30" y1="88" x2="44" y2="88" stroke="rgba(52,211,153,0.15)" stroke-width="0.8"/>
+      <rect x="46" y="86" width="8" height="5" rx="1" fill="rgba(236,72,153,0.20)"/>
+      <rect x="58" y="87" width="48" height="3" rx="1" fill="rgba(52,211,153,0.12)"/>
+      <!-- right side: config preview -->
+      <rect x="150" y="8" width="118" height="84" rx="4" fill="rgba(52,211,153,0.05)" stroke="rgba(52,211,153,0.12)" stroke-width="0.5"/>
+      <rect x="158" y="16" width="48" height="3" rx="1" fill="rgba(52,211,153,0.25)"/>
+      <rect x="158" y="24" width="80" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+      <rect x="158" y="30" width="72" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+      <rect x="158" y="36" width="88" height="2" rx="0.5" fill="rgba(52,211,153,0.08)"/>
+      <rect x="158" y="44" width="48" height="3" rx="1" fill="rgba(52,211,153,0.25)"/>
+      <rect x="158" y="52" width="64" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+      <rect x="158" y="58" width="56" height="2" rx="0.5" fill="rgba(52,211,153,0.10)"/>
+    </svg></div>
+      <h3 class="card-title text-white font-bold text-lg mb-2">Community Templates Guide</h3>
+      <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Complete guide for contributing templates to TemplateClaw, including format specification and best practices.</p>
+      <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">contributing</span><span class="tag-chip">templates</span><span class="tag-chip">open-source</span><span class="tag-chip">documentation</span><span class="tag-chip">guide</span></div>
+      <a href="templates/community-templates-guide.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="dashboard"
-         data-tags="crm,sales,pipeline,contacts,deals">
+         data-tags="crm,sales,pipeline,contacts,deals"
+         data-filename="crm-dashboard.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -985,11 +1151,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">CRM Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">CRM dashboard with sales pipeline, contacts list, activities feed, and deal tracking</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">crm</span><span class="tag-chip">sales</span><span class="tag-chip">pipeline</span><span class="tag-chip">contacts</span><span class="tag-chip">deals</span></div>
-      <a href="templates/crm-dashboard.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/crm-dashboard.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="refactoring"
-         data-tags="database,migration,schema,rollback,zero-downtime">
+         data-tags="database,migration,schema,rollback,zero-downtime"
+         data-filename="db-migration.md"
+         data-difficulty="advanced">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-refactoring rounded-lg px-3 py-1 text-xs font-semibold mb-4">Refactoring</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1024,11 +1192,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Database Migration Guide</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Database migration guide: schema versioning, rollback strategies, and zero-downtime migrations</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">database</span><span class="tag-chip">migration</span><span class="tag-chip">schema</span><span class="tag-chip">rollback</span><span class="tag-chip">zero-downtime</span></div>
-      <a href="templates/db-migration.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/db-migration.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="setup"
-         data-tags="docker,compose,postgresql,redis,nginx,devops">
+         data-tags="docker,compose,postgresql,redis,nginx,devops"
+         data-filename="docker-compose-template.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1075,11 +1245,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Docker Compose Template</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Docker Compose setup with web app, PostgreSQL, Redis, and Nginx reverse proxy with health checks</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">docker</span><span class="tag-chip">compose</span><span class="tag-chip">postgresql</span><span class="tag-chip">redis</span><span class="tag-chip">nginx</span></div>
-      <a href="templates/docker-compose-template.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/docker-compose-template.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="setup"
-         data-tags="env,configuration,secrets,environment,dotenv">
+         data-tags="env,configuration,secrets,environment,dotenv"
+         data-filename="env-template.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1126,11 +1298,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Environment Variables Template</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Comprehensive .env template organized by category: database, auth, APIs, feature flags</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">env</span><span class="tag-chip">configuration</span><span class="tag-chip">secrets</span><span class="tag-chip">environment</span><span class="tag-chip">dotenv</span></div>
-      <a href="templates/env-template.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/env-template.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="footer,navigation,newsletter,social,tailwind">
+         data-tags="footer,navigation,newsletter,social,tailwind"
+         data-filename="footer-components.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1163,11 +1337,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Footer Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Footer patterns: simple, mega footer, newsletter signup, social links, and sitemap footer</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">footer</span><span class="tag-chip">navigation</span><span class="tag-chip">newsletter</span><span class="tag-chip">social</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/footer-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/footer-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="forms,login,signup,wizard,validation,tailwind">
+         data-tags="forms,login,signup,wizard,validation,tailwind"
+         data-filename="form-components.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1200,11 +1376,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Form Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Form patterns: login, signup, contact, search bar, multi-step wizard, and settings panel</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">forms</span><span class="tag-chip">login</span><span class="tag-chip">signup</span><span class="tag-chip">wizard</span><span class="tag-chip">validation</span></div>
-      <a href="templates/form-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/form-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="methodology"
-         data-tags="git,branching,commits,pull-request,workflow">
+         data-tags="git,branching,commits,pull-request,workflow"
+         data-filename="git-workflow.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1235,11 +1413,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Git Workflow Guide</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Git workflow with branching strategy, commit conventions, PR template, and common operations</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">git</span><span class="tag-chip">branching</span><span class="tag-chip">commits</span><span class="tag-chip">pull-request</span><span class="tag-chip">workflow</span></div>
-      <a href="templates/git-workflow.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/git-workflow.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="hero,header,above-fold,animation,tailwind">
+         data-tags="hero,header,above-fold,animation,tailwind"
+         data-filename="hero-components.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1272,11 +1452,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Hero Section Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Hero section variants: centered text, split layout, video background, animated gradient, and minimal</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">hero</span><span class="tag-chip">header</span><span class="tag-chip">above-fold</span><span class="tag-chip">animation</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/hero-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/hero-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="modal,dialog,toast,popup,tailwind">
+         data-tags="modal,dialog,toast,popup,tailwind"
+         data-filename="modal-components.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1309,11 +1491,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Modal Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Modal patterns: confirm dialog, form modal, image gallery, notification toast, and bottom sheet</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">modal</span><span class="tag-chip">dialog</span><span class="tag-chip">toast</span><span class="tag-chip">popup</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/modal-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/modal-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="dashboard"
-         data-tags="monitoring,devops,status,uptime,alerts">
+         data-tags="monitoring,devops,status,uptime,alerts"
+         data-filename="monitoring-dashboard.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1347,11 +1531,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">System Monitoring Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">System monitoring dashboard with status indicators, uptime metrics, alerts log, and service health</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">monitoring</span><span class="tag-chip">devops</span><span class="tag-chip">status</span><span class="tag-chip">uptime</span><span class="tag-chip">alerts</span></div>
-      <a href="templates/monitoring-dashboard.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/monitoring-dashboard.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="navigation,navbar,sidebar,tabs,breadcrumb,tailwind">
+         data-tags="navigation,navbar,sidebar,tabs,breadcrumb,tailwind"
+         data-filename="navigation-components.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1384,11 +1570,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Navigation Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Nav patterns: top bar, sidebar, mobile hamburger, breadcrumb, and tabbed navigation</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">navigation</span><span class="tag-chip">navbar</span><span class="tag-chip">sidebar</span><span class="tag-chip">tabs</span><span class="tag-chip">breadcrumb</span></div>
-      <a href="templates/navigation-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/navigation-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="refactoring"
-         data-tags="performance,optimization,caching,database,frontend">
+         data-tags="performance,optimization,caching,database,frontend"
+         data-filename="performance-checklist.md"
+         data-difficulty="advanced">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-refactoring rounded-lg px-3 py-1 text-xs font-semibold mb-4">Refactoring</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1423,11 +1611,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Performance Optimization Checklist</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Performance checklist covering frontend, backend, database, caching, and infrastructure</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">performance</span><span class="tag-chip">optimization</span><span class="tag-chip">caching</span><span class="tag-chip">database</span><span class="tag-chip">frontend</span></div>
-      <a href="templates/performance-checklist.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/performance-checklist.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="landing-pages"
-         data-tags="portfolio,developer,tailwind,responsive,minimal">
+         data-tags="portfolio,developer,tailwind,responsive,minimal"
+         data-filename="portfolio-landing.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1459,11 +1649,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Developer Portfolio Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Clean developer portfolio with project grid, skills visualization, and contact form</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">portfolio</span><span class="tag-chip">developer</span><span class="tag-chip">tailwind</span><span class="tag-chip">responsive</span><span class="tag-chip">minimal</span></div>
-      <a href="templates/portfolio-landing.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/portfolio-landing.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="pricing,plans,toggle,comparison,tailwind">
+         data-tags="pricing,plans,toggle,comparison,tailwind"
+         data-filename="pricing-components.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1496,11 +1688,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Pricing Table Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Pricing patterns: 3-tier cards, monthly/yearly toggle, feature comparison, and enterprise CTA</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">pricing</span><span class="tag-chip">plans</span><span class="tag-chip">toggle</span><span class="tag-chip">comparison</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/pricing-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/pricing-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="landing-pages"
-         data-tags="product,launch,video,testimonials,tailwind">
+         data-tags="product,launch,video,testimonials,tailwind"
+         data-filename="product-landing.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1532,11 +1726,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Product Launch Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Product launch page with hero video area, feature carousel, and testimonials</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">product</span><span class="tag-chip">launch</span><span class="tag-chip">video</span><span class="tag-chip">testimonials</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/product-landing.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/product-landing.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="setup"
-         data-tags="readme,documentation,open-source,markdown,badges">
+         data-tags="readme,documentation,open-source,markdown,badges"
+         data-filename="readme-template.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1583,11 +1779,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">README Template</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Comprehensive README.md template with badges, install instructions, usage, API docs, and contributing guide</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">readme</span><span class="tag-chip">documentation</span><span class="tag-chip">open-source</span><span class="tag-chip">markdown</span><span class="tag-chip">badges</span></div>
-      <a href="templates/readme-template.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/readme-template.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="landing-pages"
-         data-tags="saas,tailwind,landing,responsive,dark-mode">
+         data-tags="saas,tailwind,landing,responsive,dark-mode"
+         data-filename="saas-landing.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1619,11 +1817,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">SaaS Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Modern SaaS landing page with hero, features, pricing, and CTA sections built with Tailwind CSS</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">saas</span><span class="tag-chip">tailwind</span><span class="tag-chip">landing</span><span class="tag-chip">responsive</span><span class="tag-chip">dark-mode</span></div>
-      <a href="templates/saas-landing.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/saas-landing.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="refactoring"
-         data-tags="security,owasp,authentication,encryption,audit">
+         data-tags="security,owasp,authentication,encryption,audit"
+         data-filename="security-audit.md"
+         data-difficulty="advanced">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-refactoring rounded-lg px-3 py-1 text-xs font-semibold mb-4">Refactoring</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1658,11 +1858,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Security Audit Checklist</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Security audit checklist based on OWASP Top 10: auth, input validation, secrets, and infrastructure</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">security</span><span class="tag-chip">owasp</span><span class="tag-chip">authentication</span><span class="tag-chip">encryption</span><span class="tag-chip">audit</span></div>
-      <a href="templates/security-audit.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/security-audit.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="landing-pages"
-         data-tags="startup,pitch,investors,team,tailwind">
+         data-tags="startup,pitch,investors,team,tailwind"
+         data-filename="startup-landing.md"
+         data-difficulty="beginner">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1694,11 +1896,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Startup Pitch Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Startup pitch page with problem/solution framework, team section, and investor highlights</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">startup</span><span class="tag-chip">pitch</span><span class="tag-chip">investors</span><span class="tag-chip">team</span><span class="tag-chip">tailwind</span></div>
-      <a href="templates/startup-landing.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/startup-landing.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="components"
-         data-tags="table,data,sortable,pagination,responsive,tailwind">
+         data-tags="table,data,sortable,pagination,responsive,tailwind"
+         data-filename="table-components.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1731,11 +1935,13 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">Table Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Table patterns: sortable, filterable, paginated, responsive, and expandable row tables</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">table</span><span class="tag-chip">data</span><span class="tag-chip">sortable</span><span class="tag-chip">pagination</span><span class="tag-chip">responsive</span></div>
-      <a href="templates/table-components.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/table-components.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
     <div class="template-card glass rounded-2xl p-6 relative overflow-hidden"
          data-category="methodology"
-         data-tags="tdd,testing,red-green-refactor,pytest,jest">
+         data-tags="tdd,testing,red-green-refactor,pytest,jest"
+         data-filename="tdd-guide.md"
+         data-difficulty="intermediate">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1766,7 +1972,7 @@
       <h3 class="card-title text-white font-bold text-lg mb-2">TDD Workflow Guide</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Test-Driven Development workflow: Red-Green-Refactor cycle, testing pyramid, and practical patterns</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">tdd</span><span class="tag-chip">testing</span><span class="tag-chip">red-green-refactor</span><span class="tag-chip">pytest</span><span class="tag-chip">jest</span></div>
-      <a href="templates/tdd-guide.md" download class="download-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
+      <a href="templates/tdd-guide.md" download class="download-btn" onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Download MD</a>
     </div>
       </div>
 
@@ -1780,6 +1986,46 @@
       </div>
     </div>
   </section>
+
+  <!-- ============================================================
+       PREVIEW MODAL
+       ============================================================ -->
+  <div class="preview-overlay" id="preview-overlay" role="dialog" aria-modal="true" aria-label="Template preview">
+    <div class="preview-modal">
+      <div class="preview-header">
+        <h2 id="preview-title">Template Title</h2>
+        <div class="preview-header-actions">
+          <button class="preview-close" id="preview-close-btn" aria-label="Close preview">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="preview-tabs">
+        <button class="preview-tab active" data-tab="preview">Preview</button>
+        <button class="preview-tab" data-tab="code">Source Code</button>
+      </div>
+
+      <div class="preview-body" id="preview-body">
+        <div class="preview-loading" id="preview-loading">
+          <div class="spinner"></div> Loading template...
+        </div>
+        <div class="md-rendered" id="preview-content" style="display:none;"></div>
+        <div class="code-view" id="preview-code" style="display:none;"></div>
+      </div>
+
+      <div class="preview-footer">
+        <button class="copy-btn" id="preview-copy-btn">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span id="preview-copy-label">Copy Code</span>
+        </button>
+        <a class="download-btn" id="preview-download-btn" href="#" download>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+          Download MD
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================================
        FOOTER
@@ -1800,7 +2046,7 @@
         &middot; Part of the <span class="text-slate-400 font-medium">ClawFlux</span> ecosystem
       </p>
       <p class="text-slate-600 text-xs font-mono">
-        Last updated: 2026-03-28 13:18
+        Last updated: 2026-03-28 19:26
       </p>
     </div>
   </footer>
@@ -1818,15 +2064,44 @@
        JAVASCRIPT
        ============================================================ -->
   <script>
+    // ---- Agent Integration: Copy & Toggle (global scope for onclick) ----
+    const AGENT_SNIPPET = `## Template Resources (TemplateClaw)\n\nWhen creating new components, pages, or project files, check TemplateClaw first:\n- **Catalog**: https://jeromwolf.github.io/templateclaw/api.json\n- **Usage**: Fetch the catalog, find relevant template by category/tags,\n  download the .md file, extract the code section, and adapt it.\n- **Categories**: Landing Pages, Dashboard, Components, Dev Methodology,\n  Project Setup, Refactoring`;
+
+    function copyAgentSnippet() {
+      navigator.clipboard.writeText(AGENT_SNIPPET).then(() => {
+        const label = document.getElementById('agent-copy-label');
+        const btn = document.getElementById('agent-copy-btn');
+        label.textContent = 'Copied!';
+        btn.style.background = 'linear-gradient(135deg, #34d399, #059669)';
+        setTimeout(() => { label.textContent = 'Copy Snippet'; btn.style.background = ''; }, 2000);
+      });
+    }
+
+    function toggleSnippet() {
+      const block = document.getElementById('agent-snippet-block');
+      const toggle = document.getElementById('agent-snippet-toggle');
+      const isCollapsed = block.style.maxHeight === '96px';
+      if (isCollapsed) {
+        block.style.maxHeight = '400px';
+        toggle.textContent = 'Show less';
+        toggle.style.marginTop = '4px';
+        toggle.style.background = 'none';
+      } else {
+        block.style.maxHeight = '96px';
+        toggle.textContent = 'Show more';
+        toggle.style.marginTop = '-32px';
+        toggle.style.background = 'linear-gradient(to top, rgba(10,14,26,0.95) 0%, transparent 100%)';
+      }
+    }
+
     (function() {
       'use strict';
 
       // ---- IntersectionObserver: scroll reveal ----
       const revealObserver = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry, i) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              // Stagger delay based on position in parent
               const siblings = entry.target.parentElement
                 ? Array.from(entry.target.parentElement.children).filter(c => c.classList.contains('reveal'))
                 : [];
@@ -1849,8 +2124,18 @@
       const scrollTopBtn  = document.getElementById('scroll-top-btn');
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu    = document.getElementById('mobile-menu');
+      const sortBar       = document.getElementById('sort-bar');
 
       let activeCategory = 'all';
+      let activeSort = 'category';
+
+      // ---- Category order map (for category sort) ----
+      const CATEGORY_ORDER = {
+        'landing-pages': 0, 'dashboard': 1, 'components': 2,
+        'methodology': 3, 'setup': 4, 'refactoring': 5
+      };
+
+      const DIFFICULTY_ORDER = { 'beginner': 0, 'intermediate': 1, 'advanced': 2 };
 
       // ---- Compute counts ----
       function computeCounts() {
@@ -1860,16 +2145,60 @@
           const cat = card.dataset.category;
           counts[cat] = (counts[cat] || 0) + 1;
         });
-
-        // Update tab count badges
         filterTabs.querySelectorAll('.filter-tab').forEach(tab => {
           const cat = tab.dataset.category;
           const countEl = tab.querySelector('.tab-count');
-          if (countEl) {
-            countEl.textContent = counts[cat] || 0;
-          }
+          if (countEl) countEl.textContent = counts[cat] || 0;
         });
       }
+
+      // ---- Sorting ----
+      function sortCards() {
+        const cards = Array.from(grid.querySelectorAll('.template-card'));
+        cards.sort((a, b) => {
+          switch (activeSort) {
+            case 'name': {
+              const aName = (a.querySelector('.card-title')?.textContent || '').toLowerCase();
+              const bName = (b.querySelector('.card-title')?.textContent || '').toLowerCase();
+              return aName.localeCompare(bName);
+            }
+            case 'category': {
+              const aCat = CATEGORY_ORDER[a.dataset.category] ?? 99;
+              const bCat = CATEGORY_ORDER[b.dataset.category] ?? 99;
+              if (aCat !== bCat) return aCat - bCat;
+              const aName = (a.querySelector('.card-title')?.textContent || '').toLowerCase();
+              const bName = (b.querySelector('.card-title')?.textContent || '').toLowerCase();
+              return aName.localeCompare(bName);
+            }
+            case 'difficulty': {
+              const aDiff = DIFFICULTY_ORDER[a.dataset.difficulty] ?? 1;
+              const bDiff = DIFFICULTY_ORDER[b.dataset.difficulty] ?? 1;
+              if (aDiff !== bDiff) return aDiff - bDiff;
+              const aName = (a.querySelector('.card-title')?.textContent || '').toLowerCase();
+              const bName = (b.querySelector('.card-title')?.textContent || '').toLowerCase();
+              return aName.localeCompare(bName);
+            }
+            case 'newest': {
+              // Reverse DOM order (newest = last added = bottom of source)
+              return cards.indexOf(b) - cards.indexOf(a);
+            }
+            default: return 0;
+          }
+        });
+        // Re-append in sorted order (preserves event listeners)
+        cards.forEach(card => grid.appendChild(card));
+      }
+
+      // ---- Sort pill click ----
+      sortBar.addEventListener('click', (e) => {
+        const pill = e.target.closest('.sort-pill');
+        if (!pill) return;
+        sortBar.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeSort = pill.dataset.sort;
+        sortCards();
+        applyFilters();
+      });
 
       // ---- Filter & Search ----
       function applyFilters() {
@@ -1877,7 +2206,7 @@
         const cards = grid.querySelectorAll('.template-card');
         let visibleCount = 0;
 
-        cards.forEach((card, i) => {
+        cards.forEach((card) => {
           const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
           const title = (card.querySelector('.card-title')?.textContent || '').toLowerCase();
           const desc  = (card.querySelector('.card-description')?.textContent || '').toLowerCase();
@@ -1889,7 +2218,6 @@
 
           if (visible) {
             visibleCount++;
-            // Animate in with stagger
             card.style.opacity = '0';
             card.style.transform = 'translateY(16px)';
             setTimeout(() => {
@@ -1907,14 +2235,12 @@
       filterTabs.addEventListener('click', (e) => {
         const tab = e.target.closest('.filter-tab');
         if (!tab) return;
-
         filterTabs.querySelectorAll('.filter-tab').forEach(t => {
           t.classList.remove('active');
           t.setAttribute('aria-selected', 'false');
         });
         tab.classList.add('active');
         tab.setAttribute('aria-selected', 'true');
-
         activeCategory = tab.dataset.category;
         applyFilters();
       });
@@ -1930,17 +2256,12 @@
       window.addEventListener('scroll', () => {
         scrollTopBtn.classList.toggle('show', window.scrollY > 500);
       }, { passive: true });
-
       scrollTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
       // ---- Mobile menu ----
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-
-      // Close mobile menu on link click
+      mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
       mobileMenu.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
       });
@@ -1953,8 +2274,229 @@
         });
       }
 
+      // ================================================================
+      // THEME TOGGLE (Dark/Light)
+      // ================================================================
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('tc-theme', theme);
+      }
+
+      function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      }
+
+      document.getElementById('theme-toggle-btn').addEventListener('click', toggleTheme);
+      document.getElementById('theme-toggle-btn-mobile').addEventListener('click', toggleTheme);
+
+      // ================================================================
+      // PREVIEW MODAL
+      // ================================================================
+      const overlay      = document.getElementById('preview-overlay');
+      const previewTitle = document.getElementById('preview-title');
+      const previewBody  = document.getElementById('preview-body');
+      const loadingEl    = document.getElementById('preview-loading');
+      const contentEl    = document.getElementById('preview-content');
+      const codeEl       = document.getElementById('preview-code');
+      const copyBtn      = document.getElementById('preview-copy-btn');
+      const copyLabel    = document.getElementById('preview-copy-label');
+      const downloadBtn  = document.getElementById('preview-download-btn');
+      const closeBtn     = document.getElementById('preview-close-btn');
+
+      let currentRawMD = '';
+      let currentTab = 'preview';
+
+      // Simple markdown -> HTML renderer (no library)
+      function renderMarkdown(md) {
+        var html = md;
+
+        // Code blocks (``` ... ```) -- extract FIRST, replace with placeholders
+        var codeBlocks = [];
+        html = html.replace(/```(\w*)\n([\s\S]*?)```/g, function(_, lang, code) {
+          var idx = codeBlocks.length;
+          codeBlocks.push('<pre><code class="lang-' + (lang || 'text') + '">' + escapeHtml(code.replace(/\n$/, '')) + '</code></pre>');
+          return '\x00CODEBLOCK' + idx + '\x00';
+        });
+
+        // Inline code
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+        // Headings
+        html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+        html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+        html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+        html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+
+        // Blockquotes
+        html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+
+        // Bold and italic
+        html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+        // Horizontal rules
+        html = html.replace(/^---+$/gm, '<hr>');
+
+        // Unordered lists (simple)
+        html = html.replace(/^(\s*)[-*] (.+)$/gm, function(_, indent, text) {
+          return '<li>' + text + '</li>';
+        });
+        // Wrap consecutive <li> in <ul>
+        html = html.replace(/((?:<li>.*<\/li>\s*)+)/g, '<ul>$1</ul>');
+
+        // Ordered lists
+        html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+
+        // Tables (basic: | col | col |)
+        html = html.replace(/^\|(.+)\|$/gm, function(match, inner) {
+          if (inner.match(/^[\s\-|:]+$/)) return ''; // separator row
+          var cells = inner.split('|').map(function(c) { return c.trim(); });
+          var row = cells.map(function(c) { return '<td>' + c + '</td>'; }).join('');
+          return '<tr>' + row + '</tr>';
+        });
+        html = html.replace(/((?:<tr>.*<\/tr>\s*)+)/g, function(block) {
+          // Make first row <th>
+          var rows = block.trim();
+          rows = rows.replace(/<tr>(.*?)<\/tr>/, function(_, firstRow) {
+            return '<tr>' + firstRow.replace(/<td>/g, '<th>').replace(/<\/td>/g, '</th>') + '</tr>';
+          });
+          return '<table>' + rows + '</table>';
+        });
+
+        // Paragraphs: wrap lines not already in tags
+        var lines = html.split('\n');
+        var result = [];
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line) { result.push(''); continue; }
+          if (line.match(/^<(h[1-4]|ul|ol|li|blockquote|pre|hr|table|tr|th|td|\x00)/)) {
+            result.push(line);
+          } else {
+            result.push('<p>' + line + '</p>');
+          }
+        }
+        html = result.join('\n');
+
+        // Restore code blocks
+        html = html.replace(/\x00CODEBLOCK(\d+)\x00/g, function(_, idx) {
+          return codeBlocks[parseInt(idx)];
+        });
+
+        // Clean up empty paragraphs
+        html = html.replace(/<p>\s*<\/p>/g, '');
+
+        return html;
+      }
+
+      function escapeHtml(str) {
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+
+      function showTab(tab) {
+        currentTab = tab;
+        overlay.querySelectorAll('.preview-tab').forEach(function(t) {
+          t.classList.toggle('active', t.dataset.tab === tab);
+        });
+        if (tab === 'preview') {
+          contentEl.style.display = 'block';
+          codeEl.style.display = 'none';
+        } else {
+          contentEl.style.display = 'none';
+          codeEl.style.display = 'block';
+        }
+      }
+
+      // Tab clicks
+      overlay.querySelectorAll('.preview-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() { showTab(tab.dataset.tab); });
+      });
+
+      function openPreview(url, title) {
+        previewTitle.textContent = title;
+        downloadBtn.href = url;
+        loadingEl.style.display = 'flex';
+        contentEl.style.display = 'none';
+        codeEl.style.display = 'none';
+        currentRawMD = '';
+        currentTab = 'preview';
+        overlay.querySelectorAll('.preview-tab').forEach(function(t) {
+          t.classList.toggle('active', t.dataset.tab === 'preview');
+        });
+
+        // Show overlay
+        overlay.classList.remove('fade-out');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+
+        // Fetch MD content
+        fetch(url)
+          .then(function(r) { return r.ok ? r.text() : Promise.reject('Failed to load'); })
+          .then(function(md) {
+            currentRawMD = md;
+            loadingEl.style.display = 'none';
+            contentEl.innerHTML = renderMarkdown(md);
+            contentEl.style.display = 'block';
+            codeEl.textContent = md;
+          })
+          .catch(function(err) {
+            loadingEl.innerHTML = '<span style="color:#ef4444;">Failed to load template. Try downloading instead.</span>';
+          });
+      }
+
+      function closePreview() {
+        overlay.classList.add('fade-out');
+        setTimeout(function() {
+          overlay.classList.remove('open', 'fade-out');
+          document.body.style.overflow = '';
+        }, 300);
+      }
+
+      // Close handlers
+      closeBtn.addEventListener('click', closePreview);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closePreview();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closePreview();
+      });
+
+      // Copy code
+      copyBtn.addEventListener('click', function() {
+        if (!currentRawMD) return;
+        navigator.clipboard.writeText(currentRawMD).then(function() {
+          copyBtn.classList.add('copied');
+          copyLabel.textContent = 'Copied!';
+          setTimeout(function() {
+            copyBtn.classList.remove('copied');
+            copyLabel.textContent = 'Copy Code';
+          }, 2000);
+        });
+      });
+
+      // Card click -> open preview (delegated)
+      grid.addEventListener('click', function(e) {
+        // Don't trigger if clicking on download button
+        if (e.target.closest('.download-btn')) return;
+
+        var card = e.target.closest('.template-card');
+        if (!card) return;
+
+        var filename = card.dataset.filename;
+        var title = (card.querySelector('.card-title') || {}).textContent || 'Template';
+        if (filename) {
+          openPreview('templates/' + filename, title);
+        }
+      });
+
+      // Prevent download button from triggering card click
+      grid.querySelectorAll('.download-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) { e.stopPropagation(); });
+      });
+
       // ---- Init ----
       computeCounts();
+      sortCards();
       observeCards();
       applyFilters();
     })();

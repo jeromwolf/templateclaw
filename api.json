@@ -3,7 +3,7 @@
   "description": "Developer Design + Development Template Hub",
   "version": "1.0.0",
   "base_url": "https://jeromwolf.github.io/templateclaw",
-  "total": 30,
+  "total": 32,
   "categories": [
     {
       "name": "dashboard",
@@ -11,7 +11,7 @@
     },
     {
       "name": "project-setup",
-      "count": 5
+      "count": 7
     },
     {
       "name": "dev-methodology",
@@ -30,7 +30,7 @@
       "count": 3
     }
   ],
-  "generated_at": "2026-03-28T13:18:33.951953+09:00",
+  "generated_at": "2026-03-28T19:26:06.161152+09:00",
   "usage": {
     "fetch_catalog": "https://jeromwolf.github.io/templateclaw/api.json",
     "fetch_full": "https://jeromwolf.github.io/templateclaw/api-full.json",
@@ -51,6 +51,22 @@
       ],
       "difficulty": "intermediate",
       "download_url": "https://jeromwolf.github.io/templateclaw/templates/admin-dashboard.md"
+    },
+    {
+      "filename": "agent-integration-guide.md",
+      "title": "Agent Integration Guide",
+      "description": "How to make AI agents automatically use TemplateClaw templates in your projects",
+      "category": "project-setup",
+      "tags": [
+        "agent",
+        "claude",
+        "cursor",
+        "windsurf",
+        "ai",
+        "integration"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/agent-integration-guide.md"
     },
     {
       "filename": "agents-md-template.md",
@@ -172,6 +188,21 @@
       ],
       "difficulty": "intermediate",
       "download_url": "https://jeromwolf.github.io/templateclaw/templates/code-review-checklist.md"
+    },
+    {
+      "filename": "community-templates-guide.md",
+      "title": "Community Templates Guide",
+      "description": "Complete guide for contributing templates to TemplateClaw, including format specification and best practices.",
+      "category": "project-setup",
+      "tags": [
+        "contributing",
+        "templates",
+        "open-source",
+        "documentation",
+        "guide"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/community-templates-guide.md"
     },
     {
       "filename": "crm-dashboard.md",

@@ -37,14 +37,15 @@ WebFetch https://jeromwolf.github.io/templateclaw/templates/admin-dashboard.md "
 
 ### Categories
 - **dashboard** (4 templates)
-- **project-setup** (5 templates)
+- **project-setup** (7 templates)
 - **dev-methodology** (5 templates)
 - **landing-pages** (5 templates)
 - **components** (8 templates)
 - **refactoring** (3 templates)
 
-### All Templates (30)
+### All Templates (32)
 - `admin-dashboard.md` — Admin Dashboard [dashboard]
+- `agent-integration-guide.md` — Agent Integration Guide [project-setup]
 - `agents-md-template.md` — AGENTS.md Template [project-setup]
 - `analytics-dashboard.md` — Analytics Dashboard [dashboard]
 - `api-design.md` — REST API Design Guide [dev-methodology]
@@ -53,6 +54,7 @@ WebFetch https://jeromwolf.github.io/templateclaw/templates/admin-dashboard.md "
 - `cicd-setup.md` — CI/CD Pipeline Setup [dev-methodology]
 - `claude-md-template.md` — CLAUDE.md Template [project-setup]
 - `code-review-checklist.md` — Code Review Checklist [dev-methodology]
+- `community-templates-guide.md` — Community Templates Guide [project-setup]
 - `crm-dashboard.md` — CRM Dashboard [dashboard]
 - `db-migration.md` — Database Migration Guide [refactoring]
 - `docker-compose-template.md` — Docker Compose Template [project-setup]
