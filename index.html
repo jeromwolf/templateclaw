@@ -1665,7 +1665,7 @@
         &middot; Part of the <span class="text-slate-400 font-medium">ClawFlux</span> ecosystem
       </p>
       <p class="text-slate-600 text-xs font-mono">
-        Last updated: 2026-03-29 05:16
+        Last updated: 2026-03-29 05:20
       </p>
     </div>
   </footer>
@@ -2043,6 +2043,8 @@
         tab.addEventListener('click', function() { showTab(tab.dataset.tab); });
       });
 
+      var BASE_URL = 'https://jeromwolf.github.io/templateclaw/';
+
       function openPreview(url, title, previewUrl) {
         previewTitle.textContent = title;
         downloadBtn.href = url;
@@ -2054,6 +2056,10 @@
         currentRawMD = '';
         currentTab = 'preview';
         currentPreviewUrl = previewUrl || '';
+        // Resolve preview URL for local file:// access
+        if (currentPreviewUrl && location.protocol === 'file:') {
+          currentPreviewUrl = BASE_URL + currentPreviewUrl;
+        }
 
         // Show/hide the Live Preview tab based on whether a preview URL exists
         liveTab.style.display = currentPreviewUrl ? '' : 'none';
@@ -2067,8 +2073,9 @@
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
 
-        // Fetch MD content
-        fetch(url)
+        // Fetch MD content (with fallback to GitHub Pages for local file:// access)
+        var fetchUrl = (location.protocol === 'file:') ? BASE_URL + url : url;
+        fetch(fetchUrl)
           .then(function(r) { return r.ok ? r.text() : Promise.reject('Failed to load'); })
           .then(function(md) {
             currentRawMD = md;
