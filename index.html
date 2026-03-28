@@ -667,7 +667,113 @@
          data-preview-url="previews/admin-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><iframe src="previews/admin-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Admin Dashboard</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <style>
+    .sidebar { transition: width 0.3s ease; }
+    @media (max-width: 768px) { .sidebar { width: 0; overflow: hidden; } .sidebar.open { width: 16rem; } }
+  </style>
+</head>
+<body class=&quot;bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex h-screen overflow-hidden&quot;>
+
+  <!-- Sidebar -->
+  <aside id=&quot;sidebar&quot; class=&quot;sidebar w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col flex-shrink-0&quot;>
+    <div class=&quot;h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-700&quot;>
+      <span class=&quot;text-xl font-bold text-indigo-600&quot;>AdminPanel</span>
+    </div>
+    <nav class=&quot;flex-1 p-4 space-y-1&quot;>
+      <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium&quot;>
+        <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6&quot;/></svg>
+        Dashboard
+      </a>
+      <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg text-sm&quot;>
+        <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z&quot;/></svg>
+        Users
+      </a>
+      <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg text-sm&quot;>
+        <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4&quot;/></svg>
+        Products
+      </a>
+      <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg text-sm&quot;>
+        <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2&quot;/></svg>
+        Orders
+      </a>
+      <div class=&quot;pt-4 mt-4 border-t border-gray-200 dark:border-gray-700&quot;>
+        <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg text-sm&quot;>
+          <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z&quot;/><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 12a3 3 0 11-6 0 3 3 0 016 0z&quot;/></svg>
+          Settings
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class=&quot;flex-1 flex flex-col overflow-auto&quot;>
+    <!-- Top Bar -->
+    <header class=&quot;h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center px-6 gap-4 flex-shrink-0&quot;>
+      <button class=&quot;md:hidden&quot; onclick=&quot;document.getElementById(&#39;sidebar&#39;).classList.toggle(&#39;open&#39;)&quot;>
+        <svg class=&quot;w-6 h-6&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M4 6h16M4 12h16M4 18h16&quot;/></svg>
+      </button>
+      <input type=&quot;text&quot; placeholder=&quot;Search...&quot; class=&quot;flex-1 max-w-xs px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;>
+      <div class=&quot;ml-auto flex items-center gap-4&quot;>
+        <button class=&quot;relative&quot;><svg class=&quot;w-5 h-5 text-gray-500&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9&quot;/></svg><span class=&quot;absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center&quot;>3</span></button>
+        <div class=&quot;w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-bold&quot;>JD</div>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class=&quot;flex-1 p-6 space-y-6&quot;>
+      <h1 class=&quot;text-2xl font-bold&quot;>Dashboard</h1>
+
+      <!-- Stats Cards -->
+      <div class=&quot;grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4&quot;>
+        <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+          <div class=&quot;flex items-center justify-between&quot;>
+            <span class=&quot;text-sm text-gray-500&quot;>Total Users</span>
+            <span class=&quot;text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full&quot;>+12%</span>
+          </div>
+          <div class=&quot;mt-2 text-3xl font-bold&quot;>12,421</div>
+          <div class=&quot;mt-1 text-xs text-gray-400&quot;>vs. 11,089 last month</div>
+        </div>
+        <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+          <div class=&quot;flex items-center justify-between&quot;>
+            <span class=&quot;text-sm text-gray-500&quot;>Revenue</span>
+            <span class=&quot;text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full&quot;>+8%</span>
+          </div>
+          <div class=&quot;mt-2 text-3xl font-bold&quot;>$48,230</div>
+          <div class=&quot;mt-1 text-xs text-gray-400&quot;>vs. $44,650 last month</div>
+        </div>
+        <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+          <div class=&quot;flex items-center justify-between&quot;>
+            <span class=&quot;text-sm text-gray-500&quot;>Orders</span>
+            <span class=&quot;text-xs px-2 py-0.5 bg-red-100 text-red-700 rounded-full&quot;>-3%</span>
+          </div>
+          <div class=&quot;mt-2 text-3xl font-bold&quot;>1,832</div>
+          <div class=&quot;mt-1 text-xs text-gray-400&quot;>vs. 1,889 last month</div>
+        </div>
+        <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+          <div class=&quot;flex items-center justify-between&quot;>
+            <span class=&quot;text-sm text-gray-500&quot;>Conversion</span>
+            <span class=&quot;text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full&quot;>+0.5%</span>
+          </div>
+          <div class=&quot;mt-2 text-3xl font-bold&quot;>3.24%</div>
+          <div class=&quot;mt-1 text-xs text-gray-400&quot;>vs. 2.74% last month</div>
+        </div>
+      </div>
+
+      <!-- Chart Placeholder -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;flex items-center justify-between mb-4&quot;>
+          <h2 class=&quot;font-semibold&quot;>Revenue Overview</h2>
+          <select class=&quot;text-sm bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-1.5&quot;><option>Last 7 days</option><option>Last 30 days</option><option>Last 90 days</option></select>
+        </div>
+        <!-- Replace with Chart.js canvas -->
+ " loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Admin Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Admin panel with sidebar navigation, stats cards, data table, and chart placeholders</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">admin</span><span class="tag-chip">dashboard</span><span class="tag-chip">sidebar</span><span class="tag-chip">table</span><span class="tag-chip">tailwind</span></div>
@@ -789,7 +895,115 @@
          data-preview-url="previews/analytics-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><iframe src="previews/analytics-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Analytics Dashboard</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <script src=&quot;https://cdn.jsdelivr.net/npm/chart.js@4&quot;></script>
+</head>
+<body class=&quot;bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen&quot;>
+
+  <div class=&quot;max-w-7xl mx-auto px-4 py-8&quot;>
+    <!-- Header -->
+    <div class=&quot;flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8&quot;>
+      <div>
+        <h1 class=&quot;text-2xl font-bold&quot;>Analytics</h1>
+        <p class=&quot;text-sm text-gray-500&quot;>Track your key performance metrics</p>
+      </div>
+      <div class=&quot;flex gap-2&quot;>
+        <select id=&quot;dateRange&quot; class=&quot;text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-3 py-2&quot;>
+          <option>Last 7 days</option><option>Last 30 days</option><option>Last 90 days</option><option>This year</option>
+        </select>
+        <button class=&quot;px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition&quot;>Export</button>
+        <button onclick=&quot;location.reload()&quot; class=&quot;px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700 transition&quot;>Refresh</button>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class=&quot;grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8&quot;>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-sm text-gray-500 mb-1&quot;>Page Views</div>
+        <div class=&quot;text-3xl font-bold&quot;>245,831</div>
+        <div class=&quot;mt-2 flex items-center gap-1 text-sm&quot;><span class=&quot;text-green-600 font-medium&quot;>+18.2%</span><span class=&quot;text-gray-400&quot;>vs last period</span></div>
+        <div class=&quot;mt-3 h-1 bg-gray-100 dark:bg-gray-700 rounded-full&quot;><div class=&quot;h-1 bg-indigo-500 rounded-full&quot; style=&quot;width:72%&quot;></div></div>
+      </div>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-sm text-gray-500 mb-1&quot;>Unique Visitors</div>
+        <div class=&quot;text-3xl font-bold&quot;>12,421</div>
+        <div class=&quot;mt-2 flex items-center gap-1 text-sm&quot;><span class=&quot;text-green-600 font-medium&quot;>+5.2%</span><span class=&quot;text-gray-400&quot;>vs last period</span></div>
+        <div class=&quot;mt-3 h-1 bg-gray-100 dark:bg-gray-700 rounded-full&quot;><div class=&quot;h-1 bg-emerald-500 rounded-full&quot; style=&quot;width:58%&quot;></div></div>
+      </div>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-sm text-gray-500 mb-1&quot;>Bounce Rate</div>
+        <div class=&quot;text-3xl font-bold&quot;>42.1%</div>
+        <div class=&quot;mt-2 flex items-center gap-1 text-sm&quot;><span class=&quot;text-green-600 font-medium&quot;>-2.1%</span><span class=&quot;text-gray-400&quot;>vs last period</span></div>
+        <div class=&quot;mt-3 h-1 bg-gray-100 dark:bg-gray-700 rounded-full&quot;><div class=&quot;h-1 bg-amber-500 rounded-full&quot; style=&quot;width:42%&quot;></div></div>
+      </div>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-sm text-gray-500 mb-1&quot;>Avg. Session</div>
+        <div class=&quot;text-3xl font-bold&quot;>3m 24s</div>
+        <div class=&quot;mt-2 flex items-center gap-1 text-sm&quot;><span class=&quot;text-green-600 font-medium&quot;>+0.8%</span><span class=&quot;text-gray-400&quot;>vs last period</span></div>
+        <div class=&quot;mt-3 h-1 bg-gray-100 dark:bg-gray-700 rounded-full&quot;><div class=&quot;h-1 bg-purple-500 rounded-full&quot; style=&quot;width:65%&quot;></div></div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class=&quot;grid lg:grid-cols-3 gap-4 mb-8&quot;>
+      <!-- Traffic Line Chart -->
+      <div class=&quot;lg:col-span-2 bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700&quot;>
+        <h2 class=&quot;font-semibold mb-4&quot;>Traffic Overview</h2>
+        <canvas id=&quot;trafficChart&quot; height=&quot;120&quot;></canvas>
+      </div>
+      <!-- Source Doughnut -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700&quot;>
+        <h2 class=&quot;font-semibold mb-4&quot;>Traffic Sources</h2>
+        <canvas id=&quot;sourceChart&quot; height=&quot;180&quot;></canvas>
+        <div class=&quot;mt-4 space-y-2 text-sm&quot;>
+          <div class=&quot;flex justify-between&quot;><span class=&quot;flex items-center gap-2&quot;><span class=&quot;w-3 h-3 bg-indigo-500 rounded-full&quot;></span>Organic</span><span class=&quot;font-medium&quot;>42%</span></div>
+          <div class=&quot;flex justify-between&quot;><span class=&quot;flex items-center gap-2&quot;><span class=&quot;w-3 h-3 bg-emerald-500 rounded-full&quot;></span>Direct</span><span class=&quot;font-medium&quot;>28%</span></div>
+          <div class=&quot;flex justify-between&quot;><span class=&quot;flex items-center gap-2&quot;><span class=&quot;w-3 h-3 bg-amber-500 rounded-full&quot;></span>Referral</span><span class=&quot;font-medium&quot;>18%</span></div>
+          <div class=&quot;flex justify-between&quot;><span class=&quot;flex items-center gap-2&quot;><span class=&quot;w-3 h-3 bg-rose-500 rounded-full&quot;></span>Social</span><span class=&quot;font-medium&quot;>12%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Pages Table -->
+    <div class=&quot;bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden&quot;>
+      <div class=&quot;p-4 border-b border-gray-200 dark:border-gray-700&quot;><h2 class=&quot;font-semibold&quot;>Top Pages</h2></div>
+      <table class=&quot;w-full text-sm&quot;>
+        <thead class=&quot;bg-gray-50 dark:bg-gray-700/50&quot;><tr>
+          <th class=&quot;text-left px-4 py-3 font-medium text-gray-500&quot;>Page</th>
+          <th class=&quot;text-right px-4 py-3 font-medium text-gray-500&quot;>Views</th>
+          <th class=&quot;text-right px-4 py-3 font-medium text-gray-500&quot;>Unique</th>
+          <th class=&quot;text-right px-4 py-3 font-medium text-gray-500&quot;>Bounce</th>
+          <th class=&quot;text-right px-4 py-3 font-medium text-gray-500&quot;>Trend</th>
+        </tr></thead>
+        <tbody class=&quot;divide-y divide-gray-200 dark:divide-gray-700&quot;>
+          <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30&quot;><td class=&quot;px-4 py-3 font-medium&quot;>/home</td><td class=&quot;px-4 py-3 text-right&quot;>42,381</td><td class=&quot;px-4 py-3 text-right&quot;>28,432</td><td class=&quot;px-4 py-3 text-right&quot;>32%</td><td class=&quot;px-4 py-3 text-right text-green-600&quot;>+12%</td></tr>
+          <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30&quot;><td class=&quot;px-4 py-3 font-medium&quot;>/pricing</td><td class=&quot;px-4 py-3 text-right&quot;>28,104</td><td class=&quot;px-4 py-3 text-right&quot;>21,882</td><td class=&quot;px-4 py-3 text-right&quot;>45%</td><td class=&quot;px-4 py-3 text-right text-green-600&quot;>+8%</td></tr>
+          <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30&quot;><td class=&quot;px-4 py-3 font-medium&quot;>/docs</td><td class=&quot;px-4 py-3 text-right&quot;>19,442</td><td class=&quot;px-4 py-3 text-right&quot;>15,231</td><td class=&quot;px-4 py-3 text-right&quot;>28%</td><td class=&quot;px-4 py-3 text-right text-green-600&quot;>+22%</td></tr>
+          <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30&quot;><td class=&quot;px-4 py-3 font-medium&quot;>/blog</td><td class=&quot;px-4 py-3 text-right&quot;>15,221</td><td class=&quot;px-4 py-3 text-right&quot;>12,109</td><td class=&quot;px-4 py-3 text-right&quot;>52%</td><td class=&quot;px-4 py-3 text-right text-red-600&quot;>-3%</td></tr>
+          <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30&quot;><td class=&quot;px-4 py-3 font-medium&quot;>/signup</td><td class=&quot;px-4 py-3 text-right&quot;>11,082</td><td class=&quot;px-4 py-3 text-right&quot;>9,431</td><td class=&quot;px-4 py-3 text-right&quot;>18%</td><td class=&quot;px-4 py-3 text-right text-green-600&quot;>+31%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Chart.js Init -->
+  <script>
+    // Traffic Line Chart
+    new Chart(document.getElementById(&#39;trafficChart&#39;), {
+      type: &#39;line&#39;,
+      data: {
+        labels: [&#39;Mon&#39;,&#39;Tue&#39;,&#39;Wed&#39;,&#39;Thu&#39;,&#39;Fri&#39;,&#39;Sat&#39;,&#39;Sun&#39;],
+        datasets: [{
+          label: &#39;Views&#39;,
+          data: [32000, 35000, 41000, 38000, 45000, 30000, 28000],
+          borderColor: &#39;#6366f1&#39;,
+          backgroundColor: &#39;rgba(99,102,241,0" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Analytics Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Analytics dashboard with KPI cards, chart areas, date filters, and metric breakdowns</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">analytics</span><span class="tag-chip">kpi</span><span class="tag-chip">charts</span><span class="tag-chip">metrics</span><span class="tag-chip">tailwind</span></div>
@@ -841,7 +1055,120 @@
          data-preview-url="previews/app-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><iframe src="previews/app-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot; class=&quot;scroll-smooth&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>FinTrack - Your Finances, Simplified</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-950 text-white overflow-x-hidden&quot;>
+
+  <!-- Nav -->
+  <nav class=&quot;fixed w-full top-0 z-50 bg-gray-950/80 backdrop-blur border-b border-gray-800&quot;>
+    <div class=&quot;max-w-6xl mx-auto px-6 h-14 flex items-center justify-between&quot;>
+      <span class=&quot;text-lg font-bold text-violet-400&quot;>FinTrack</span>
+      <div class=&quot;flex items-center gap-6 text-sm&quot;>
+        <a href=&quot;#features&quot; class=&quot;hidden md:inline text-gray-400 hover:text-white&quot;>Features</a>
+        <a href=&quot;#download&quot; class=&quot;px-4 py-2 bg-violet-600 rounded-lg font-medium hover:bg-violet-700 transition&quot;>Download Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class=&quot;pt-28 pb-20 px-6&quot;>
+    <div class=&quot;max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12&quot;>
+      <div class=&quot;flex-1 text-center md:text-left&quot;>
+        <h1 class=&quot;text-4xl md:text-6xl font-extrabold tracking-tight leading-tight&quot;>Your Finances,<br><span class=&quot;bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent&quot;>Simplified.</span></h1>
+        <p class=&quot;mt-6 text-lg text-gray-400 max-w-md&quot;>Track spending, set budgets, and reach your savings goals. All in one beautiful app. No bank login required.</p>
+        <!-- App Store Badges -->
+        <div class=&quot;mt-8 flex flex-wrap gap-4 justify-center md:justify-start&quot;>
+          <a href=&quot;#&quot; class=&quot;inline-flex items-center gap-3 px-5 py-3 bg-gray-800 rounded-xl hover:bg-gray-700 transition border border-gray-700&quot;>
+            <svg class=&quot;w-7 h-7&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;><path d=&quot;M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z&quot;/></svg>
+            <div class=&quot;text-left&quot;><div class=&quot;text-[10px] text-gray-400 leading-none&quot;>Download on the</div><div class=&quot;text-sm font-semibold leading-tight&quot;>App Store</div></div>
+          </a>
+          <a href=&quot;#&quot; class=&quot;inline-flex items-center gap-3 px-5 py-3 bg-gray-800 rounded-xl hover:bg-gray-700 transition border border-gray-700&quot;>
+            <svg class=&quot;w-7 h-7&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;><path d=&quot;M3.18 23.76c.28.44.84.58 1.28.3L12 19.41l7.54 4.65c.44.28 1 .14 1.28-.3.13-.2.18-.44.15-.66l-1.98-8.63 6.7-5.81c.37-.33.42-.9.09-1.27a.9.9 0 0 0-.57-.3l-8.82-.77L12.82.94A.91.91 0 0 0 12 .36a.91.91 0 0 0-.82.58L8.61 6.32l-8.82.77a.91.91 0 0 0-.48 1.57l6.7 5.81-1.98 8.63c-.06.24 0 .49.15.66z&quot;/></svg>
+            <div class=&quot;text-left&quot;><div class=&quot;text-[10px] text-gray-400 leading-none&quot;>GET IT ON</div><div class=&quot;text-sm font-semibold leading-tight&quot;>Google Play</div></div>
+          </a>
+        </div>
+      </div>
+      <!-- Phone Mockup -->
+      <div class=&quot;flex-shrink-0&quot;>
+        <div class=&quot;w-64 h-[500px] bg-gray-800 rounded-[2.5rem] border-4 border-gray-700 relative overflow-hidden shadow-2xl shadow-violet-500/10&quot;>
+          <div class=&quot;absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-950 rounded-b-2xl&quot;></div>
+          <!-- Replace this gradient with a real screenshot -->
+          <div class=&quot;w-full h-full bg-gradient-to-b from-violet-600 via-purple-700 to-indigo-900 flex flex-col items-center justify-center p-6 text-center&quot;>
+            <div class=&quot;text-5xl mb-4&quot;>&amp;#128176;</div>
+            <div class=&quot;text-2xl font-bold&quot;>$12,450</div>
+            <div class=&quot;text-sm text-violet-200 mt-1&quot;>Total Balance</div>
+            <div class=&quot;mt-6 w-full space-y-3&quot;>
+              <div class=&quot;flex justify-between text-sm&quot;><span>Groceries</span><span>-$234</span></div>
+              <div class=&quot;flex justify-between text-sm&quot;><span>Salary</span><span class=&quot;text-emerald-300&quot;>+$5,000</span></div>
+              <div class=&quot;flex justify-between text-sm&quot;><span>Netflix</span><span>-$15</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class=&quot;py-12 px-6 border-y border-gray-800&quot;>
+    <div class=&quot;max-w-4xl mx-auto flex flex-wrap justify-center gap-10 md:gap-16 text-center&quot;>
+      <div><div class=&quot;text-2xl font-bold text-violet-400&quot;>4.9 &amp;#9733;</div><div class=&quot;text-xs text-gray-500 mt-1&quot;>App Store Rating</div></div>
+      <div><div class=&quot;text-2xl font-bold text-violet-400&quot;>1M+</div><div class=&quot;text-xs text-gray-500 mt-1&quot;>Downloads</div></div>
+      <div><div class=&quot;text-2xl font-bold text-violet-400&quot;>#1</div><div class=&quot;text-xs text-gray-500 mt-1&quot;>Finance Category</div></div>
+      <div><div class=&quot;text-2xl font-bold text-violet-400&quot;>Featured</div><div class=&quot;text-xs text-gray-500 mt-1&quot;>By Apple</div></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id=&quot;features&quot; class=&quot;py-20 px-6&quot;>
+    <div class=&quot;max-w-5xl mx-auto&quot;>
+      <h2 class=&quot;text-3xl font-bold text-center mb-14&quot;>Why People Love FinTrack</h2>
+      <div class=&quot;grid md:grid-cols-3 gap-8&quot;>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-16 h-16 mx-auto bg-violet-900/50 rounded-2xl flex items-center justify-center text-3xl mb-4&quot;>&amp;#128202;</div>
+          <h3 class=&quot;font-bold text-lg&quot;>Smart Insights</h3>
+          <p class=&quot;mt-2 text-sm text-gray-400&quot;>AI analyzes your spending patterns and suggests where you can save more each month.</p>
+        </div>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-16 h-16 mx-auto bg-pink-900/50 rounded-2xl flex items-center justify-center text-3xl mb-4&quot;>&amp;#127919;</div>
+          <h3 class=&quot;font-bold text-lg&quot;>Goal Tracking</h3>
+          <p class=&quot;mt-2 text-sm text-gray-400&quot;>Set savings goals and get daily nudges to stay on track. Visualize your progress.</p>
+        </div>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-16 h-16 mx-auto bg-emerald-900/50 rounded-2xl flex items-center justify-center text-3xl mb-4&quot;>&amp;#128274;</div>
+          <h3 class=&quot;font-bold text-lg&quot;>Bank-Level Security</h3>
+          <p class=&quot;mt-2 text-sm text-gray-400&quot;>256-bit encryption. Biometric auth. We never store your bank credentials.</p>
+        </div>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-16 h-16 mx-auto bg-orange-900/50 rounded-2xl flex items-center justify-center text-3xl mb-4&quot;>&amp;#128276;</div>
+          <h3 class=&quot;font-bold text-lg&quot;>Bill Reminders</h3>
+          <p class=&quot;mt-2 text-sm text-gray-400&quot;>Never miss a payment again. Get notified before bills are due.</p>
+        </div>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-16 h-16 mx-auto bg-blue-900/50 rounded-2xl flex items-center justify-center text-3xl mb-4&quot;>&amp;#128101;</div>
+          <h3 class=&quot;font-bold text-lg&quot;>Shared Budgets</h3>
+          <p class=&quot;mt-2 text-sm text-gray-400&quot;>Split expenses with family or roommates. Everyone sees the same dashboard.</p>
+        </div>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-16 h-16 mx-auto bg-cyan-900/50 rounded-2xl flex items-center justify-center text-3xl mb-4&quot;>&amp;#127760;</div>
+          <h3 class=&quot;font-bold text-lg&quot;>Multi-Currency</h3>
+          <p class=&quot;mt-2 text-sm text-gray-400&quot;>Track expenses in 50+ currencies. Real-time exchange rates built in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section id=&quot;download&quot; class=&quot;py-20 px-6 bg-gradient-to-br from-violet-900 to-indigo-900&quot;>
+    <div class=&quot;max-w-2xl mx-auto text-center&quot;>
+      <h2 class=&quot;text-3xl font-bold&quot;>Start Saving Today</h2>
+      <p class=&quot;mt-4 text-violet-200&quot;>Join 1 million+ people who&#39;ve taken control of their money. Free forever.</p>
+      <div class=&quot;mt-8 flex flex-wrap gap-" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Mobile App Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Mobile app landing page with app store badges, screenshot mockups, and feature highlights</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">mobile</span><span class="tag-chip">app</span><span class="tag-chip">ios</span><span class="tag-chip">android</span><span class="tag-chip">tailwind</span></div>
@@ -855,7 +1182,122 @@
          data-preview-url="previews/card-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/card-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Card Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-100 dark:bg-gray-900 p-8 min-h-screen&quot;>
+  <div class=&quot;max-w-6xl mx-auto space-y-12&quot;>
+
+    <h1 class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;>Card Components</h1>
+
+    <div class=&quot;grid md:grid-cols-2 lg:grid-cols-4 gap-6&quot;>
+
+      <!-- 1. Product Card -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-xl transition group&quot;>
+        <div class=&quot;h-48 bg-gradient-to-br from-indigo-400 to-purple-500 relative overflow-hidden&quot;>
+          <div class=&quot;absolute top-3 right-3 px-2 py-1 bg-white/90 text-xs font-bold rounded-full text-indigo-700&quot;>NEW</div>
+          <div class=&quot;absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-110 transition&quot;>&amp;#128240;</div>
+        </div>
+        <div class=&quot;p-5&quot;>
+          <div class=&quot;flex items-center justify-between&quot;>
+            <h3 class=&quot;font-semibold text-gray-900 dark:text-white&quot;>Wireless Headphones</h3>
+            <span class=&quot;text-lg font-bold text-indigo-600&quot;>$49</span>
+          </div>
+          <p class=&quot;mt-2 text-sm text-gray-500&quot;>Premium noise-cancelling with 30hr battery life.</p>
+          <div class=&quot;mt-3 flex gap-1&quot;>
+            <span class=&quot;text-yellow-400 text-sm&quot;>&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;</span>
+            <span class=&quot;text-xs text-gray-400&quot;>(128)</span>
+          </div>
+          <button class=&quot;mt-4 w-full py-2 bg-indigo-600 text-white text-sm rounded-xl font-medium hover:bg-indigo-700 transition&quot;>Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 2. Profile Card -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 text-center hover:shadow-xl transition&quot;>
+        <div class=&quot;w-20 h-20 mx-auto bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-full flex items-center justify-center text-3xl font-bold text-white&quot;>JD</div>
+        <h3 class=&quot;mt-4 font-semibold text-gray-900 dark:text-white&quot;>Jane Doe</h3>
+        <p class=&quot;text-sm text-gray-500&quot;>Senior Frontend Engineer</p>
+        <p class=&quot;mt-3 text-xs text-gray-400&quot;>Building beautiful interfaces at scale. React, TypeScript, and design systems.</p>
+        <div class=&quot;mt-4 flex justify-center gap-6 text-center&quot;>
+          <div><div class=&quot;font-bold text-gray-900 dark:text-white&quot;>142</div><div class=&quot;text-[10px] text-gray-400&quot;>Posts</div></div>
+          <div><div class=&quot;font-bold text-gray-900 dark:text-white&quot;>3.2K</div><div class=&quot;text-[10px] text-gray-400&quot;>Followers</div></div>
+          <div><div class=&quot;font-bold text-gray-900 dark:text-white&quot;>89</div><div class=&quot;text-[10px] text-gray-400&quot;>Following</div></div>
+        </div>
+        <button class=&quot;mt-4 w-full py-2 border border-gray-300 dark:border-gray-600 rounded-xl text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition text-gray-900 dark:text-white&quot;>Follow</button>
+      </div>
+
+      <!-- 3. Pricing Card -->
+      <div class=&quot;bg-indigo-600 text-white rounded-2xl p-6 relative overflow-hidden hover:shadow-xl transition&quot;>
+        <div class=&quot;absolute top-0 right-0 w-32 h-32 bg-indigo-500 rounded-full -translate-y-1/2 translate-x-1/2 opacity-50&quot;></div>
+        <span class=&quot;relative text-xs font-bold bg-white/20 px-2 py-1 rounded-full&quot;>POPULAR</span>
+        <h3 class=&quot;mt-4 font-semibold text-lg relative&quot;>Pro Plan</h3>
+        <div class=&quot;mt-2 relative&quot;><span class=&quot;text-4xl font-black&quot;>$29</span><span class=&quot;text-indigo-200&quot;>/mo</span></div>
+        <ul class=&quot;mt-4 space-y-2 text-sm text-indigo-100 relative&quot;>
+          <li>&amp;#10003; 25 team members</li>
+          <li>&amp;#10003; 100GB storage</li>
+          <li>&amp;#10003; Advanced analytics</li>
+          <li>&amp;#10003; Priority support</li>
+        </ul>
+        <button class=&quot;mt-6 w-full py-2.5 bg-white text-indigo-700 rounded-xl font-bold hover:bg-indigo-50 transition relative&quot;>Get Started</button>
+      </div>
+
+      <!-- 4. Stat Card -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl transition&quot;>
+        <div class=&quot;flex items-center justify-between mb-4&quot;>
+          <div class=&quot;w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center text-emerald-600&quot;>&amp;#128200;</div>
+          <span class=&quot;text-xs px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full font-medium&quot;>+12.5%</span>
+        </div>
+        <div class=&quot;text-3xl font-bold text-gray-900 dark:text-white&quot;>12,421</div>
+        <div class=&quot;text-sm text-gray-500 mt-1&quot;>Total Customers</div>
+        <div class=&quot;mt-4 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full&quot;>
+          <div class=&quot;h-1.5 bg-emerald-500 rounded-full&quot; style=&quot;width:72%&quot;></div>
+        </div>
+        <div class=&quot;mt-2 text-xs text-gray-400&quot;>72% of yearly target</div>
+      </div>
+
+      <!-- 5. Testimonial Card -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl transition&quot;>
+        <div class=&quot;flex gap-1 text-yellow-400 mb-3&quot;>&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;</div>
+        <p class=&quot;text-sm text-gray-600 dark:text-gray-300 italic leading-relaxed&quot;>&quot;This product completely transformed our workflow. We went from 3 hours of manual work to 15 minutes. The ROI was visible within a week.&quot;</p>
+        <div class=&quot;mt-4 flex items-center gap-3&quot;>
+          <div class=&quot;w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold&quot;>AK</div>
+          <div>
+            <div class=&quot;text-sm font-medium text-gray-900 dark:text-white&quot;>Alex Kim</div>
+            <div class=&quot;text-xs text-gray-400&quot;>CTO, TechNova</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Blog Card -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-xl transition group&quot;>
+        <div class=&quot;h-40 bg-gradient-to-br from-rose-400 to-orange-400 relative overflow-hidden&quot;>
+          <div class=&quot;absolute inset-0 flex items-center justify-center text-5xl group-hover:scale-110 transition&quot;>&amp;#128221;</div>
+        </div>
+        <div class=&quot;p-5&quot;>
+          <div class=&quot;flex gap-2 mb-2&quot;>
+            <span class=&quot;text-[10px] px-2 py-0.5 bg-rose-100 text-rose-700 rounded-full font-medium&quot;>Tutorial</span>
+            <span class=&quot;text-[10px] text-gray-400&quot;>5 min read</span>
+          </div>
+          <h3 class=&quot;font-semibold text-gray-900 dark:text-white leading-snug&quot;>Building a Real-time Dashboard with React and WebSockets</h3>
+          <p class=&quot;mt-2 text-xs text-gray-500 line-clamp-2&quot;>Learn how to create a responsive real-time dashboard with live data streaming using React hooks and native WebSocket API.</p>
+          <div class=&quot;mt-4 flex items-center gap-2&quot;>
+            <div class=&quot;w-6 h-6 bg-rose-500 rounded-full flex items-center justify-center text-white text-[8px] font-bold&quot;>SM</div>
+            <span class=&quot;text-xs text-gray-500&quot;>Sarah Miller &amp;middot; Mar 25, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Feature Card -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl hover:border-indigo-300 dark:hover:border-indigo-700 transition group&quot;>
+        <div class=&quot;w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center text-indigo-600 text-2xl mb-4 group-hover:scale-110 transition&quot;>&amp;#9889;</div>
+        <h3 class=&quot;font-semibold text-gray-900 dark:text-white&quot;>Lightning Fast</h3>
+        <p class=&quot;mt-2 text-sm text-gray-500 leading-relaxed&quot;>Sub-100ms response times powered by edge computing. Your users feel the speed difference instantly.</p>
+        <a href=&quot;#&quot; class=&quot;mt-4 inline-flex items-center " loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Card Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">8 card variants: product, profile, pricing, stat, testimonial, blog, feature, and glass morphism</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">cards</span><span class="tag-chip">ui</span><span class="tag-chip">tailwind</span><span class="tag-chip">responsive</span><span class="tag-chip">glassmorphism</span></div>
@@ -1053,7 +1495,142 @@
          data-preview-url="previews/crm-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><iframe src="previews/crm-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>CRM Dashboard</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen&quot;>
+
+  <div class=&quot;max-w-7xl mx-auto px-4 py-6&quot;>
+    <!-- Header -->
+    <div class=&quot;flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6&quot;>
+      <h1 class=&quot;text-2xl font-bold&quot;>Sales Pipeline</h1>
+      <div class=&quot;flex gap-2&quot;>
+        <input type=&quot;text&quot; placeholder=&quot;Search deals...&quot; class=&quot;px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-48&quot;>
+        <button class=&quot;px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition&quot;>+ New Deal</button>
+      </div>
+    </div>
+
+    <!-- KPI Row -->
+    <div class=&quot;grid grid-cols-2 md:grid-cols-4 gap-4 mb-6&quot;>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-xs text-gray-500 uppercase tracking-wide&quot;>Pipeline Value</div>
+        <div class=&quot;text-2xl font-bold mt-1&quot;>$124,500</div>
+        <div class=&quot;text-xs text-green-600 mt-1&quot;>+18% this month</div>
+      </div>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-xs text-gray-500 uppercase tracking-wide&quot;>Active Deals</div>
+        <div class=&quot;text-2xl font-bold mt-1&quot;>47</div>
+        <div class=&quot;text-xs text-gray-400 mt-1&quot;>12 new this week</div>
+      </div>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-xs text-gray-500 uppercase tracking-wide&quot;>Win Rate</div>
+        <div class=&quot;text-2xl font-bold mt-1&quot;>34%</div>
+        <div class=&quot;text-xs text-green-600 mt-1&quot;>+3% vs last quarter</div>
+      </div>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;text-xs text-gray-500 uppercase tracking-wide&quot;>Avg Deal Size</div>
+        <div class=&quot;text-2xl font-bold mt-1&quot;>$8,200</div>
+        <div class=&quot;text-xs text-gray-400 mt-1&quot;>Median: $5,500</div>
+      </div>
+    </div>
+
+    <!-- Pipeline Board -->
+    <div class=&quot;flex gap-4 overflow-x-auto pb-4 mb-8&quot;>
+      <!-- Lead -->
+      <div class=&quot;min-w-[280px] flex-shrink-0&quot;>
+        <div class=&quot;flex items-center justify-between mb-3&quot;>
+          <h3 class=&quot;font-semibold text-sm&quot;>Lead <span class=&quot;text-gray-400&quot;>(12)</span></h3>
+          <span class=&quot;text-xs text-gray-400&quot;>$34,200</span>
+        </div>
+        <div class=&quot;space-y-3&quot;>
+          <div class=&quot;bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 cursor-grab hover:shadow-md transition&quot;>
+            <div class=&quot;flex justify-between items-start mb-2&quot;>
+              <h4 class=&quot;font-medium text-sm&quot;>Website Redesign</h4>
+              <span class=&quot;text-xs font-bold text-blue-600&quot;>$12,000</span>
+            </div>
+            <p class=&quot;text-xs text-gray-500&quot;>Acme Corp</p>
+            <div class=&quot;mt-3 flex items-center justify-between&quot;>
+              <div class=&quot;flex items-center gap-1&quot;><div class=&quot;w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-white text-[9px] font-bold&quot;>JD</div><span class=&quot;text-xs text-gray-400&quot;>John</span></div>
+              <span class=&quot;text-xs text-gray-400&quot;>3 days ago</span>
+            </div>
+          </div>
+          <div class=&quot;bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 cursor-grab hover:shadow-md transition&quot;>
+            <div class=&quot;flex justify-between items-start mb-2&quot;>
+              <h4 class=&quot;font-medium text-sm&quot;>API Integration</h4>
+              <span class=&quot;text-xs font-bold text-blue-600&quot;>$8,500</span>
+            </div>
+            <p class=&quot;text-xs text-gray-500&quot;>TechFlow Inc</p>
+            <div class=&quot;mt-3 flex items-center justify-between&quot;>
+              <div class=&quot;flex items-center gap-1&quot;><div class=&quot;w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center text-white text-[9px] font-bold&quot;>SK</div><span class=&quot;text-xs text-gray-400&quot;>Sarah</span></div>
+              <span class=&quot;text-xs text-gray-400&quot;>1 day ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Qualified -->
+      <div class=&quot;min-w-[280px] flex-shrink-0&quot;>
+        <div class=&quot;flex items-center justify-between mb-3&quot;>
+          <h3 class=&quot;font-semibold text-sm&quot;>Qualified <span class=&quot;text-gray-400&quot;>(8)</span></h3>
+          <span class=&quot;text-xs text-gray-400&quot;>$42,000</span>
+        </div>
+        <div class=&quot;space-y-3&quot;>
+          <div class=&quot;bg-white dark:bg-gray-800 rounded-lg p-4 border-l-4 border-l-blue-500 border border-gray-200 dark:border-gray-700 cursor-grab hover:shadow-md transition&quot;>
+            <div class=&quot;flex justify-between items-start mb-2&quot;>
+              <h4 class=&quot;font-medium text-sm&quot;>Cloud Migration</h4>
+              <span class=&quot;text-xs font-bold text-blue-600&quot;>$25,000</span>
+            </div>
+            <p class=&quot;text-xs text-gray-500&quot;>GlobalBank Ltd</p>
+            <div class=&quot;mt-2&quot;>
+              <div class=&quot;flex gap-1 mb-1&quot;><span class=&quot;px-1.5 py-0.5 bg-blue-100 text-blue-700 text-[10px] rounded&quot;>Enterprise</span><span class=&quot;px-1.5 py-0.5 bg-green-100 text-green-700 text-[10px] rounded&quot;>Hot</span></div>
+            </div>
+            <div class=&quot;mt-2 flex items-center justify-between&quot;>
+              <div class=&quot;flex items-center gap-1&quot;><div class=&quot;w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center text-white text-[9px] font-bold&quot;>MP</div><span class=&quot;text-xs text-gray-400&quot;>Maya</span></div>
+              <span class=&quot;text-xs text-gray-400&quot;>Today</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proposal -->
+      <div class=&quot;min-w-[280px] flex-shrink-0&quot;>
+        <div class=&quot;flex items-center justify-between mb-3&quot;>
+          <h3 class=&quot;font-semibold text-sm&quot;>Proposal <span class=&quot;text-gray-400&quot;>(5)</span></h3>
+          <span class=&quot;text-xs text-gray-400&quot;>$28,500</span>
+        </div>
+        <div class=&quot;space-y-3&quot;>
+          <div class=&quot;bg-white dark:bg-gray-800 rounded-lg p-4 border-l-4 border-l-amber-500 border border-gray-200 dark:border-gray-700 cursor-grab hover:shadow-md transition&quot;>
+            <div class=&quot;flex justify-between items-start mb-2&quot;>
+              <h4 class=&quot;font-medium text-sm&quot;>Mobile App MVP</h4>
+              <span class=&quot;text-xs font-bold text-blue-600&quot;>$18,000</span>
+            </div>
+            <p class=&quot;text-xs text-gray-500&quot;>HealthStart Co</p>
+            <div class=&quot;mt-2&quot;><div class=&quot;text-xs text-amber-600 font-medium&quot;>Proposal sent 2d ago</div></div>
+            <div class=&quot;mt-2 flex items-center justify-between&quot;>
+              <div class=&quot;flex items-center gap-1&quot;><div class=&quot;w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-white text-[9px] font-bold&quot;>JD</div><span class=&quot;text-xs text-gray-400&quot;>John</span></div>
+              <span class=&quot;text-xs text-amber-500&quot;>Follow up tomorrow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Won -->
+      <div class=&quot;min-w-[280px] flex-shrink-0&quot;>
+        <div class=&quot;flex items-center justify-between mb-3&quot;>
+          <h3 class=&quot;font-semibold text-sm&quot;>Won <span class=&quot;text-gray-400&quot;>(3)</span></h3>
+          <span class=&quot;text-xs text-green-500&quot;>$19,800</span>
+        </div>
+        <div class=&quot;space-y-3&quot;>
+          <div class=&quot;bg-white dark:bg-gray-800 rounded-lg p-4 border-l-4 border-l-green-500 border border-gray-200 dark:border-gray-700&quot;>
+            <div class=&quot;flex justify-between items-start mb-2&quot;>
+              <h4 class=&quot;font-medium text-sm&quot;>Dashboard Build</h4>
+              <span class=&quot;text-xs font-bold text-green-600&quot;>$9,800</span>
+ " loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">CRM Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">CRM dashboard with sales pipeline, contacts list, activities feed, and deal tracking</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">crm</span><span class="tag-chip">sales</span><span class="tag-chip">pipeline</span><span class="tag-chip">contacts</span><span class="tag-chip">deals</span></div>
@@ -1217,7 +1794,127 @@
          data-preview-url="previews/footer-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/footer-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Footer Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-100 dark:bg-gray-900&quot;>
+  <div class=&quot;max-w-6xl mx-auto p-8 space-y-12&quot;>
+    <h1 class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;>Footer Components</h1>
+  </div>
+
+  <!-- 1. Simple Footer -->
+  <footer class=&quot;bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700&quot;>
+    <div class=&quot;max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4&quot;>
+      <div class=&quot;flex items-center gap-2&quot;>
+        <span class=&quot;font-bold text-gray-900 dark:text-white&quot;>Brand</span>
+        <span class=&quot;text-sm text-gray-400&quot;>&amp;copy; 2026. All rights reserved.</span>
+      </div>
+      <div class=&quot;flex gap-6 text-sm text-gray-500&quot;>
+        <a href=&quot;#&quot; class=&quot;hover:text-gray-900 dark:hover:text-white transition&quot;>Privacy</a>
+        <a href=&quot;#&quot; class=&quot;hover:text-gray-900 dark:hover:text-white transition&quot;>Terms</a>
+        <a href=&quot;#&quot; class=&quot;hover:text-gray-900 dark:hover:text-white transition&quot;>Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class=&quot;h-8&quot;></div>
+
+  <!-- 2. Mega Footer with Sitemap -->
+  <footer class=&quot;bg-gray-900 text-gray-400&quot;>
+    <div class=&quot;max-w-6xl mx-auto px-6 py-16&quot;>
+      <div class=&quot;grid md:grid-cols-4 gap-8&quot;>
+        <div>
+          <span class=&quot;text-xl font-bold text-white&quot;>Brand</span>
+          <p class=&quot;mt-4 text-sm leading-relaxed&quot;>Building the future of developer tooling. Open source, community-driven, and enterprise-ready.</p>
+          <div class=&quot;mt-6 flex gap-4&quot;>
+            <a href=&quot;#&quot; class=&quot;w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition text-sm&quot;>X</a>
+            <a href=&quot;#&quot; class=&quot;w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition text-sm&quot;>GH</a>
+            <a href=&quot;#&quot; class=&quot;w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition text-sm&quot;>DC</a>
+            <a href=&quot;#&quot; class=&quot;w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition text-sm&quot;>YT</a>
+          </div>
+        </div>
+        <div>
+          <h3 class=&quot;text-white font-semibold mb-4&quot;>Product</h3>
+          <ul class=&quot;space-y-2.5 text-sm&quot;>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Features</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Pricing</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Changelog</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>API Reference</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Status</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class=&quot;text-white font-semibold mb-4&quot;>Company</h3>
+          <ul class=&quot;space-y-2.5 text-sm&quot;>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>About</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Blog</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Careers <span class=&quot;ml-1 px-1.5 py-0.5 bg-emerald-900 text-emerald-400 text-[10px] rounded-full&quot;>Hiring</span></a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Press Kit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class=&quot;text-white font-semibold mb-4&quot;>Legal</h3>
+          <ul class=&quot;space-y-2.5 text-sm&quot;>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Privacy Policy</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Terms of Service</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Cookie Policy</a></li>
+            <li><a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>GDPR</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class=&quot;mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm&quot;>
+        <span>&amp;copy; 2026 Brand Inc. All rights reserved.</span>
+        <div class=&quot;flex items-center gap-2 text-xs&quot;><span class=&quot;w-2 h-2 bg-emerald-500 rounded-full&quot;></span>All systems operational</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class=&quot;h-8&quot;></div>
+
+  <!-- 3. Newsletter Footer -->
+  <footer class=&quot;bg-indigo-600 text-white&quot;>
+    <div class=&quot;max-w-4xl mx-auto px-6 py-16 text-center&quot;>
+      <h2 class=&quot;text-2xl font-bold&quot;>Stay in the loop</h2>
+      <p class=&quot;mt-2 text-indigo-100&quot;>Get the latest updates, tips, and product news delivered to your inbox.</p>
+      <form class=&quot;mt-6 flex flex-col sm:flex-row gap-3 max-w-md mx-auto&quot;>
+        <input type=&quot;email&quot; placeholder=&quot;you@example.com&quot; required class=&quot;flex-1 px-4 py-3 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-white&quot;>
+        <button type=&quot;submit&quot; class=&quot;px-6 py-3 bg-white text-indigo-700 font-bold rounded-xl hover:bg-indigo-50 transition&quot;>Subscribe</button>
+      </form>
+      <p class=&quot;mt-3 text-xs text-indigo-200&quot;>No spam. Unsubscribe anytime.</p>
+    </div>
+    <div class=&quot;border-t border-indigo-500&quot;>
+      <div class=&quot;max-w-4xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-indigo-200&quot;>
+        <span>&amp;copy; 2026 Brand. All rights reserved.</span>
+        <div class=&quot;flex gap-4&quot;>
+          <a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Privacy</a>
+          <a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Terms</a>
+          <a href=&quot;#&quot; class=&quot;hover:text-white transition&quot;>Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class=&quot;h-8&quot;></div>
+
+  <!-- 4. Social-Focused Footer -->
+  <footer class=&quot;bg-gray-950 text-gray-400 py-12 px-6&quot;>
+    <div class=&quot;max-w-2xl mx-auto text-center&quot;>
+      <span class=&quot;text-2xl font-bold text-white&quot;>Brand</span>
+      <p class=&quot;mt-3 text-sm&quot;>Making the world a better place through constructing elegant hierarchies.</p>
+      <div class=&quot;mt-6 flex justify-center gap-6&quot;>
+        <a href=&quot;#&quot; class=&quot;hover:text-white transition&quot; title=&quot;Twitter/X&quot;>
+          <svg class=&quot;w-6 h-6&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path d=&quot;M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z&quot;/></svg>
+        </a>
+        <a href=&quot;#&quot; class=&quot;hover:text-white transition&quot; title=&quot;GitHub&quot;>
+          <svg class=&quot;w-6 h-6&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path d=&quot;M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z&quot;/></svg>
+        </a>
+        <a href=&quot;#&quot; class=&quot;hover:text-white transition&quot; title=&quot;Discord&quot;>
+          <svg class=&quot;w-6 h-6&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path d=&quot;M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.371" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Footer Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Footer patterns: simple, mega footer, newsletter signup, social links, and sitemap footer</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">footer</span><span class="tag-chip">navigation</span><span class="tag-chip">newsletter</span><span class="tag-chip">social</span><span class="tag-chip">tailwind</span></div>
@@ -1231,7 +1928,88 @@
          data-preview-url="previews/form-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/form-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Form Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-100 dark:bg-gray-900 p-8 min-h-screen&quot;>
+  <div class=&quot;max-w-6xl mx-auto space-y-16&quot;>
+
+    <h1 class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;>Form Components</h1>
+
+    <div class=&quot;grid md:grid-cols-2 lg:grid-cols-3 gap-8&quot;>
+
+      <!-- 1. Login Form -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm&quot;>
+        <h2 class=&quot;text-xl font-bold text-center text-gray-900 dark:text-white mb-6&quot;>Welcome Back</h2>
+        <form class=&quot;space-y-4&quot; action=&quot;/api/login&quot; method=&quot;POST&quot;>
+          <div>
+            <label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Email</label>
+            <input type=&quot;email&quot; name=&quot;email&quot; required placeholder=&quot;you@example.com&quot; class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent&quot;>
+          </div>
+          <div>
+            <label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Password</label>
+            <input type=&quot;password&quot; name=&quot;password&quot; required minlength=&quot;8&quot; placeholder=&quot;Min 8 characters&quot; class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent&quot;>
+          </div>
+          <div class=&quot;flex items-center justify-between&quot;>
+            <label class=&quot;flex items-center gap-2 text-sm text-gray-500&quot;><input type=&quot;checkbox&quot; class=&quot;rounded&quot;> Remember me</label>
+            <a href=&quot;#&quot; class=&quot;text-sm text-indigo-600 hover:underline&quot;>Forgot password?</a>
+          </div>
+          <button type=&quot;submit&quot; class=&quot;w-full py-2.5 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition&quot;>Sign In</button>
+          <div class=&quot;relative my-4&quot;><div class=&quot;absolute inset-0 flex items-center&quot;><div class=&quot;w-full border-t border-gray-200 dark:border-gray-700&quot;></div></div><div class=&quot;relative flex justify-center&quot;><span class=&quot;bg-white dark:bg-gray-800 px-3 text-xs text-gray-400&quot;>or continue with</span></div></div>
+          <div class=&quot;flex gap-3&quot;>
+            <button type=&quot;button&quot; class=&quot;flex-1 py-2 border border-gray-200 dark:border-gray-700 rounded-xl text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition&quot;>Google</button>
+            <button type=&quot;button&quot; class=&quot;flex-1 py-2 border border-gray-200 dark:border-gray-700 rounded-xl text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition&quot;>GitHub</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 2. Signup Form -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm&quot;>
+        <h2 class=&quot;text-xl font-bold text-center text-gray-900 dark:text-white mb-6&quot;>Create Account</h2>
+        <form class=&quot;space-y-4&quot; action=&quot;/api/signup&quot; method=&quot;POST&quot;>
+          <div class=&quot;grid grid-cols-2 gap-3&quot;>
+            <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>First</label><input type=&quot;text&quot; name=&quot;first_name&quot; required class=&quot;w-full px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;></div>
+            <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Last</label><input type=&quot;text&quot; name=&quot;last_name&quot; required class=&quot;w-full px-3 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;></div>
+          </div>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Email</label><input type=&quot;email&quot; name=&quot;email&quot; required class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;></div>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Password</label><input type=&quot;password&quot; name=&quot;password&quot; required minlength=&quot;8&quot; pattern=&quot;(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}&quot; title=&quot;Must contain: 8+ chars, uppercase, lowercase, number&quot; class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;></div>
+          <label class=&quot;flex items-start gap-2 text-sm text-gray-500&quot;><input type=&quot;checkbox&quot; required class=&quot;rounded mt-0.5&quot;> I agree to the <a href=&quot;#&quot; class=&quot;text-indigo-600 hover:underline&quot;>Terms</a> and <a href=&quot;#&quot; class=&quot;text-indigo-600 hover:underline&quot;>Privacy Policy</a></label>
+          <button type=&quot;submit&quot; class=&quot;w-full py-2.5 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition&quot;>Create Account</button>
+        </form>
+      </div>
+
+      <!-- 3. Contact Form -->
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm&quot;>
+        <h2 class=&quot;text-xl font-bold text-center text-gray-900 dark:text-white mb-6&quot;>Contact Us</h2>
+        <form class=&quot;space-y-4&quot; action=&quot;https://formspree.io/f/YOUR_ID&quot; method=&quot;POST&quot;>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Name</label><input type=&quot;text&quot; name=&quot;name&quot; required class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;></div>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Email</label><input type=&quot;email&quot; name=&quot;email&quot; required class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;></div>
+          <div>
+            <label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Subject</label>
+            <select name=&quot;subject&quot; class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;>
+              <option>General Inquiry</option><option>Bug Report</option><option>Feature Request</option><option>Partnership</option>
+            </select>
+          </div>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Message</label><textarea name=&quot;message&quot; rows=&quot;4&quot; required class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none&quot;></textarea></div>
+          <button type=&quot;submit&quot; class=&quot;w-full py-2.5 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition&quot;>Send Message</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- 4. Search Bar -->
+    <div>
+      <h2 class=&quot;text-lg font-bold text-gray-900 dark:text-white mb-4&quot;>Search Bar</h2>
+      <div class=&quot;max-w-2xl&quot;>
+        <div class=&quot;relative&quot;>
+          <svg class=&quot;absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z&quot;/></svg>
+          <input type=&quot;search&quot; placeholder=&quot;Search anything... (Ctrl+K)&quot; class=&quot;w-full pl-12 pr-20 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm&quot;>
+          <kbd class=&quot;absolute ri" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Form Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Form patterns: login, signup, contact, search bar, multi-step wizard, and settings panel</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">forms</span><span class="tag-chip">login</span><span class="tag-chip">signup</span><span class="tag-chip">wizard</span><span class="tag-chip">validation</span></div>
@@ -1283,7 +2061,107 @@
          data-preview-url="previews/hero-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/hero-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Hero Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <style>
+    @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .animate-gradient { background-size: 200% 200%; animation: gradient 6s ease infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .float { animation: float 3s ease-in-out infinite; }
+  </style>
+</head>
+<body class=&quot;bg-gray-950 text-white space-y-4&quot;>
+
+  <!-- 1. Centered Hero -->
+  <section class=&quot;min-h-[80vh] flex items-center px-6 bg-gray-950 relative overflow-hidden&quot;>
+    <div class=&quot;absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15),transparent_70%)]&quot;></div>
+    <div class=&quot;max-w-3xl mx-auto text-center relative&quot;>
+      <div class=&quot;inline-block px-4 py-1 mb-6 text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full&quot;>Announcing v3.0</div>
+      <h1 class=&quot;text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]&quot;>Build Amazing<br>Things <span class=&quot;text-indigo-400&quot;>Faster</span></h1>
+      <p class=&quot;mt-6 text-lg text-gray-400 max-w-xl mx-auto&quot;>The developer platform that helps you ship products 10x faster with AI-powered tools and seamless collaboration.</p>
+      <div class=&quot;mt-10 flex flex-col sm:flex-row gap-4 justify-center&quot;>
+        <a href=&quot;#&quot; class=&quot;px-8 py-3.5 bg-indigo-600 font-semibold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-600/25 transition&quot;>Get Started Free</a>
+        <a href=&quot;#&quot; class=&quot;px-8 py-3.5 border border-gray-700 rounded-xl font-semibold hover:bg-gray-800 transition flex items-center gap-2 justify-center&quot;>Live Demo <span>&amp;#8594;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Split Hero (Text + Visual) -->
+  <section class=&quot;min-h-[80vh] flex items-center px-6 bg-gray-900&quot;>
+    <div class=&quot;max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center&quot;>
+      <div>
+        <span class=&quot;text-sm font-bold text-emerald-400 uppercase tracking-wider&quot;>For Developers</span>
+        <h1 class=&quot;mt-4 text-4xl md:text-5xl font-extrabold tracking-tight leading-tight&quot;>Ship Code<br>With Confidence</h1>
+        <p class=&quot;mt-6 text-lg text-gray-400&quot;>Automated testing, deployment pipelines, and real-time monitoring in one platform. Push code and sleep well.</p>
+        <div class=&quot;mt-8 flex gap-4&quot;>
+          <a href=&quot;#&quot; class=&quot;px-6 py-3 bg-emerald-600 font-semibold rounded-xl hover:bg-emerald-700 transition&quot;>Start Building</a>
+          <a href=&quot;#&quot; class=&quot;px-6 py-3 text-gray-400 font-semibold hover:text-white transition&quot;>Read Docs &amp;#8594;</a>
+        </div>
+        <div class=&quot;mt-8 flex gap-8 text-sm text-gray-500&quot;>
+          <div><span class=&quot;text-white font-bold text-lg&quot;>99.99%</span><br>Uptime SLA</div>
+          <div><span class=&quot;text-white font-bold text-lg&quot;>50ms</span><br>Avg Latency</div>
+          <div><span class=&quot;text-white font-bold text-lg&quot;>10K+</span><br>Teams</div>
+        </div>
+      </div>
+      <div class=&quot;float&quot;>
+        <div class=&quot;bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-xl&quot;>
+          <div class=&quot;flex items-center gap-2 mb-4&quot;><div class=&quot;w-3 h-3 bg-red-500 rounded-full&quot;></div><div class=&quot;w-3 h-3 bg-yellow-500 rounded-full&quot;></div><div class=&quot;w-3 h-3 bg-green-500 rounded-full&quot;></div></div>
+          <pre class=&quot;text-sm text-gray-300 font-mono leading-relaxed&quot;><code><span class=&quot;text-emerald-400&quot;>$</span> npx create-app my-project
+<span class=&quot;text-gray-500&quot;>Creating project...</span>
+<span class=&quot;text-emerald-400&quot;>&amp;#10003;</span> Dependencies installed
+<span class=&quot;text-emerald-400&quot;>&amp;#10003;</span> CI/CD configured
+<span class=&quot;text-emerald-400&quot;>&amp;#10003;</span> Monitoring enabled
+
+<span class=&quot;text-emerald-400&quot;>$</span> git push origin main
+<span class=&quot;text-blue-400&quot;>Deploying to production...</span>
+<span class=&quot;text-emerald-400&quot;>&amp;#10003;</span> Live at https://my-project.app</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Animated Gradient Hero -->
+  <section class=&quot;min-h-[80vh] flex items-center px-6 animate-gradient bg-gradient-to-br from-purple-900 via-indigo-900 to-cyan-900 relative&quot;>
+    <div class=&quot;max-w-3xl mx-auto text-center&quot;>
+      <h1 class=&quot;text-5xl md:text-7xl font-black tracking-tight&quot;>The Future of <span class=&quot;bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent&quot;>AI Development</span></h1>
+      <p class=&quot;mt-6 text-lg text-gray-300 max-w-xl mx-auto&quot;>Build, train, and deploy AI models with zero infrastructure. From prototype to production in minutes.</p>
+      <a href=&quot;#&quot; class=&quot;inline-block mt-10 px-10 py-4 bg-white text-gray-900 font-bold rounded-2xl hover:bg-gray-100 transition shadow-2xl&quot;>Start Free Trial</a>
+      <p class=&quot;mt-4 text-xs text-gray-400&quot;>No credit card required</p>
+    </div>
+  </section>
+
+  <!-- 4. Video Background Hero -->
+  <section class=&quot;min-h-[80vh] flex items-center px-6 bg-gray-950 relative overflow-hidden&quot;>
+    <!-- Replace with: <video autoplay muted loop class=&quot;absolute inset-0 w-full h-full object-cover opacity-30&quot;><source src=&quot;bg.mp4&quot; type=&quot;video/mp4&quot;></video> -->
+    <div class=&quot;absolute inset-0 bg-gradient-to-b from-transparent via-gray-950/50 to-gray-950&quot;></div>
+    <div class=&quot;absolute inset-0 bg-[url(&#39;data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%221%22%20cy%3D%221%22%20r%3D%221%22%20fill%3D%22rgba(255%2C255%2C255%2C0.05)%22%2F%3E%3C%2Fsvg%3E&#39;)] opacity-50&quot;></div>
+    <div class=&quot;max-w-4xl mx-auto text-center relative&quot;>
+      <h1 class=&quot;text-5xl md:text-7xl font-black tracking-tight&quot;>Create Without<br>Limits</h1>
+      <p class=&quot;mt-6 text-xl text-gray-300&quot;>The creative platform for the next generation of makers.</p>
+      <div class=&quot;mt-10 flex gap-4 justify-center&quot;>
+        <a href=&quot;#&quot; class=&quot;px-8 py-3 bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition&quot;>Get Started</a>
+        <a href=&quot;#&quot; class=&quot;px-8 py-3 border border-white/30 rounded-xl font-semibold hover:bg-white/10 transition flex items-center gap-2&quot;>Watch Video <span>&amp;#9654;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Minimal Hero -->
+  <section class=&quot;min-h-[60vh] flex items-center px-6 bg-white&quot;>
+    <div class=&quot;max-w-2xl mx-auto text-center&quot;>
+      <h1 class=&quot;text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900&quot;>Simple tools for<br>complex work.</h1>
+      <p class=&quot;mt-6 text-lg text-gray-500&quot;>Less noise. More focus. The workspace that gets out of your way.</p>
+      <a href=&quot;#&quot; class=&quot;inline-block mt-8 px-8 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition&quot;>Try It Free</a>
+    </div>
+  </section>
+
+</body>
+</html>
+" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Hero Section Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Hero section variants: centered text, split layout, video background, animated gradient, and minimal</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">hero</span><span class="tag-chip">header</span><span class="tag-chip">above-fold</span><span class="tag-chip">animation</span><span class="tag-chip">tailwind</span></div>
@@ -1297,7 +2175,97 @@
          data-preview-url="previews/modal-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/modal-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Modal Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <style>
+    .modal-backdrop { transition: opacity 0.2s; }
+    .modal-panel { transition: transform 0.2s, opacity 0.2s; }
+    .toast-enter { animation: slideInRight 0.3s ease; }
+    @keyframes slideInRight { from { transform: translateX(100%); opacity:0; } to { transform: translateX(0); opacity:1; } }
+    .sheet-enter { animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  </style>
+</head>
+<body class=&quot;bg-gray-100 dark:bg-gray-900 p-8 min-h-screen&quot;>
+  <div class=&quot;max-w-4xl mx-auto space-y-8&quot;>
+
+    <h1 class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;>Modal Components</h1>
+
+    <!-- Trigger Buttons -->
+    <div class=&quot;flex flex-wrap gap-3&quot;>
+      <button onclick=&quot;document.getElementById(&#39;confirm-modal&#39;).classList.remove(&#39;hidden&#39;)&quot; class=&quot;px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition&quot;>Open Confirm</button>
+      <button onclick=&quot;document.getElementById(&#39;form-modal&#39;).classList.remove(&#39;hidden&#39;)&quot; class=&quot;px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition&quot;>Open Form Modal</button>
+      <button onclick=&quot;document.getElementById(&#39;gallery-modal&#39;).classList.remove(&#39;hidden&#39;)&quot; class=&quot;px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition&quot;>Open Gallery</button>
+      <button onclick=&quot;showToast(&#39;success&#39;)&quot; class=&quot;px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition&quot;>Show Toast (OK)</button>
+      <button onclick=&quot;showToast(&#39;error&#39;)&quot; class=&quot;px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition&quot;>Show Toast (Error)</button>
+      <button onclick=&quot;document.getElementById(&#39;bottom-sheet&#39;).classList.remove(&#39;hidden&#39;)&quot; class=&quot;px-4 py-2 bg-gray-700 text-white rounded-lg text-sm font-medium hover:bg-gray-600 transition&quot;>Open Bottom Sheet</button>
+    </div>
+
+    <!-- 1. Confirm Dialog -->
+    <div id=&quot;confirm-modal&quot; class=&quot;hidden fixed inset-0 z-50 flex items-center justify-center p-4&quot;>
+      <div class=&quot;modal-backdrop absolute inset-0 bg-black/50&quot; onclick=&quot;this.parentElement.classList.add(&#39;hidden&#39;)&quot;></div>
+      <div class=&quot;modal-panel relative bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-sm shadow-xl border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;w-12 h-12 mx-auto bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center text-red-600 text-xl mb-4&quot;>&amp;#9888;</div>
+        <h3 class=&quot;text-lg font-bold text-center text-gray-900 dark:text-white&quot;>Delete Project?</h3>
+        <p class=&quot;mt-2 text-sm text-gray-500 text-center&quot;>This action cannot be undone. All data associated with this project will be permanently removed.</p>
+        <div class=&quot;mt-6 flex gap-3&quot;>
+          <button onclick=&quot;this.closest(&#39;#confirm-modal&#39;).classList.add(&#39;hidden&#39;)&quot; class=&quot;flex-1 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition text-gray-700 dark:text-gray-300&quot;>Cancel</button>
+          <button onclick=&quot;this.closest(&#39;#confirm-modal&#39;).classList.add(&#39;hidden&#39;)&quot; class=&quot;flex-1 py-2.5 bg-red-600 text-white rounded-xl text-sm font-bold hover:bg-red-700 transition&quot;>Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Form Modal -->
+    <div id=&quot;form-modal&quot; class=&quot;hidden fixed inset-0 z-50 flex items-center justify-center p-4&quot;>
+      <div class=&quot;modal-backdrop absolute inset-0 bg-black/50&quot; onclick=&quot;this.parentElement.classList.add(&#39;hidden&#39;)&quot;></div>
+      <div class=&quot;modal-panel relative bg-white dark:bg-gray-800 rounded-2xl w-full max-w-md shadow-xl border border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;p-6 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between&quot;>
+          <h3 class=&quot;text-lg font-bold text-gray-900 dark:text-white&quot;>Create New Task</h3>
+          <button onclick=&quot;this.closest(&#39;#form-modal&#39;).classList.add(&#39;hidden&#39;)&quot; class=&quot;text-gray-400 hover:text-gray-600 text-xl&quot;>&amp;times;</button>
+        </div>
+        <form class=&quot;p-6 space-y-4&quot;>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Task Name</label><input type=&quot;text&quot; required class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot; placeholder=&quot;Enter task name&quot;></div>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Priority</label><select class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500&quot;><option>Low</option><option>Medium</option><option selected>High</option><option>Urgent</option></select></div>
+          <div><label class=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;>Description</label><textarea rows=&quot;3&quot; class=&quot;w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none&quot; placeholder=&quot;Describe the task...&quot;></textarea></div>
+        </form>
+        <div class=&quot;px-6 pb-6 flex gap-3 justify-end&quot;>
+          <button onclick=&quot;this.closest(&#39;#form-modal&#39;).classList.add(&#39;hidden&#39;)&quot; class=&quot;px-4 py-2 text-sm text-gray-500 hover:text-gray-700 transition&quot;>Cancel</button>
+          <button onclick=&quot;this.closest(&#39;#form-modal&#39;).classList.add(&#39;hidden&#39;)&quot; class=&quot;px-5 py-2 bg-indigo-600 text-white rounded-xl text-sm font-medium hover:bg-indigo-700 transition&quot;>Create Task</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Gallery / Lightbox Modal -->
+    <div id=&quot;gallery-modal&quot; class=&quot;hidden fixed inset-0 z-50 flex items-center justify-center p-4&quot;>
+      <div class=&quot;modal-backdrop absolute inset-0 bg-black/80&quot; onclick=&quot;this.parentElement.classList.add(&#39;hidden&#39;)&quot;></div>
+      <div class=&quot;modal-panel relative max-w-3xl w-full&quot;>
+        <button onclick=&quot;this.closest(&#39;#gallery-modal&#39;).classList.add(&#39;hidden&#39;)&quot; class=&quot;absolute -top-10 right-0 text-white text-2xl hover:text-gray-300&quot;>&amp;times;</button>
+        <div class=&quot;aspect-video bg-gray-800 rounded-2xl overflow-hidden flex items-center justify-center&quot;>
+          <div class=&quot;text-center&quot;><div class=&quot;text-6xl mb-4&quot;>&amp;#128444;</div><p class=&quot;text-gray-400 text-sm&quot;>Image preview placeholder</p><p class=&quot;text-xs text-gray-500 mt-1&quot;>Replace with &amp;lt;img&amp;gt; tag</p></div>
+        </div>
+        <p class=&quot;mt-3 text-center text-white text-sm&quot;>Photo 1 of 5 - Mountain Landscape</p>
+        <div class=&quot;flex justify-center gap-4 mt-4&quot;>
+          <button class=&quot;px-4 py-2 bg-white/10 rounded-lg text-white text-sm hover:bg-white/20 transition&quot;>&amp;#8592; Previous</button>
+          <button class=&quot;px-4 py-2 bg-white/10 rounded-lg text-white text-sm hover:bg-white/20 transition&quot;>Next &amp;#8594;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Toast Notifications Container -->
+    <div id=&quot;toast-container&quot; class=&quot;fixed top-4 right-4 z-50 space-y-3 pointer-events-none&quot;></div>
+
+    <!-- 5. Bottom Sheet -->
+    <div id=&quot;bottom-sheet&quot; class=&quot;hidden fixed inset-0 z-50 flex items-end&quot;>
+      <div class=&quot;absolute inset-0 bg-black/50&quot; onclick=&quot;this.parentElement.classList.add(&#39;hidden&#39;)&quot;></div>
+      <div class=&quot;sheet-enter relative w-full bg-white dark:bg-gray-800 rounded-t-3xl max-h-[70vh] overflow-auto border-t border-gray-200 dark:border-gray-700&quot;>
+        <div class=&quot;flex justify-center py-3&quot;><div class=&quot;w-10 h-1 bg-gray-300 dark:bg-gray-600 rounded-full&quot;></div></div>
+        <div class=&quot;px-6 pb-8&quot;>
+          <h3 class=&quot;text-lg font-bold text-gray-900 dark:text-white mb-4&quot;>Share th" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Modal Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Modal patterns: confirm dialog, form modal, image gallery, notification toast, and bottom sheet</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">modal</span><span class="tag-chip">dialog</span><span class="tag-chip">toast</span><span class="tag-chip">popup</span><span class="tag-chip">tailwind</span></div>
@@ -1311,7 +2279,145 @@
          data-preview-url="previews/monitoring-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><iframe src="previews/monitoring-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>System Monitor</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <style>
+    @keyframes pulse-green { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); } 50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); } }
+    .pulse-green { animation: pulse-green 2s infinite; }
+    @keyframes pulse-yellow { 0%, 100% { box-shadow: 0 0 0 0 rgba(234,179,8,0.4); } 50% { box-shadow: 0 0 0 6px rgba(234,179,8,0); } }
+    .pulse-yellow { animation: pulse-yellow 2s infinite; }
+    @keyframes pulse-red { 0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); } 50% { box-shadow: 0 0 0 6px rgba(239,68,68,0); } }
+    .pulse-red { animation: pulse-red 1.5s infinite; }
+  </style>
+</head>
+<body class=&quot;bg-gray-950 text-gray-100 min-h-screen p-6&quot;>
+
+  <div class=&quot;max-w-6xl mx-auto&quot;>
+    <!-- Header -->
+    <div class=&quot;flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8&quot;>
+      <div>
+        <h1 class=&quot;text-2xl font-bold&quot;>System Monitor</h1>
+        <p class=&quot;text-sm text-gray-400&quot;>Real-time infrastructure health</p>
+      </div>
+      <div class=&quot;flex items-center gap-3&quot;>
+        <span class=&quot;flex items-center gap-2 px-4 py-2 bg-green-900/30 border border-green-800 rounded-lg text-sm text-green-400&quot;>
+          <span class=&quot;w-2.5 h-2.5 bg-green-500 rounded-full pulse-green&quot;></span>
+          All Systems Operational
+        </span>
+        <span class=&quot;text-xs text-gray-500&quot;>Updated 5s ago</span>
+      </div>
+    </div>
+
+    <!-- Service Status Grid -->
+    <div class=&quot;grid grid-cols-2 md:grid-cols-4 gap-4 mb-8&quot;>
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-5&quot;>
+        <div class=&quot;flex items-center gap-2 mb-3&quot;>
+          <span class=&quot;w-3 h-3 bg-green-500 rounded-full pulse-green&quot;></span>
+          <span class=&quot;text-sm font-medium&quot;>API Server</span>
+        </div>
+        <div class=&quot;text-2xl font-bold text-green-400&quot;>99.99%</div>
+        <div class=&quot;text-xs text-gray-500 mt-1&quot;>Uptime (30d)</div>
+        <div class=&quot;mt-3 text-xs text-gray-400&quot;>Latency: <span class=&quot;text-white font-medium&quot;>42ms</span></div>
+      </div>
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-5&quot;>
+        <div class=&quot;flex items-center gap-2 mb-3&quot;>
+          <span class=&quot;w-3 h-3 bg-green-500 rounded-full pulse-green&quot;></span>
+          <span class=&quot;text-sm font-medium&quot;>Database</span>
+        </div>
+        <div class=&quot;text-2xl font-bold text-green-400&quot;>99.95%</div>
+        <div class=&quot;text-xs text-gray-500 mt-1&quot;>Uptime (30d)</div>
+        <div class=&quot;mt-3 text-xs text-gray-400&quot;>Connections: <span class=&quot;text-white font-medium&quot;>48/100</span></div>
+      </div>
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-5&quot;>
+        <div class=&quot;flex items-center gap-2 mb-3&quot;>
+          <span class=&quot;w-3 h-3 bg-green-500 rounded-full pulse-green&quot;></span>
+          <span class=&quot;text-sm font-medium&quot;>CDN</span>
+        </div>
+        <div class=&quot;text-2xl font-bold text-green-400&quot;>100%</div>
+        <div class=&quot;text-xs text-gray-500 mt-1&quot;>Uptime (30d)</div>
+        <div class=&quot;mt-3 text-xs text-gray-400&quot;>Hit Rate: <span class=&quot;text-white font-medium&quot;>94.2%</span></div>
+      </div>
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-5&quot;>
+        <div class=&quot;flex items-center gap-2 mb-3&quot;>
+          <span class=&quot;w-3 h-3 bg-yellow-500 rounded-full pulse-yellow&quot;></span>
+          <span class=&quot;text-sm font-medium&quot;>Queue</span>
+        </div>
+        <div class=&quot;text-2xl font-bold text-yellow-400&quot;>98.2%</div>
+        <div class=&quot;text-xs text-gray-500 mt-1&quot;>Uptime (30d)</div>
+        <div class=&quot;mt-3 text-xs text-gray-400&quot;>Depth: <span class=&quot;text-yellow-300 font-medium&quot;>1,240 msgs</span></div>
+      </div>
+    </div>
+
+    <!-- Metrics Row -->
+    <div class=&quot;grid md:grid-cols-2 gap-4 mb-8&quot;>
+      <!-- Response Time -->
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-6&quot;>
+        <div class=&quot;flex items-center justify-between mb-4&quot;>
+          <h2 class=&quot;font-semibold&quot;>Response Time (p95)</h2>
+          <span class=&quot;text-sm text-emerald-400 font-medium&quot;>42ms avg</span>
+        </div>
+        <div class=&quot;flex items-end gap-1 h-32&quot;>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:60%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:55%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:70%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:45%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:80%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:65%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:50%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:42%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:58%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:75%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-900/40 rounded-t&quot; style=&quot;height:35%&quot;></div>
+          <div class=&quot;flex-1 bg-emerald-500 rounded-t&quot; style=&quot;height:42%&quot;></div>
+        </div>
+        <div class=&quot;flex justify-between text-xs text-gray-500 mt-2&quot;><span>12h ago</span><span>Now</span></div>
+      </div>
+      <!-- Error Rate -->
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-6&quot;>
+        <div class=&quot;flex items-center justify-between mb-4&quot;>
+          <h2 class=&quot;font-semibold&quot;>Error Rate</h2>
+          <span class=&quot;text-sm text-emerald-400 font-medium&quot;>0.02%</span>
+        </div>
+        <div class=&quot;flex items-end gap-1 h-32&quot;>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:10%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:8%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:15%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:12%&quot;></div>
+          <div class=&quot;flex-1 bg-red-500/40 rounded-t&quot; style=&quot;height:45%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:18%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:5%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:3%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:7%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:4%&quot;></div>
+          <div class=&quot;flex-1 bg-red-900/30 rounded-t&quot; style=&quot;height:2%&quot;></div>
+          <div class=&quot;flex-1 bg-red-500 rounded-t&quot; style=&quot;height:2%&quot;></div>
+        </div>
+        <div class=&quot;flex justify-between text-xs text-gray-500 mt-2&quot;><span>12h ago</span><span>Now</span></div>
+      </div>
+    </div>
+
+    <!-- System Resources -->
+    <div class=&quot;grid grid-cols-3 gap-4 mb-8&quot;>
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-5 text-center&quot;>
+        <div class=&quot;text-sm text-gray-400 mb-2&quot;>CPU Usage</div>
+        <div class=&quot;relative w-20 h-20 mx-auto&quot;>
+          <svg class=&quot;w-20 h-20 -rotate-90&quot; viewBox=&quot;0 0 36 36&quot;>
+            <path d=&quot;M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831&quot; fill=&quot;none&quot; stroke=&quot;#1f2937&quot; stroke-width=&quot;3&quot;/>
+            <path d=&quot;M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831&quot; fill=&quot;none&quot; stroke=&quot;#10b981&quot; stroke-width=&quot;3&quot; stroke-dasharray=&quot;34, 100&quot;/>
+          </svg>
+          <div class=&quot;absolute inset-0 flex items-center justify-center text-lg font-bold&quot;>34%</div>
+        </div>
+        <div class=&quot;text-xs text-gray-500 mt-2&quot;>4 cores / 8 threads</div>
+      </div>
+      <div class=&quot;bg-gray-900 border border-gray-800 rounded-xl p-5 text-center&quot;>
+        <div class=&quot;text-sm text-gray-400 mb-2&quot;>Memory</div>
+        <div class=&quot;relative w-20 h-20 mx-auto&quot;>
+          <svg class=&quot;w-20 h-20 -rotate-90&quot; viewBox=" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">System Monitoring Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">System monitoring dashboard with status indicators, uptime metrics, alerts log, and service health</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">monitoring</span><span class="tag-chip">devops</span><span class="tag-chip">status</span><span class="tag-chip">uptime</span><span class="tag-chip">alerts</span></div>
@@ -1325,7 +2431,108 @@
          data-preview-url="previews/navigation-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/navigation-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Navigation Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-100 dark:bg-gray-900 min-h-screen&quot;>
+  <div class=&quot;max-w-6xl mx-auto p-8 space-y-12&quot;>
+
+    <h1 class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;>Navigation Components</h1>
+
+    <!-- 1. Top Navbar (Transparent + Blur) -->
+    <div>
+      <h2 class=&quot;text-lg font-semibold text-gray-900 dark:text-white mb-3&quot;>Top Navbar</h2>
+      <nav class=&quot;bg-white/80 dark:bg-gray-800/80 backdrop-blur rounded-2xl border border-gray-200 dark:border-gray-700 px-6 h-16 flex items-center justify-between&quot;>
+        <a href=&quot;#&quot; class=&quot;text-xl font-bold text-indigo-600&quot;>Brand</a>
+        <div class=&quot;hidden md:flex items-center gap-8&quot;>
+          <a href=&quot;#&quot; class=&quot;text-sm font-medium text-gray-900 dark:text-white&quot;>Home</a>
+          <a href=&quot;#&quot; class=&quot;text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition&quot;>Products</a>
+          <a href=&quot;#&quot; class=&quot;text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition&quot;>Pricing</a>
+          <a href=&quot;#&quot; class=&quot;text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition&quot;>Docs</a>
+        </div>
+        <div class=&quot;hidden md:flex items-center gap-3&quot;>
+          <a href=&quot;#&quot; class=&quot;text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition&quot;>Log in</a>
+          <a href=&quot;#&quot; class=&quot;px-4 py-2 bg-indigo-600 text-white text-sm rounded-lg font-medium hover:bg-indigo-700 transition&quot;>Sign Up</a>
+        </div>
+        <button class=&quot;md:hidden&quot; onclick=&quot;document.getElementById(&#39;mob-menu&#39;).classList.toggle(&#39;hidden&#39;)&quot;>
+          <svg class=&quot;w-6 h-6 text-gray-900 dark:text-white&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M4 6h16M4 12h16M4 18h16&quot;/></svg>
+        </button>
+      </nav>
+      <div id=&quot;mob-menu&quot; class=&quot;hidden md:hidden mt-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 space-y-3&quot;>
+        <a href=&quot;#&quot; class=&quot;block text-sm font-medium text-gray-900 dark:text-white&quot;>Home</a>
+        <a href=&quot;#&quot; class=&quot;block text-sm text-gray-500&quot;>Products</a>
+        <a href=&quot;#&quot; class=&quot;block text-sm text-gray-500&quot;>Pricing</a>
+        <a href=&quot;#&quot; class=&quot;block text-sm text-gray-500&quot;>Docs</a>
+        <hr class=&quot;border-gray-200 dark:border-gray-700&quot;>
+        <a href=&quot;#&quot; class=&quot;block px-4 py-2 bg-indigo-600 text-white text-sm rounded-lg text-center font-medium&quot;>Sign Up</a>
+      </div>
+    </div>
+
+    <!-- 2. Sidebar Navigation -->
+    <div>
+      <h2 class=&quot;text-lg font-semibold text-gray-900 dark:text-white mb-3&quot;>Sidebar Navigation</h2>
+      <div class=&quot;w-64 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4&quot;>
+        <div class=&quot;px-3 mb-6&quot;><span class=&quot;text-lg font-bold text-indigo-600&quot;>AppName</span></div>
+        <nav class=&quot;space-y-1&quot;>
+          <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-sm font-medium&quot;>
+            <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6&quot;/></svg>
+            Dashboard</a>
+          <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg text-sm&quot;>
+            <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z&quot;/></svg>
+            Analytics</a>
+          <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg text-sm&quot;>
+            <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z&quot;/></svg>
+            Users</a>
+          <div class=&quot;pt-3 mt-3 border-t border-gray-200 dark:border-gray-700&quot;>
+            <a href=&quot;#&quot; class=&quot;flex items-center gap-3 px-3 py-2.5 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg text-sm&quot;>
+              <svg class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z&quot;/><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M15 12a3 3 0 11-6 0 3 3 0 016 0z&quot;/></svg>
+              Settings</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 3. Breadcrumb -->
+    <div>
+      <h2 class=&quot;text-lg font-semibold text-gray-900 dark:text-white mb-3&quot;>Breadcrumb</h2>
+      <nav class=&quot;bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 px-4 py-3&quot;>
+        <ol class=&quot;flex items-center gap-2 text-sm&quot;>
+          <li><a href=&quot;#&quot; class=&quot;text-gray-500 hover:text-indigo-600 transition&quot;>Home</a></li>
+          <li class=&quot;text-gray-300&quot;>/</li>
+          <li><a href=&quot;#&quot; class=&quot;text-gray-500 hover:text-indigo-600 transition&quot;>Documentation</a></li>
+          <li class=&quot;text-gray-300&quot;>/</li>
+          <li><a href=&quot;#&quot; class=&quot;text-gray-500 hover:text-indigo-600 transition&quot;>API Reference</a></li>
+          <li class=&quot;text-gray-300&quot;>/</li>
+          <li class=&quot;text-gray-900 dark:text-white font-medium&quot;>Authentication</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- 4. Tabs -->
+    <div>
+      <h2 class=&quot;text-lg font-semibold text-gray-900 dark:text-white mb-3&quot;>Tabs</h2>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden&quot;>
+        <div class=&quot;flex border-b border-gray-200 dark:border-gray-700&quot;>
+          <button class=&quot;px-6 py-3 text-sm font-medium text-indigo-600 border-b-2 border-indigo-600&quot;>Overview</button>
+          <button class=&quot;px-6 py-3 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition&quot;>Analytics</button>
+          <button class=&quot;px-6 py-3 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition&quot;>Reports</button>
+          <button class=&quot;px-6 py-3 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition&quot;>Settings</button>
+        </div>
+        <div class=&quot;p-6&quot;>
+          <p class=&quot;text-sm text-gray-600 dark:text-gray-400&quot;>Tab content goes here. Each tab shows different content by toggling visibility.</p>
+        </div>
+      </div>
+
+      <!-- Pill Tabs Variant -->
+      <div class=&quot;mt-4 flex gap-1 bg-gray-200 dark:bg-gray-700 p-1 rounded-xl w-fit&quot;>
+        <button class=&quot;px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-sm font-medium shadow-sm text-gray-900 dark:text-white&quot;>Daily</button>
+        <button class=&quot;px-4 py-2 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition rounded-lg&quot;>Weekly</button>
+        <button class=&quot;px-4 py-2 text-sm text-gray-50" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Navigation Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Nav patterns: top bar, sidebar, mobile hamburger, breadcrumb, and tabbed navigation</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">navigation</span><span class="tag-chip">navbar</span><span class="tag-chip">sidebar</span><span class="tag-chip">tabs</span><span class="tag-chip">breadcrumb</span></div>
@@ -1381,7 +2588,136 @@
          data-preview-url="previews/portfolio-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><iframe src="previews/portfolio-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot; class=&quot;scroll-smooth&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Jane Doe - Developer Portfolio</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <style>
+    .skill-bar { transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+  </style>
+</head>
+<body class=&quot;bg-gray-950 text-gray-100&quot;>
+
+  <!-- Nav -->
+  <nav class=&quot;fixed w-full top-0 z-50 bg-gray-950/80 backdrop-blur border-b border-gray-800&quot;>
+    <div class=&quot;max-w-5xl mx-auto px-6 h-14 flex items-center justify-between&quot;>
+      <a href=&quot;#&quot; class=&quot;text-lg font-bold text-emerald-400&quot;>JD</a>
+      <div class=&quot;flex gap-6 text-sm text-gray-400&quot;>
+        <a href=&quot;#about&quot; class=&quot;hover:text-white transition&quot;>About</a>
+        <a href=&quot;#projects&quot; class=&quot;hover:text-white transition&quot;>Projects</a>
+        <a href=&quot;#skills&quot; class=&quot;hover:text-white transition&quot;>Skills</a>
+        <a href=&quot;#contact&quot; class=&quot;hover:text-white transition&quot;>Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero / About -->
+  <section id=&quot;about&quot; class=&quot;pt-32 pb-20 px-6&quot;>
+    <div class=&quot;max-w-3xl mx-auto text-center fade-up&quot;>
+      <div class=&quot;w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center text-3xl font-bold text-gray-950 mb-6&quot;>JD</div>
+      <h1 class=&quot;text-4xl md:text-5xl font-bold&quot;>Hi, I&#39;m <span class=&quot;text-emerald-400&quot;>Jane Doe</span></h1>
+      <p class=&quot;mt-4 text-lg text-gray-400&quot;>Full-stack developer specializing in React, Python, and cloud infrastructure. Open source contributor with 5+ years of experience building products used by thousands.</p>
+      <div class=&quot;mt-8 flex gap-4 justify-center&quot;>
+        <a href=&quot;https://github.com&quot; target=&quot;_blank&quot; class=&quot;px-5 py-2 bg-gray-800 rounded-lg text-sm hover:bg-gray-700 transition&quot;>GitHub</a>
+        <a href=&quot;https://linkedin.com&quot; target=&quot;_blank&quot; class=&quot;px-5 py-2 bg-gray-800 rounded-lg text-sm hover:bg-gray-700 transition&quot;>LinkedIn</a>
+        <a href=&quot;#&quot; class=&quot;px-5 py-2 bg-emerald-600 rounded-lg text-sm hover:bg-emerald-700 transition&quot;>Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id=&quot;projects&quot; class=&quot;py-20 px-6 bg-gray-900&quot;>
+    <div class=&quot;max-w-5xl mx-auto&quot;>
+      <h2 class=&quot;text-2xl font-bold text-center mb-12&quot;>Featured Projects</h2>
+      <div class=&quot;grid md:grid-cols-2 lg:grid-cols-3 gap-6&quot;>
+
+        <div class=&quot;group bg-gray-800 rounded-xl overflow-hidden hover:ring-2 hover:ring-emerald-400 transition&quot;>
+          <div class=&quot;h-40 bg-gradient-to-br from-emerald-900 to-cyan-900 flex items-center justify-center text-4xl&quot;>&amp;#128187;</div>
+          <div class=&quot;p-5&quot;>
+            <div class=&quot;flex items-center justify-between&quot;>
+              <h3 class=&quot;font-semibold&quot;>DevFlow CLI</h3>
+              <span class=&quot;text-xs px-2 py-0.5 bg-emerald-900 text-emerald-300 rounded-full&quot;>Open Source</span>
+            </div>
+            <p class=&quot;mt-2 text-sm text-gray-400&quot;>A Git workflow automation tool used by 3,000+ developers. Built with Python and Click.</p>
+            <div class=&quot;mt-4 flex gap-2 text-xs text-gray-500&quot;>
+              <span class=&quot;px-2 py-0.5 bg-gray-700 rounded&quot;>Python</span>
+              <span class=&quot;px-2 py-0.5 bg-gray-700 rounded&quot;>CLI</span>
+            </div>
+            <div class=&quot;mt-4 flex gap-3&quot;>
+              <a href=&quot;#&quot; class=&quot;text-sm text-emerald-400 hover:underline&quot;>Demo</a>
+              <a href=&quot;#&quot; class=&quot;text-sm text-gray-400 hover:underline&quot;>Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class=&quot;group bg-gray-800 rounded-xl overflow-hidden hover:ring-2 hover:ring-emerald-400 transition&quot;>
+          <div class=&quot;h-40 bg-gradient-to-br from-purple-900 to-pink-900 flex items-center justify-center text-4xl&quot;>&amp;#128200;</div>
+          <div class=&quot;p-5&quot;>
+            <div class=&quot;flex items-center justify-between&quot;>
+              <h3 class=&quot;font-semibold&quot;>TradeViz</h3>
+              <span class=&quot;text-xs px-2 py-0.5 bg-purple-900 text-purple-300 rounded-full&quot;>SaaS</span>
+            </div>
+            <p class=&quot;mt-2 text-sm text-gray-400&quot;>Real-time trading dashboard with candlestick charts and portfolio analytics.</p>
+            <div class=&quot;mt-4 flex gap-2 text-xs text-gray-500&quot;>
+              <span class=&quot;px-2 py-0.5 bg-gray-700 rounded&quot;>React</span>
+              <span class=&quot;px-2 py-0.5 bg-gray-700 rounded&quot;>D3.js</span>
+              <span class=&quot;px-2 py-0.5 bg-gray-700 rounded&quot;>FastAPI</span>
+            </div>
+            <div class=&quot;mt-4 flex gap-3&quot;>
+              <a href=&quot;#&quot; class=&quot;text-sm text-emerald-400 hover:underline&quot;>Live App</a>
+              <a href=&quot;#&quot; class=&quot;text-sm text-gray-400 hover:underline&quot;>Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class=&quot;group bg-gray-800 rounded-xl overflow-hidden hover:ring-2 hover:ring-emerald-400 transition&quot;>
+          <div class=&quot;h-40 bg-gradient-to-br from-orange-900 to-yellow-900 flex items-center justify-center text-4xl&quot;>&amp;#129302;</div>
+          <div class=&quot;p-5&quot;>
+            <div class=&quot;flex items-center justify-between&quot;>
+              <h3 class=&quot;font-semibold&quot;>AgentKit</h3>
+              <span class=&quot;text-xs px-2 py-0.5 bg-orange-900 text-orange-300 rounded-full&quot;>AI</span>
+            </div>
+            <p class=&quot;mt-2 text-sm text-gray-400&quot;>Multi-agent AI orchestration framework with tool-use and memory persistence.</p>
+            <div class=&quot;mt-4 flex gap-2 text-xs text-gray-500&quot;>
+              <span class=&quot;px-2 py-0.5 bg-gray-700 rounded&quot;>TypeScript</span>
+              <span class=&quot;px-2 py-0.5 bg-gray-700 rounded&quot;>LangChain</span>
+            </div>
+            <div class=&quot;mt-4 flex gap-3&quot;>
+              <a href=&quot;#&quot; class=&quot;text-sm text-emerald-400 hover:underline&quot;>Docs</a>
+              <a href=&quot;#&quot; class=&quot;text-sm text-gray-400 hover:underline&quot;>Source</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id=&quot;skills&quot; class=&quot;py-20 px-6&quot;>
+    <div class=&quot;max-w-3xl mx-auto&quot;>
+      <h2 class=&quot;text-2xl font-bold text-center mb-12&quot;>Skills</h2>
+      <div class=&quot;space-y-5&quot;>
+        <div><div class=&quot;flex justify-between text-sm mb-1&quot;><span>React / Next.js</span><span class=&quot;text-gray-500&quot;>92%</span></div><div class=&quot;h-2 bg-gray-800 rounded-full&quot;><div class=&quot;skill-bar h-2 bg-emerald-500 rounded-full&quot; style=&quot;width:92%&quot;></div></div></div>
+        <div><div class=&quot;flex justify-between text-sm mb-1&quot;><span>Python / FastAPI</span><span class=&quot;text-gray-500&quot;>88%</span></div><div class=&quot;h-2 bg-gray-800 rounded-full&quot;><div class=&quot;skill-bar h-2 bg-cyan-500 rounded-full&quot; style=&quot;width:88%&quot;></div></div></div>
+        <div><div class=&quot;flex justify-between text-sm mb-1&quot;><span>TypeScript</span><span class=&quot;text-gray-500&quot;>85%</span></div><div class=&quot;h-2 bg-gray-800 rounded-full&quot;><div class=&quot;skill-bar h-2 bg-blue-500 rounded-full&quot; style=&quot;width:85%&quot;></div></div></div>
+        <div><div class=&quot;flex justify-between text-sm mb-1&quot;><span>PostgreSQL / Redis</span><span class=&quot;text-gray-500&quot;>80%</span></div><div class=&quot;h-2 bg-gray-800 rounded-full&quot;><div class=&quot;skill-bar h-2 bg-purple-500 rounded-full&quot; style=&quot;width:80%&quot;></div></div></div>
+        <div><div class=&quot;flex justify-between text-sm mb-1&quot;><span>AWS / Docker / K8s</span><span class=&quot;text-gray-500&quot;>78%</span></div><div class=&quot;h-2 bg-gray-800 rounded-full&quot;><div class=&quot;skill-bar h-2 bg-orange-500 rounded-full&quot; style=&quot;width:78%&quot;></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id=&quot;contact&quot; class=&quot;py-20 px-6 bg-gray-900&quot;>
+    <div class=&quot;max-w-lg mx-auto&quot;>
+      <h2 class=&quot;text-2xl font-bold text-center mb-8&quot;>Get In Touch</h2>
+      <form class=&quot;space-y-4&quot; action=&quot;https://formspree.io/f/YOUR_ID&quot; method=&quot;POST&quot;>
+        <input name=&quot;name&quot; type=&quot;text&quot; placehold" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Developer Portfolio Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Clean developer portfolio with project grid, skills visualization, and contact form</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">portfolio</span><span class="tag-chip">developer</span><span class="tag-chip">tailwind</span><span class="tag-chip">responsive</span><span class="tag-chip">minimal</span></div>
@@ -1395,7 +2731,112 @@
          data-preview-url="previews/pricing-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/pricing-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Pricing Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-50 dark:bg-gray-900 p-8 min-h-screen&quot;>
+  <div class=&quot;max-w-6xl mx-auto space-y-20&quot;>
+
+    <h1 class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;>Pricing Components</h1>
+
+    <!-- 1. Three-Tier Pricing with Toggle -->
+    <section>
+      <div class=&quot;text-center mb-10&quot;>
+        <h2 class=&quot;text-3xl font-bold text-gray-900 dark:text-white&quot;>Simple, transparent pricing</h2>
+        <p class=&quot;mt-2 text-gray-500&quot;>Choose the plan that fits your needs. Cancel anytime.</p>
+        <!-- Toggle -->
+        <div class=&quot;mt-6 inline-flex items-center gap-3 bg-gray-200 dark:bg-gray-700 p-1 rounded-xl&quot;>
+          <button id=&quot;btn-monthly&quot; onclick=&quot;togglePricing(&#39;monthly&#39;)&quot; class=&quot;px-4 py-2 bg-white dark:bg-gray-800 rounded-lg text-sm font-medium shadow-sm text-gray-900 dark:text-white&quot;>Monthly</button>
+          <button id=&quot;btn-yearly&quot; onclick=&quot;togglePricing(&#39;yearly&#39;)&quot; class=&quot;px-4 py-2 text-sm text-gray-500 rounded-lg&quot;>Yearly <span class=&quot;text-xs text-emerald-600 font-bold&quot;>-20%</span></button>
+        </div>
+      </div>
+
+      <div class=&quot;grid md:grid-cols-3 gap-6 max-w-5xl mx-auto&quot;>
+        <!-- Starter -->
+        <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700&quot;>
+          <h3 class=&quot;text-lg font-semibold text-gray-900 dark:text-white&quot;>Starter</h3>
+          <p class=&quot;mt-1 text-sm text-gray-500&quot;>For individuals and side projects</p>
+          <div class=&quot;mt-6&quot;>
+            <span class=&quot;price-monthly text-4xl font-black text-gray-900 dark:text-white&quot;>$9</span>
+            <span class=&quot;price-yearly text-4xl font-black text-gray-900 dark:text-white hidden&quot;>$7</span>
+            <span class=&quot;text-gray-400&quot;>/month</span>
+          </div>
+          <ul class=&quot;mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-400&quot;>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> Up to 3 projects</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> 5GB storage</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> Community support</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> Basic analytics</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-gray-300&quot;>&amp;#10007;</span><span class=&quot;text-gray-400&quot;>Custom domains</span></li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-gray-300&quot;>&amp;#10007;</span><span class=&quot;text-gray-400&quot;>Team members</span></li>
+          </ul>
+          <button class=&quot;mt-8 w-full py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition text-gray-900 dark:text-white&quot;>Get Started</button>
+        </div>
+
+        <!-- Pro (Popular) -->
+        <div class=&quot;bg-indigo-600 text-white rounded-2xl p-8 shadow-xl shadow-indigo-600/20 relative&quot;>
+          <span class=&quot;absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-amber-400 text-amber-900 text-xs font-bold rounded-full&quot;>Most Popular</span>
+          <h3 class=&quot;text-lg font-semibold&quot;>Pro</h3>
+          <p class=&quot;mt-1 text-sm text-indigo-200&quot;>For growing teams and businesses</p>
+          <div class=&quot;mt-6&quot;>
+            <span class=&quot;price-monthly text-4xl font-black&quot;>$29</span>
+            <span class=&quot;price-yearly text-4xl font-black hidden&quot;>$23</span>
+            <span class=&quot;text-indigo-200&quot;>/month</span>
+          </div>
+          <ul class=&quot;mt-6 space-y-3 text-sm text-indigo-100&quot;>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-300&quot;>&amp;#10003;</span> Unlimited projects</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-300&quot;>&amp;#10003;</span> 100GB storage</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-300&quot;>&amp;#10003;</span> Priority support</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-300&quot;>&amp;#10003;</span> Advanced analytics</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-300&quot;>&amp;#10003;</span> Custom domains</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-300&quot;>&amp;#10003;</span> Up to 10 team members</li>
+          </ul>
+          <button class=&quot;mt-8 w-full py-3 bg-white text-indigo-700 rounded-xl font-bold text-sm hover:bg-indigo-50 transition&quot;>Start Free Trial</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700&quot;>
+          <h3 class=&quot;text-lg font-semibold text-gray-900 dark:text-white&quot;>Enterprise</h3>
+          <p class=&quot;mt-1 text-sm text-gray-500&quot;>For large organizations</p>
+          <div class=&quot;mt-6&quot;>
+            <span class=&quot;text-4xl font-black text-gray-900 dark:text-white&quot;>Custom</span>
+          </div>
+          <ul class=&quot;mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-400&quot;>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> Everything in Pro</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> Unlimited storage</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> Dedicated support</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> SSO / SAML</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> SLA guarantee</li>
+            <li class=&quot;flex gap-2&quot;><span class=&quot;text-emerald-500&quot;>&amp;#10003;</span> Unlimited team members</li>
+          </ul>
+          <button class=&quot;mt-8 w-full py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition text-gray-900 dark:text-white&quot;>Contact Sales</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Feature Comparison Table -->
+    <section>
+      <h2 class=&quot;text-xl font-bold text-gray-900 dark:text-white mb-6&quot;>Feature Comparison</h2>
+      <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-x-auto&quot;>
+        <table class=&quot;w-full text-sm&quot;>
+          <thead>
+            <tr class=&quot;border-b border-gray-200 dark:border-gray-700&quot;>
+              <th class=&quot;text-left px-6 py-4 font-medium text-gray-500 w-1/4&quot;>Feature</th>
+              <th class=&quot;text-center px-6 py-4 font-medium text-gray-500&quot;>Starter</th>
+              <th class=&quot;text-center px-6 py-4 font-medium text-indigo-600&quot;>Pro</th>
+              <th class=&quot;text-center px-6 py-4 font-medium text-gray-500&quot;>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody class=&quot;divide-y divide-gray-100 dark:divide-gray-700&quot;>
+            <tr><td class=&quot;px-6 py-3 text-gray-700 dark:text-gray-300&quot;>Projects</td><td class=&quot;px-6 py-3 text-center&quot;>3</td><td class=&quot;px-6 py-3 text-center font-medium text-indigo-600&quot;>Unlimited</td><td class=&quot;px-6 py-3 text-center&quot;>Unlimited</td></tr>
+            <tr><td class=&quot;px-6 py-3 text-gray-700 dark:text-gray-300&quot;>Storage</td><td class=&quot;px-6 py-3 text-center&quot;>5 GB</td><td class=&quot;px-6 py-3 text-center font-medium text-indigo-600&quot;>100 GB</td><td class=&quot;px-6 py-3 text-center&quot;>Unlimited</td></tr>
+            <tr><td class=&quot;px-6 py-3 text-gray-700 dark:text-gray-300&quot;>Team members</td><td class=&quot;px-6 py-3 text-center&quot;>1</td><td class=&quot;px-6 py-3 text-center font-medium text-indigo-600&quot;>10</td><td class=&quot;px-6 py-3 text-center&quot;>Unlimited</td></tr>
+            <tr><td class=&quot;px-6 py-3 text-gray-700 dark:text-gray-300&quot;>Custom domains</td><td class=&quot;px-6 py-3 text-center text-gray-300&quot;>&amp;#10007;</td><td class=&quot;px-6 py-3 text-center text-emerald-500&quot;>&amp;#10003;</td><td class=&quot;px-6 py-3 text-center text-emerald-500&quot;>&amp;#10003;</td></tr>
+            <tr><td class=&quot;px-6 py-3 text-gray-700 dark:text-gray-300&quot;>SSO / SAML</td><td class=&quot;px-6 py-3 text-center text-gray-300&quot;>&amp;#10007;</td><td cla" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Pricing Table Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Pricing patterns: 3-tier cards, monthly/yearly toggle, feature comparison, and enterprise CTA</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">pricing</span><span class="tag-chip">plans</span><span class="tag-chip">toggle</span><span class="tag-chip">comparison</span><span class="tag-chip">tailwind</span></div>
@@ -1409,7 +2850,135 @@
          data-preview-url="previews/product-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><iframe src="previews/product-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot; class=&quot;scroll-smooth&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>ProductX - The Future Is Here</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <style>
+    .carousel { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .carousel > div { scroll-snap-align: start; }
+    .carousel::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class=&quot;bg-black text-white&quot;>
+
+  <!-- Nav -->
+  <nav class=&quot;fixed w-full top-0 z-50 bg-black/70 backdrop-blur&quot;>
+    <div class=&quot;max-w-6xl mx-auto px-6 h-16 flex items-center justify-between&quot;>
+      <span class=&quot;text-xl font-bold&quot;>Product<span class=&quot;text-rose-500&quot;>X</span></span>
+      <div class=&quot;hidden md:flex items-center gap-8 text-sm text-gray-300&quot;>
+        <a href=&quot;#features&quot; class=&quot;hover:text-white&quot;>Features</a>
+        <a href=&quot;#reviews&quot; class=&quot;hover:text-white&quot;>Reviews</a>
+        <a href=&quot;#order&quot; class=&quot;px-5 py-2 bg-rose-600 rounded-full font-medium hover:bg-rose-700 transition text-white&quot;>Pre-Order</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero with Video -->
+  <section class=&quot;pt-28 pb-16 px-6&quot;>
+    <div class=&quot;max-w-4xl mx-auto text-center&quot;>
+      <p class=&quot;text-rose-400 text-sm font-medium tracking-wider uppercase mb-4&quot;>Launching March 2026</p>
+      <h1 class=&quot;text-5xl md:text-7xl font-black tracking-tight&quot;>The Future<br>Is <span class=&quot;text-rose-500&quot;>Here</span></h1>
+      <p class=&quot;mt-6 text-lg text-gray-400 max-w-xl mx-auto&quot;>ProductX redefines what&#39;s possible. Precision-engineered with cutting-edge technology for the modern creator.</p>
+    </div>
+    <!-- Video Placeholder -->
+    <div class=&quot;max-w-4xl mx-auto mt-12 aspect-video bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 relative group cursor-pointer&quot;>
+      <div class=&quot;absolute inset-0 flex items-center justify-center&quot;>
+        <div class=&quot;w-20 h-20 bg-rose-600 rounded-full flex items-center justify-center group-hover:scale-110 transition shadow-lg shadow-rose-600/30&quot;>
+          <svg class=&quot;w-8 h-8 text-white ml-1&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path d=&quot;M8 5v14l11-7z&quot;/></svg>
+        </div>
+      </div>
+      <div class=&quot;absolute inset-0 bg-gradient-to-t from-black/60 to-transparent&quot;></div>
+      <!-- Replace with: <video src=&quot;hero.mp4&quot; autoplay muted loop class=&quot;w-full h-full object-cover&quot;> -->
+      <!-- Or: <iframe src=&quot;https://youtube.com/embed/VIDEO_ID&quot; class=&quot;w-full h-full&quot;></iframe> -->
+    </div>
+  </section>
+
+  <!-- Feature Carousel -->
+  <section id=&quot;features&quot; class=&quot;py-20 px-6&quot;>
+    <div class=&quot;max-w-6xl mx-auto&quot;>
+      <h2 class=&quot;text-3xl font-bold text-center mb-12&quot;>Built Different</h2>
+      <div class=&quot;carousel flex gap-6 overflow-x-auto pb-4&quot;>
+        <div class=&quot;min-w-[300px] md:min-w-[350px] bg-gray-900 rounded-2xl p-8 border border-gray-800 flex-shrink-0&quot;>
+          <div class=&quot;text-4xl mb-4&quot;>&amp;#9889;</div>
+          <h3 class=&quot;text-xl font-bold&quot;>Blazing Performance</h3>
+          <p class=&quot;mt-3 text-gray-400 text-sm leading-relaxed&quot;>Our custom M4 chip delivers 3x the speed of competitors while using 50% less power. Benchmarks don&#39;t lie.</p>
+          <div class=&quot;mt-6 text-rose-400 font-bold text-2xl&quot;>3x Faster</div>
+        </div>
+        <div class=&quot;min-w-[300px] md:min-w-[350px] bg-gray-900 rounded-2xl p-8 border border-gray-800 flex-shrink-0&quot;>
+          <div class=&quot;text-4xl mb-4&quot;>&amp;#128267;</div>
+          <h3 class=&quot;text-xl font-bold&quot;>48hr Battery</h3>
+          <p class=&quot;mt-3 text-gray-400 text-sm leading-relaxed&quot;>Go two full days without charging. Our next-gen battery technology adapts to your usage patterns in real-time.</p>
+          <div class=&quot;mt-6 text-rose-400 font-bold text-2xl&quot;>48 Hours</div>
+        </div>
+        <div class=&quot;min-w-[300px] md:min-w-[350px] bg-gray-900 rounded-2xl p-8 border border-gray-800 flex-shrink-0&quot;>
+          <div class=&quot;text-4xl mb-4&quot;>&amp;#128247;</div>
+          <h3 class=&quot;text-xl font-bold&quot;>200MP Camera</h3>
+          <p class=&quot;mt-3 text-gray-400 text-sm leading-relaxed&quot;>Capture every detail with our quad-lens system. AI-enhanced night mode makes darkness irrelevant.</p>
+          <div class=&quot;mt-6 text-rose-400 font-bold text-2xl&quot;>200 MP</div>
+        </div>
+        <div class=&quot;min-w-[300px] md:min-w-[350px] bg-gray-900 rounded-2xl p-8 border border-gray-800 flex-shrink-0&quot;>
+          <div class=&quot;text-4xl mb-4&quot;>&amp;#128737;</div>
+          <h3 class=&quot;text-xl font-bold&quot;>Military-Grade Build</h3>
+          <p class=&quot;mt-3 text-gray-400 text-sm leading-relaxed&quot;>Titanium frame with sapphire glass. IP69 water and dust resistant. Built to survive anything life throws at it.</p>
+          <div class=&quot;mt-6 text-rose-400 font-bold text-2xl&quot;>IP69</div>
+        </div>
+      </div>
+      <div class=&quot;flex justify-center gap-2 mt-6&quot;>
+        <div class=&quot;w-8 h-1 bg-rose-500 rounded-full&quot;></div>
+        <div class=&quot;w-8 h-1 bg-gray-700 rounded-full&quot;></div>
+        <div class=&quot;w-8 h-1 bg-gray-700 rounded-full&quot;></div>
+        <div class=&quot;w-8 h-1 bg-gray-700 rounded-full&quot;></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id=&quot;reviews&quot; class=&quot;py-20 px-6 bg-gray-950&quot;>
+    <div class=&quot;max-w-5xl mx-auto&quot;>
+      <h2 class=&quot;text-3xl font-bold text-center mb-12&quot;>What Early Reviewers Say</h2>
+      <div class=&quot;grid md:grid-cols-3 gap-6&quot;>
+        <div class=&quot;bg-gray-900 rounded-2xl p-6 border border-gray-800&quot;>
+          <div class=&quot;flex gap-1 text-yellow-400 mb-4&quot;>&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;</div>
+          <p class=&quot;text-gray-300 text-sm&quot;>&quot;The performance is unreal. I edited a 4K video on this thing faster than my desktop. Game changer.&quot;</p>
+          <div class=&quot;mt-4 flex items-center gap-3&quot;>
+            <div class=&quot;w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center font-bold text-sm&quot;>MK</div>
+            <div><p class=&quot;text-sm font-medium&quot;>MKBHD</p><p class=&quot;text-xs text-gray-500&quot;>Tech Reviewer</p></div>
+          </div>
+        </div>
+        <div class=&quot;bg-gray-900 rounded-2xl p-6 border border-gray-800&quot;>
+          <div class=&quot;flex gap-1 text-yellow-400 mb-4&quot;>&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;</div>
+          <p class=&quot;text-gray-300 text-sm&quot;>&quot;Best camera system I&#39;ve tested in 2026. Night mode photos look like they were taken in daylight.&quot;</p>
+          <div class=&quot;mt-4 flex items-center gap-3&quot;>
+            <div class=&quot;w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center font-bold text-sm&quot;>TG</div>
+            <div><p class=&quot;text-sm font-medium&quot;>The Verge</p><p class=&quot;text-xs text-gray-500&quot;>Publication</p></div>
+          </div>
+        </div>
+        <div class=&quot;bg-gray-900 rounded-2xl p-6 border border-gray-800&quot;>
+          <div class=&quot;flex gap-1 text-yellow-400 mb-4&quot;>&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9734;</div>
+          <p class=&quot;text-gray-300 text-sm&quot;>&quot;Two days of battery life isn&#39;t marketing speak - I actually got 47 hours with heavy use. Impressive.&quot;</p>
+          <div class=&quot;mt-4 flex items-center gap-3&quot;>
+            <div class=&quot;w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center font-bold text-sm&quot;>AH</div>
+            <div><p class=&quot;text-sm font-medium&quot;>Ars Technica</p><p class=&quot;text-xs text-gray-500&quot;>Publication</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-Order CTA -->
+  <section id=&quot;order&quot; class=&quot;py-24 px-6&quot;>
+    <div class=&quot;max-w-2xl mx-auto text-center&quot;>
+      <h2 class=&quot;text-4xl font-black&quot;>Ready to Experience It?</h2>
+      <p class=&quot;mt-4 text-gray-400&quot;>Ships worldwide starting April 2026. Reserve yours today.</p>
+      <div class=&quot;mt-10 inline-flex flex-col items-center&quot;>
+        <div class=&quot;text-5xl font-black&quot;>$999</div>
+        <div class=&quot;text-sm text-gray-500 mt-1&quot;>Starting price &amp;middot; Free shipping</div>
+        <a href=&quot;#&quot; class=&quot;mt-6 px-10 py-4 bg-rose-600 text-lg font-bold rounded-full hover:bg-rose-700 shadow-xl shadow-rose-600/25 transition&quot;>Pre-Order Now</a>
+        <p class=&quot;mt-3 text-xs" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Product Launch Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Product launch page with hero video area, feature carousel, and testimonials</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">product</span><span class="tag-chip">launch</span><span class="tag-chip">video</span><span class="tag-chip">testimonials</span><span class="tag-chip">tailwind</span></div>
@@ -1477,7 +3046,126 @@
          data-preview-url="previews/saas-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><iframe src="previews/saas-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot; class=&quot;scroll-smooth&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>SaaSify - Build Faster. Ship Smarter.</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <script>
+    tailwind.config = {
+      darkMode: &#39;class&#39;,
+      theme: {
+        extend: {
+          colors: { brand: { 50:&#39;#eef2ff&#39;,100:&#39;#e0e7ff&#39;,500:&#39;#6366f1&#39;,600:&#39;#4f46e5&#39;,700:&#39;#4338ca&#39;,900:&#39;#312e81&#39; } }
+        }
+      }
+    }
+  </script>
+</head>
+<body class=&quot;bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100&quot;>
+
+  <!-- Navbar -->
+  <nav class=&quot;fixed w-full top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur border-b border-gray-200 dark:border-gray-800&quot;>
+    <div class=&quot;max-w-7xl mx-auto px-6 h-16 flex items-center justify-between&quot;>
+      <a href=&quot;#&quot; class=&quot;text-xl font-bold text-brand-600&quot;>SaaSify</a>
+      <div class=&quot;hidden md:flex items-center gap-8&quot;>
+        <a href=&quot;#features&quot; class=&quot;text-sm hover:text-brand-600 transition&quot;>Features</a>
+        <a href=&quot;#pricing&quot; class=&quot;text-sm hover:text-brand-600 transition&quot;>Pricing</a>
+        <a href=&quot;#faq&quot; class=&quot;text-sm hover:text-brand-600 transition&quot;>FAQ</a>
+        <a href=&quot;#&quot; class=&quot;text-sm text-gray-500&quot;>Log in</a>
+        <a href=&quot;#&quot; class=&quot;px-4 py-2 bg-brand-600 text-white text-sm rounded-lg hover:bg-brand-700 transition&quot;>Get Started</a>
+      </div>
+      <button id=&quot;menu-btn&quot; class=&quot;md:hidden p-2&quot; onclick=&quot;document.getElementById(&#39;mobile-menu&#39;).classList.toggle(&#39;hidden&#39;)&quot;>
+        <svg class=&quot;w-6 h-6&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;><path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M4 6h16M4 12h16M4 18h16&quot;/></svg>
+      </button>
+    </div>
+    <div id=&quot;mobile-menu&quot; class=&quot;hidden md:hidden px-6 pb-4 space-y-3&quot;>
+      <a href=&quot;#features&quot; class=&quot;block text-sm&quot;>Features</a>
+      <a href=&quot;#pricing&quot; class=&quot;block text-sm&quot;>Pricing</a>
+      <a href=&quot;#&quot; class=&quot;block px-4 py-2 bg-brand-600 text-white text-sm rounded-lg text-center&quot;>Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class=&quot;pt-32 pb-20 px-6&quot;>
+    <div class=&quot;max-w-4xl mx-auto text-center&quot;>
+      <div class=&quot;inline-block px-4 py-1 mb-6 text-xs font-medium bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-100 rounded-full&quot;>New: AI-powered workflows</div>
+      <h1 class=&quot;text-5xl md:text-6xl font-extrabold tracking-tight leading-tight&quot;>Build Faster.<br><span class=&quot;text-brand-600&quot;>Ship Smarter.</span></h1>
+      <p class=&quot;mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto&quot;>The all-in-one platform that helps modern teams automate workflows, collaborate in real-time, and ship products 10x faster.</p>
+      <div class=&quot;mt-10 flex flex-col sm:flex-row gap-4 justify-center&quot;>
+        <a href=&quot;#&quot; class=&quot;px-8 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 shadow-lg shadow-brand-600/25 transition&quot;>Start Free Trial</a>
+        <a href=&quot;#&quot; class=&quot;px-8 py-3 border border-gray-300 dark:border-gray-700 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-900 transition flex items-center gap-2 justify-center&quot;>Watch Demo <span>&amp;#8594;</span></a>
+      </div>
+      <p class=&quot;mt-4 text-xs text-gray-400&quot;>No credit card required. 14-day free trial.</p>
+    </div>
+  </section>
+
+  <!-- Logos -->
+  <section class=&quot;py-12 border-y border-gray-100 dark:border-gray-800&quot;>
+    <div class=&quot;max-w-5xl mx-auto px-6 text-center&quot;>
+      <p class=&quot;text-xs uppercase tracking-widest text-gray-400 mb-6&quot;>Trusted by 2,000+ teams worldwide</p>
+      <div class=&quot;flex flex-wrap justify-center gap-10 opacity-40 grayscale text-2xl font-bold&quot;>
+        <span>Stripe</span><span>Vercel</span><span>Linear</span><span>Notion</span><span>Figma</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id=&quot;features&quot; class=&quot;py-24 px-6&quot;>
+    <div class=&quot;max-w-6xl mx-auto&quot;>
+      <h2 class=&quot;text-3xl font-bold text-center&quot;>Everything you need to ship fast</h2>
+      <p class=&quot;text-center text-gray-500 mt-3 max-w-xl mx-auto&quot;>Powerful tools that integrate seamlessly into your existing workflow.</p>
+      <div class=&quot;mt-16 grid md:grid-cols-3 gap-8&quot;>
+        <div class=&quot;p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition&quot;>
+          <div class=&quot;w-12 h-12 bg-brand-50 dark:bg-brand-900/30 rounded-xl flex items-center justify-center text-brand-600 text-xl mb-4&quot;>&amp;#9889;</div>
+          <h3 class=&quot;font-semibold text-lg&quot;>Lightning Fast</h3>
+          <p class=&quot;mt-2 text-sm text-gray-500&quot;>Sub-100ms response times with edge computing and smart caching built in.</p>
+        </div>
+        <div class=&quot;p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition&quot;>
+          <div class=&quot;w-12 h-12 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-green-600 text-xl mb-4&quot;>&amp;#128274;</div>
+          <h3 class=&quot;font-semibold text-lg&quot;>Enterprise Security</h3>
+          <p class=&quot;mt-2 text-sm text-gray-500&quot;>SOC2 Type II certified. End-to-end encryption. SSO and RBAC included.</p>
+        </div>
+        <div class=&quot;p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition&quot;>
+          <div class=&quot;w-12 h-12 bg-purple-50 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-purple-600 text-xl mb-4&quot;>&amp;#128640;</div>
+          <h3 class=&quot;font-semibold text-lg&quot;>AI Workflows</h3>
+          <p class=&quot;mt-2 text-sm text-gray-500&quot;>Automate repetitive tasks with AI-powered pipelines that learn your patterns.</p>
+        </div>
+        <div class=&quot;p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition&quot;>
+          <div class=&quot;w-12 h-12 bg-orange-50 dark:bg-orange-900/30 rounded-xl flex items-center justify-center text-orange-600 text-xl mb-4&quot;>&amp;#128295;</div>
+          <h3 class=&quot;font-semibold text-lg&quot;>API First</h3>
+          <p class=&quot;mt-2 text-sm text-gray-500&quot;>RESTful and GraphQL APIs with SDKs for Python, Node.js, Go, and Rust.</p>
+        </div>
+        <div class=&quot;p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition&quot;>
+          <div class=&quot;w-12 h-12 bg-cyan-50 dark:bg-cyan-900/30 rounded-xl flex items-center justify-center text-cyan-600 text-xl mb-4&quot;>&amp;#128202;</div>
+          <h3 class=&quot;font-semibold text-lg&quot;>Real-time Analytics</h3>
+          <p class=&quot;mt-2 text-sm text-gray-500&quot;>Live dashboards, custom reports, and automated alerts for your key metrics.</p>
+        </div>
+        <div class=&quot;p-6 rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-lg transition&quot;>
+          <div class=&quot;w-12 h-12 bg-pink-50 dark:bg-pink-900/30 rounded-xl flex items-center justify-center text-pink-600 text-xl mb-4&quot;>&amp;#127760;</div>
+          <h3 class=&quot;font-semibold text-lg&quot;>Global Scale</h3>
+          <p class=&quot;mt-2 text-sm text-gray-500&quot;>Deploy to 30+ edge regions. Auto-scaling handles traffic spikes seamlessly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id=&quot;pricing&quot; class=&quot;py-24 px-6 bg-gray-50 dark:bg-gray-900&quot;>
+    <div class=&quot;max-w-5xl mx-auto text-center&quot;>
+      <h2 class=&quot;text-3xl font-bold&quot;>Simple, transparent pricing</h2>
+      <p class=&quot;text-gray-500 mt-3&quot;>No hidden fees. Cancel anytime.</p>
+      <div class=&quot;mt-16 grid md:grid-cols-3 gap-8&quot;>
+        <!-- Starter -->
+        <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-left&quot;>
+          <h3 class=&quot;font-semibold text-lg&quot;>Starter</h3>
+          <div class=&quot;mt-4&quot;><span class=&quot;text-4xl font-bold&quot;>$9</span><span class=&quot;text-gray-400&quot;>/mo</span></div>
+          <ul class=&quot;mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-400&quot;>
+            <li>&amp;#10003; Up to 5 users</li><li>&amp;#10003; 10GB storage</li><li>&amp;#10003; Basic analytics</li><li>&amp;#10003; Email support</li>
+          </ul>
+          <a href=&quot;#&quot; class=&quot;mt-8 block text-center py-2.5 border border-gray-300 " loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">SaaS Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Modern SaaS landing page with hero, features, pricing, and CTA sections built with Tailwind CSS</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">saas</span><span class="tag-chip">tailwind</span><span class="tag-chip">landing</span><span class="tag-chip">responsive</span><span class="tag-chip">dark-mode</span></div>
@@ -1533,7 +3221,125 @@
          data-preview-url="previews/startup-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><iframe src="previews/startup-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot; class=&quot;scroll-smooth&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>NexaAI - AI-Powered Enterprise Automation</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-white text-gray-900&quot;>
+
+  <!-- Nav -->
+  <nav class=&quot;fixed w-full top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100&quot;>
+    <div class=&quot;max-w-6xl mx-auto px-6 h-16 flex items-center justify-between&quot;>
+      <span class=&quot;text-xl font-bold&quot;>Nexa<span class=&quot;text-blue-600&quot;>AI</span></span>
+      <div class=&quot;flex items-center gap-6 text-sm&quot;>
+        <a href=&quot;#problem&quot; class=&quot;hidden md:inline text-gray-500 hover:text-gray-900&quot;>Problem</a>
+        <a href=&quot;#solution&quot; class=&quot;hidden md:inline text-gray-500 hover:text-gray-900&quot;>Solution</a>
+        <a href=&quot;#team&quot; class=&quot;hidden md:inline text-gray-500 hover:text-gray-900&quot;>Team</a>
+        <a href=&quot;#cta&quot; class=&quot;px-5 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition&quot;>Request Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class=&quot;pt-32 pb-20 px-6&quot;>
+    <div class=&quot;max-w-3xl mx-auto text-center&quot;>
+      <div class=&quot;inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-full mb-6&quot;>
+        <span class=&quot;w-2 h-2 bg-blue-500 rounded-full animate-pulse&quot;></span> Y Combinator W26 Batch
+      </div>
+      <h1 class=&quot;text-4xl md:text-6xl font-extrabold tracking-tight leading-tight&quot;>Enterprise teams waste<br><span class=&quot;text-blue-600&quot;>40% of time</span> on repetitive tasks</h1>
+      <p class=&quot;mt-6 text-lg text-gray-500&quot;>NexaAI automates complex workflows with AI agents that learn from your team&#39;s patterns. Save 15+ hours per employee per week.</p>
+      <div class=&quot;mt-8 flex flex-col sm:flex-row gap-3 justify-center&quot;>
+        <a href=&quot;#cta&quot; class=&quot;px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition&quot;>Request Demo</a>
+        <a href=&quot;#&quot; class=&quot;px-8 py-3 border border-gray-200 rounded-xl font-semibold hover:bg-gray-50 transition&quot;>Read Our Deck</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Solution -->
+  <section id=&quot;problem&quot; class=&quot;py-20 px-6 bg-gray-50&quot;>
+    <div class=&quot;max-w-5xl mx-auto grid md:grid-cols-2 gap-12&quot;>
+      <div>
+        <span class=&quot;text-xs font-bold text-red-500 uppercase tracking-wider&quot;>The Problem</span>
+        <h2 class=&quot;text-3xl font-bold mt-3&quot;>Manual Processes Are Killing Productivity</h2>
+        <ul class=&quot;mt-6 space-y-4&quot;>
+          <li class=&quot;flex gap-3&quot;><span class=&quot;text-red-400 text-lg mt-0.5&quot;>&amp;#10007;</span><div><p class=&quot;font-medium&quot;>Data entry consumes 12 hours/week per employee</p><p class=&quot;text-sm text-gray-500 mt-1&quot;>Teams manually copy data between 5+ tools daily</p></div></li>
+          <li class=&quot;flex gap-3&quot;><span class=&quot;text-red-400 text-lg mt-0.5&quot;>&amp;#10007;</span><div><p class=&quot;font-medium&quot;>$50K+/year wasted on failed automation attempts</p><p class=&quot;text-sm text-gray-500 mt-1&quot;>Traditional RPA breaks when workflows change</p></div></li>
+          <li class=&quot;flex gap-3&quot;><span class=&quot;text-red-400 text-lg mt-0.5&quot;>&amp;#10007;</span><div><p class=&quot;font-medium&quot;>Top talent quits due to tedious work</p><p class=&quot;text-sm text-gray-500 mt-1&quot;>35% of knowledge workers cite &quot;boring tasks&quot; as reason for leaving</p></div></li>
+        </ul>
+      </div>
+      <div id=&quot;solution&quot;>
+        <span class=&quot;text-xs font-bold text-green-600 uppercase tracking-wider&quot;>Our Solution</span>
+        <h2 class=&quot;text-3xl font-bold mt-3&quot;>AI Agents That Adapt and Learn</h2>
+        <ul class=&quot;mt-6 space-y-4&quot;>
+          <li class=&quot;flex gap-3&quot;><span class=&quot;text-green-500 text-lg mt-0.5&quot;>&amp;#10003;</span><div><p class=&quot;font-medium&quot;>Watch and learn from employee actions</p><p class=&quot;text-sm text-gray-500 mt-1&quot;>Our agents observe workflows and suggest automations</p></div></li>
+          <li class=&quot;flex gap-3&quot;><span class=&quot;text-green-500 text-lg mt-0.5&quot;>&amp;#10003;</span><div><p class=&quot;font-medium&quot;>Self-healing when tools or processes change</p><p class=&quot;text-sm text-gray-500 mt-1&quot;>AI detects UI changes and adapts automatically</p></div></li>
+          <li class=&quot;flex gap-3&quot;><span class=&quot;text-green-500 text-lg mt-0.5&quot;>&amp;#10003;</span><div><p class=&quot;font-medium&quot;>ROI visible within 2 weeks</p><p class=&quot;text-sm text-gray-500 mt-1&quot;>Average customer saves 15 hours/employee/week by week 3</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Traction / Metrics -->
+  <section class=&quot;py-20 px-6&quot;>
+    <div class=&quot;max-w-4xl mx-auto&quot;>
+      <h2 class=&quot;text-2xl font-bold text-center mb-12&quot;>Traction</h2>
+      <div class=&quot;grid grid-cols-2 md:grid-cols-4 gap-6 text-center&quot;>
+        <div class=&quot;p-6 bg-blue-50 rounded-2xl&quot;><div class=&quot;text-3xl font-black text-blue-600&quot;>$2.4B</div><div class=&quot;text-sm text-gray-500 mt-1&quot;>TAM (Enterprise Automation)</div></div>
+        <div class=&quot;p-6 bg-green-50 rounded-2xl&quot;><div class=&quot;text-3xl font-black text-green-600&quot;>10x</div><div class=&quot;text-sm text-gray-500 mt-1&quot;>YoY Revenue Growth</div></div>
+        <div class=&quot;p-6 bg-purple-50 rounded-2xl&quot;><div class=&quot;text-3xl font-black text-purple-600&quot;>500+</div><div class=&quot;text-sm text-gray-500 mt-1&quot;>Active Users</div></div>
+        <div class=&quot;p-6 bg-orange-50 rounded-2xl&quot;><div class=&quot;text-3xl font-black text-orange-600&quot;>$1.2M</div><div class=&quot;text-sm text-gray-500 mt-1&quot;>ARR</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id=&quot;team&quot; class=&quot;py-20 px-6 bg-gray-50&quot;>
+    <div class=&quot;max-w-4xl mx-auto&quot;>
+      <h2 class=&quot;text-2xl font-bold text-center mb-12&quot;>Built by World-Class Team</h2>
+      <div class=&quot;grid md:grid-cols-3 gap-8&quot;>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-3xl font-bold text-white&quot;>SK</div>
+          <h3 class=&quot;mt-4 font-bold&quot;>Sarah Kim</h3>
+          <p class=&quot;text-sm text-gray-500&quot;>CEO &amp;middot; Ex-Google PM</p>
+          <p class=&quot;text-xs text-gray-400 mt-2&quot;>Led Google Workspace automation. Stanford CS.</p>
+        </div>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-24 h-24 mx-auto bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-3xl font-bold text-white&quot;>JL</div>
+          <h3 class=&quot;mt-4 font-bold&quot;>James Lee</h3>
+          <p class=&quot;text-sm text-gray-500&quot;>CTO &amp;middot; Ex-OpenAI</p>
+          <p class=&quot;text-xs text-gray-400 mt-2&quot;>Core contributor to GPT-4 fine-tuning. MIT PhD.</p>
+        </div>
+        <div class=&quot;text-center&quot;>
+          <div class=&quot;w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-3xl font-bold text-white&quot;>MP</div>
+          <h3 class=&quot;mt-4 font-bold&quot;>Maya Patel</h3>
+          <p class=&quot;text-sm text-gray-500&quot;>Head of Product &amp;middot; Ex-Notion</p>
+          <p class=&quot;text-xs text-gray-400 mt-2&quot;>Built Notion AI from 0 to 1M users. Berkeley MBA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investors -->
+  <section class=&quot;py-16 px-6&quot;>
+    <div class=&quot;max-w-4xl mx-auto text-center&quot;>
+      <p class=&quot;text-xs uppercase tracking-widest text-gray-400 mb-6&quot;>Backed by</p>
+      <div class=&quot;flex flex-wrap justify-center gap-10 text-xl font-bold text-gray-300&quot;>
+        <span>Y Combinator</span><span>a16z</span><span>Sequoia</span><span>Founders Fund</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id=&quot;cta&quot; class=&quot;py-20 px-6 bg-blue-600 text-white&quot;>
+    <div class=&quot;max-w-2xl mx-auto text-center&quot;>
+      <h2 class=&quot;text-3xl font-bold&quot;>Ready to Eliminate Busywork?</h2>
+      <p class=&quot;mt-4 text-blue-100&quot;>Schedule a 15-minute demo and see NexaAI in action on your workflows.</p>
+      <form class=&quot;mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto&quot;>
+        <input type=&quot;email&quot; placeholder=&quot;work@company.com&quot; class=&quot;flex-1 px-4 py-3 rounded-xl text-gray-900 text-sm focus:outline" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Startup Pitch Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Startup pitch page with problem/solution framework, team section, and investor highlights</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">startup</span><span class="tag-chip">pitch</span><span class="tag-chip">investors</span><span class="tag-chip">team</span><span class="tag-chip">tailwind</span></div>
@@ -1547,7 +3353,96 @@
          data-preview-url="previews/table-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><iframe src="previews/table-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
+      <div class="card-preview"><iframe srcdoc="<!DOCTYPE html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;UTF-8&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
+  <title>Table Components</title>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+</head>
+<body class=&quot;bg-gray-100 dark:bg-gray-900 p-8 min-h-screen&quot;>
+  <div class=&quot;max-w-6xl mx-auto space-y-12&quot;>
+
+    <h1 class=&quot;text-2xl font-bold text-gray-900 dark:text-white&quot;>Table Components</h1>
+
+    <!-- Full-Featured Table with Sort, Filter, Pagination -->
+    <div class=&quot;bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm&quot;>
+      <!-- Toolbar -->
+      <div class=&quot;p-4 border-b border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between&quot;>
+        <div class=&quot;flex items-center gap-3&quot;>
+          <h2 class=&quot;font-semibold text-gray-900 dark:text-white&quot;>Users</h2>
+          <span class=&quot;text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-500&quot;>248 total</span>
+        </div>
+        <div class=&quot;flex gap-2&quot;>
+          <input id=&quot;tableSearch&quot; type=&quot;text&quot; placeholder=&quot;Search...&quot; oninput=&quot;filterTable()&quot; class=&quot;px-3 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48&quot;>
+          <select class=&quot;px-3 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm&quot;>
+            <option>All Roles</option><option>Admin</option><option>Editor</option><option>Viewer</option>
+          </select>
+          <button class=&quot;px-3 py-1.5 bg-indigo-600 text-white text-sm rounded-lg hover:bg-indigo-700 transition&quot;>Export</button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class=&quot;overflow-x-auto&quot;>
+        <table id=&quot;dataTable&quot; class=&quot;w-full text-sm&quot;>
+          <thead class=&quot;bg-gray-50 dark:bg-gray-700/50&quot;>
+            <tr>
+              <th class=&quot;text-left px-4 py-3 font-medium text-gray-500&quot;><input type=&quot;checkbox&quot; class=&quot;rounded&quot;></th>
+              <th class=&quot;text-left px-4 py-3 font-medium text-gray-500 cursor-pointer hover:text-gray-900 dark:hover:text-white select-none&quot; onclick=&quot;sortTable(1)&quot;>Name <span class=&quot;text-xs&quot;>&amp;#8645;</span></th>
+              <th class=&quot;text-left px-4 py-3 font-medium text-gray-500 cursor-pointer hover:text-gray-900 dark:hover:text-white select-none&quot; onclick=&quot;sortTable(2)&quot;>Email <span class=&quot;text-xs&quot;>&amp;#8645;</span></th>
+              <th class=&quot;text-left px-4 py-3 font-medium text-gray-500&quot;>Role</th>
+              <th class=&quot;text-left px-4 py-3 font-medium text-gray-500 cursor-pointer hover:text-gray-900 dark:hover:text-white select-none&quot; onclick=&quot;sortTable(4)&quot;>Status <span class=&quot;text-xs&quot;>&amp;#8645;</span></th>
+              <th class=&quot;text-left px-4 py-3 font-medium text-gray-500&quot;>Joined</th>
+              <th class=&quot;text-right px-4 py-3 font-medium text-gray-500&quot;>Actions</th>
+            </tr>
+          </thead>
+          <tbody class=&quot;divide-y divide-gray-200 dark:divide-gray-700&quot;>
+            <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30 transition&quot;>
+              <td class=&quot;px-4 py-3&quot;><input type=&quot;checkbox&quot; class=&quot;rounded&quot;></td>
+              <td class=&quot;px-4 py-3 font-medium text-gray-900 dark:text-white flex items-center gap-3&quot;><div class=&quot;w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0&quot;>AK</div>Alice Kim</td>
+              <td class=&quot;px-4 py-3 text-gray-500&quot;>alice@company.com</td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;px-2 py-0.5 bg-purple-100 text-purple-700 text-xs rounded-full font-medium&quot;>Admin</span></td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;flex items-center gap-1.5&quot;><span class=&quot;w-2 h-2 bg-green-500 rounded-full&quot;></span><span class=&quot;text-green-600 text-xs font-medium&quot;>Active</span></span></td>
+              <td class=&quot;px-4 py-3 text-gray-400 text-xs&quot;>Mar 15, 2026</td>
+              <td class=&quot;px-4 py-3 text-right&quot;><button class=&quot;text-gray-400 hover:text-gray-600 text-sm&quot;>Edit</button> <button class=&quot;text-red-400 hover:text-red-600 text-sm ml-2&quot;>Delete</button></td>
+            </tr>
+            <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30 transition&quot;>
+              <td class=&quot;px-4 py-3&quot;><input type=&quot;checkbox&quot; class=&quot;rounded&quot;></td>
+              <td class=&quot;px-4 py-3 font-medium text-gray-900 dark:text-white flex items-center gap-3&quot;><div class=&quot;w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0&quot;>BW</div>Bob Wilson</td>
+              <td class=&quot;px-4 py-3 text-gray-500&quot;>bob@company.com</td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full font-medium&quot;>Editor</span></td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;flex items-center gap-1.5&quot;><span class=&quot;w-2 h-2 bg-green-500 rounded-full&quot;></span><span class=&quot;text-green-600 text-xs font-medium&quot;>Active</span></span></td>
+              <td class=&quot;px-4 py-3 text-gray-400 text-xs&quot;>Feb 28, 2026</td>
+              <td class=&quot;px-4 py-3 text-right&quot;><button class=&quot;text-gray-400 hover:text-gray-600 text-sm&quot;>Edit</button> <button class=&quot;text-red-400 hover:text-red-600 text-sm ml-2&quot;>Delete</button></td>
+            </tr>
+            <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30 transition&quot;>
+              <td class=&quot;px-4 py-3&quot;><input type=&quot;checkbox&quot; class=&quot;rounded&quot;></td>
+              <td class=&quot;px-4 py-3 font-medium text-gray-900 dark:text-white flex items-center gap-3&quot;><div class=&quot;w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0&quot;>CJ</div>Carol Jones</td>
+              <td class=&quot;px-4 py-3 text-gray-500&quot;>carol@company.com</td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;px-2 py-0.5 bg-gray-100 text-gray-700 text-xs rounded-full font-medium&quot;>Viewer</span></td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;flex items-center gap-1.5&quot;><span class=&quot;w-2 h-2 bg-yellow-500 rounded-full&quot;></span><span class=&quot;text-yellow-600 text-xs font-medium&quot;>Pending</span></span></td>
+              <td class=&quot;px-4 py-3 text-gray-400 text-xs&quot;>Mar 10, 2026</td>
+              <td class=&quot;px-4 py-3 text-right&quot;><button class=&quot;text-gray-400 hover:text-gray-600 text-sm&quot;>Edit</button> <button class=&quot;text-red-400 hover:text-red-600 text-sm ml-2&quot;>Delete</button></td>
+            </tr>
+            <tr class=&quot;hover:bg-gray-50 dark:hover:bg-gray-700/30 transition&quot;>
+              <td class=&quot;px-4 py-3&quot;><input type=&quot;checkbox&quot; class=&quot;rounded&quot;></td>
+              <td class=&quot;px-4 py-3 font-medium text-gray-900 dark:text-white flex items-center gap-3&quot;><div class=&quot;w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0&quot;>DL</div>David Lee</td>
+              <td class=&quot;px-4 py-3 text-gray-500&quot;>david@company.com</td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full font-medium&quot;>Editor</span></td>
+              <td class=&quot;px-4 py-3&quot;><span class=&quot;flex items-center gap-1.5&quot;><span class=&quot;w-2 h-2 bg-red-500 rounded-full&quot;></span><span class=&quot;text-red-600 text-xs font-medium&quot;>Inactive</span></span></td>
+              <td class=&quot;px-4 py-3 text-gray-400 text-xs&quot;>Jan 05, 2026</td>
+              <td class=&quot;px-4 py-3 text-right&quot;><button class=&quot;text-gray-400 hover:text-gray-600 text-sm&quot;>Edit</button> <button class=&quot;text-red-400 hover:text-red-600 text-sm ml-2&quot;>Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class=&quot;p-4 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500&quot;>
+        <span>Showing <b class=&quot;text-gray-900 dark:text-white&quot;>1-10</b> of <b class=&quot;text-gray-900 dark:text-white&quot;>248</b> results</span>
+        <div class=&quot;flex items-center gap-1&quot;>
+          <button class=&quot;px-3 py-1.5 " loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Table Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Table patterns: sortable, filterable, paginated, responsive, and expandable row tables</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">table</span><span class="tag-chip">data</span><span class="tag-chip">sortable</span><span class="tag-chip">pagination</span><span class="tag-chip">responsive</span></div>
@@ -1665,7 +3560,7 @@
         &middot; Part of the <span class="text-slate-400 font-medium">ClawFlux</span> ecosystem
       </p>
       <p class="text-slate-600 text-xs font-mono">
-        Last updated: 2026-03-29 05:20
+        Last updated: 2026-03-29 05:25
       </p>
     </div>
   </footer>
