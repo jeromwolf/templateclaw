@@ -1,0 +1,496 @@
+{
+  "name": "TemplateClaw",
+  "description": "Developer Design + Development Template Hub",
+  "version": "1.0.0",
+  "base_url": "https://jeromwolf.github.io/templateclaw",
+  "total": 30,
+  "categories": [
+    {
+      "name": "dashboard",
+      "count": 4
+    },
+    {
+      "name": "project-setup",
+      "count": 5
+    },
+    {
+      "name": "dev-methodology",
+      "count": 5
+    },
+    {
+      "name": "landing-pages",
+      "count": 5
+    },
+    {
+      "name": "components",
+      "count": 8
+    },
+    {
+      "name": "refactoring",
+      "count": 3
+    }
+  ],
+  "generated_at": "2026-03-28T13:18:33.951953+09:00",
+  "usage": {
+    "fetch_catalog": "https://jeromwolf.github.io/templateclaw/api.json",
+    "fetch_full": "https://jeromwolf.github.io/templateclaw/api-full.json",
+    "download_template": "https://jeromwolf.github.io/templateclaw/templates/{filename}"
+  },
+  "templates": [
+    {
+      "filename": "admin-dashboard.md",
+      "title": "Admin Dashboard",
+      "description": "Admin panel with sidebar navigation, stats cards, data table, and chart placeholders",
+      "category": "dashboard",
+      "tags": [
+        "admin",
+        "dashboard",
+        "sidebar",
+        "table",
+        "tailwind"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/admin-dashboard.md"
+    },
+    {
+      "filename": "agents-md-template.md",
+      "title": "AGENTS.md Template",
+      "description": "AGENTS.md template for documenting codebase for AI agents (architecture, modules, dependencies)",
+      "category": "project-setup",
+      "tags": [
+        "agents",
+        "ai",
+        "documentation",
+        "codebase",
+        "architecture"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/agents-md-template.md"
+    },
+    {
+      "filename": "analytics-dashboard.md",
+      "title": "Analytics Dashboard",
+      "description": "Analytics dashboard with KPI cards, chart areas, date filters, and metric breakdowns",
+      "category": "dashboard",
+      "tags": [
+        "analytics",
+        "kpi",
+        "charts",
+        "metrics",
+        "tailwind"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/analytics-dashboard.md"
+    },
+    {
+      "filename": "api-design.md",
+      "title": "REST API Design Guide",
+      "description": "REST API design guide: naming conventions, versioning, pagination, error handling, and OpenAPI spec",
+      "category": "dev-methodology",
+      "tags": [
+        "api",
+        "rest",
+        "openapi",
+        "pagination",
+        "error-handling"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/api-design.md"
+    },
+    {
+      "filename": "app-landing.md",
+      "title": "Mobile App Landing Page",
+      "description": "Mobile app landing page with app store badges, screenshot mockups, and feature highlights",
+      "category": "landing-pages",
+      "tags": [
+        "mobile",
+        "app",
+        "ios",
+        "android",
+        "tailwind"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/app-landing.md"
+    },
+    {
+      "filename": "card-components.md",
+      "title": "Card Components",
+      "description": "8 card variants: product, profile, pricing, stat, testimonial, blog, feature, and glass morphism",
+      "category": "components",
+      "tags": [
+        "cards",
+        "ui",
+        "tailwind",
+        "responsive",
+        "glassmorphism"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/card-components.md"
+    },
+    {
+      "filename": "cicd-setup.md",
+      "title": "CI/CD Pipeline Setup",
+      "description": "CI/CD pipeline with GitHub Actions: lint, test, build, deploy stages with secrets management",
+      "category": "dev-methodology",
+      "tags": [
+        "cicd",
+        "github-actions",
+        "deployment",
+        "automation",
+        "devops"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/cicd-setup.md"
+    },
+    {
+      "filename": "claude-md-template.md",
+      "title": "CLAUDE.md Template",
+      "description": "CLAUDE.md template for AI-assisted development with project structure, rules, and patterns",
+      "category": "project-setup",
+      "tags": [
+        "claude",
+        "ai",
+        "llm",
+        "cursor",
+        "windsurf",
+        "development"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/claude-md-template.md"
+    },
+    {
+      "filename": "code-review-checklist.md",
+      "title": "Code Review Checklist",
+      "description": "Comprehensive code review checklist covering security, performance, readability, and testing",
+      "category": "dev-methodology",
+      "tags": [
+        "code-review",
+        "security",
+        "performance",
+        "quality",
+        "checklist"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/code-review-checklist.md"
+    },
+    {
+      "filename": "crm-dashboard.md",
+      "title": "CRM Dashboard",
+      "description": "CRM dashboard with sales pipeline, contacts list, activities feed, and deal tracking",
+      "category": "dashboard",
+      "tags": [
+        "crm",
+        "sales",
+        "pipeline",
+        "contacts",
+        "deals"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/crm-dashboard.md"
+    },
+    {
+      "filename": "db-migration.md",
+      "title": "Database Migration Guide",
+      "description": "Database migration guide: schema versioning, rollback strategies, and zero-downtime migrations",
+      "category": "refactoring",
+      "tags": [
+        "database",
+        "migration",
+        "schema",
+        "rollback",
+        "zero-downtime"
+      ],
+      "difficulty": "advanced",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/db-migration.md"
+    },
+    {
+      "filename": "docker-compose-template.md",
+      "title": "Docker Compose Template",
+      "description": "Docker Compose setup with web app, PostgreSQL, Redis, and Nginx reverse proxy with health checks",
+      "category": "project-setup",
+      "tags": [
+        "docker",
+        "compose",
+        "postgresql",
+        "redis",
+        "nginx",
+        "devops"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/docker-compose-template.md"
+    },
+    {
+      "filename": "env-template.md",
+      "title": "Environment Variables Template",
+      "description": "Comprehensive .env template organized by category: database, auth, APIs, feature flags",
+      "category": "project-setup",
+      "tags": [
+        "env",
+        "configuration",
+        "secrets",
+        "environment",
+        "dotenv"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/env-template.md"
+    },
+    {
+      "filename": "footer-components.md",
+      "title": "Footer Components",
+      "description": "Footer patterns: simple, mega footer, newsletter signup, social links, and sitemap footer",
+      "category": "components",
+      "tags": [
+        "footer",
+        "navigation",
+        "newsletter",
+        "social",
+        "tailwind"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/footer-components.md"
+    },
+    {
+      "filename": "form-components.md",
+      "title": "Form Components",
+      "description": "Form patterns: login, signup, contact, search bar, multi-step wizard, and settings panel",
+      "category": "components",
+      "tags": [
+        "forms",
+        "login",
+        "signup",
+        "wizard",
+        "validation",
+        "tailwind"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/form-components.md"
+    },
+    {
+      "filename": "git-workflow.md",
+      "title": "Git Workflow Guide",
+      "description": "Git workflow with branching strategy, commit conventions, PR template, and common operations",
+      "category": "dev-methodology",
+      "tags": [
+        "git",
+        "branching",
+        "commits",
+        "pull-request",
+        "workflow"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/git-workflow.md"
+    },
+    {
+      "filename": "hero-components.md",
+      "title": "Hero Section Components",
+      "description": "Hero section variants: centered text, split layout, video background, animated gradient, and minimal",
+      "category": "components",
+      "tags": [
+        "hero",
+        "header",
+        "above-fold",
+        "animation",
+        "tailwind"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/hero-components.md"
+    },
+    {
+      "filename": "modal-components.md",
+      "title": "Modal Components",
+      "description": "Modal patterns: confirm dialog, form modal, image gallery, notification toast, and bottom sheet",
+      "category": "components",
+      "tags": [
+        "modal",
+        "dialog",
+        "toast",
+        "popup",
+        "tailwind"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/modal-components.md"
+    },
+    {
+      "filename": "monitoring-dashboard.md",
+      "title": "System Monitoring Dashboard",
+      "description": "System monitoring dashboard with status indicators, uptime metrics, alerts log, and service health",
+      "category": "dashboard",
+      "tags": [
+        "monitoring",
+        "devops",
+        "status",
+        "uptime",
+        "alerts"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/monitoring-dashboard.md"
+    },
+    {
+      "filename": "navigation-components.md",
+      "title": "Navigation Components",
+      "description": "Nav patterns: top bar, sidebar, mobile hamburger, breadcrumb, and tabbed navigation",
+      "category": "components",
+      "tags": [
+        "navigation",
+        "navbar",
+        "sidebar",
+        "tabs",
+        "breadcrumb",
+        "tailwind"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/navigation-components.md"
+    },
+    {
+      "filename": "performance-checklist.md",
+      "title": "Performance Optimization Checklist",
+      "description": "Performance checklist covering frontend, backend, database, caching, and infrastructure",
+      "category": "refactoring",
+      "tags": [
+        "performance",
+        "optimization",
+        "caching",
+        "database",
+        "frontend"
+      ],
+      "difficulty": "advanced",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/performance-checklist.md"
+    },
+    {
+      "filename": "portfolio-landing.md",
+      "title": "Developer Portfolio Landing Page",
+      "description": "Clean developer portfolio with project grid, skills visualization, and contact form",
+      "category": "landing-pages",
+      "tags": [
+        "portfolio",
+        "developer",
+        "tailwind",
+        "responsive",
+        "minimal"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/portfolio-landing.md"
+    },
+    {
+      "filename": "pricing-components.md",
+      "title": "Pricing Table Components",
+      "description": "Pricing patterns: 3-tier cards, monthly/yearly toggle, feature comparison, and enterprise CTA",
+      "category": "components",
+      "tags": [
+        "pricing",
+        "plans",
+        "toggle",
+        "comparison",
+        "tailwind"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/pricing-components.md"
+    },
+    {
+      "filename": "product-landing.md",
+      "title": "Product Launch Landing Page",
+      "description": "Product launch page with hero video area, feature carousel, and testimonials",
+      "category": "landing-pages",
+      "tags": [
+        "product",
+        "launch",
+        "video",
+        "testimonials",
+        "tailwind"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/product-landing.md"
+    },
+    {
+      "filename": "readme-template.md",
+      "title": "README Template",
+      "description": "Comprehensive README.md template with badges, install instructions, usage, API docs, and contributing guide",
+      "category": "project-setup",
+      "tags": [
+        "readme",
+        "documentation",
+        "open-source",
+        "markdown",
+        "badges"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/readme-template.md"
+    },
+    {
+      "filename": "saas-landing.md",
+      "title": "SaaS Landing Page",
+      "description": "Modern SaaS landing page with hero, features, pricing, and CTA sections built with Tailwind CSS",
+      "category": "landing-pages",
+      "tags": [
+        "saas",
+        "tailwind",
+        "landing",
+        "responsive",
+        "dark-mode"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/saas-landing.md"
+    },
+    {
+      "filename": "security-audit.md",
+      "title": "Security Audit Checklist",
+      "description": "Security audit checklist based on OWASP Top 10: auth, input validation, secrets, and infrastructure",
+      "category": "refactoring",
+      "tags": [
+        "security",
+        "owasp",
+        "authentication",
+        "encryption",
+        "audit"
+      ],
+      "difficulty": "advanced",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/security-audit.md"
+    },
+    {
+      "filename": "startup-landing.md",
+      "title": "Startup Pitch Landing Page",
+      "description": "Startup pitch page with problem/solution framework, team section, and investor highlights",
+      "category": "landing-pages",
+      "tags": [
+        "startup",
+        "pitch",
+        "investors",
+        "team",
+        "tailwind"
+      ],
+      "difficulty": "beginner",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/startup-landing.md"
+    },
+    {
+      "filename": "table-components.md",
+      "title": "Table Components",
+      "description": "Table patterns: sortable, filterable, paginated, responsive, and expandable row tables",
+      "category": "components",
+      "tags": [
+        "table",
+        "data",
+        "sortable",
+        "pagination",
+        "responsive",
+        "tailwind"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/table-components.md"
+    },
+    {
+      "filename": "tdd-guide.md",
+      "title": "TDD Workflow Guide",
+      "description": "Test-Driven Development workflow: Red-Green-Refactor cycle, testing pyramid, and practical patterns",
+      "category": "dev-methodology",
+      "tags": [
+        "tdd",
+        "testing",
+        "red-green-refactor",
+        "pytest",
+        "jest"
+      ],
+      "difficulty": "intermediate",
+      "download_url": "https://jeromwolf.github.io/templateclaw/templates/tdd-guide.md"
+    }
+  ]
+}
