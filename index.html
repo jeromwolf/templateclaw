@@ -368,11 +368,11 @@
       .preview-tabs { padding: 0 16px; }
     }
   
-    /* -- Card SVG wireframe preview -- */
+    /* -- Card preview (SVG wireframe or iframe) -- */
     .card-preview {
-      background: #0D1224;
+      background: var(--card-preview-bg, #0D1224);
       border-radius: 8px;
-      height: 120px;
+      height: 160px;
       width: 100%;
       margin-bottom: 16px;
       overflow: hidden;
@@ -386,6 +386,32 @@
     .card-preview svg {
       width: 100%;
       height: 100%;
+    }
+    .card-preview iframe {
+      width: 400%;
+      height: 400%;
+      transform: scale(0.25);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+      background: #fff;
+    }
+
+    /* -- Live Preview tab in modal -- */
+    .live-preview-frame {
+      width: 100%;
+      height: 65vh;
+      border: 1px solid var(--border-base);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .live-preview-unavailable {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      color: var(--text-faint);
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -637,37 +663,11 @@
          data-category="dashboard"
          data-tags="admin,dashboard,sidebar,table,tailwind"
          data-filename="admin-dashboard.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="previews/admin-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- sidebar -->
-      <rect x="6" y="6" width="48" height="88" rx="4" fill="rgba(236,72,153,0.10)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="12" y="12" width="28" height="4" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="12" y="22" width="36" height="3" rx="1" fill="rgba(236,72,153,0.18)"/>
-      <rect x="12" y="29" width="32" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="36" width="34" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="43" width="30" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <!-- header -->
-      <rect x="60" y="6" width="214" height="10" rx="3" fill="rgba(236,72,153,0.08)"/>
-      <rect x="66" y="9" width="60" height="4" rx="1" fill="rgba(236,72,153,0.22)"/>
-      <!-- 4 stat cards -->
-      <rect x="60" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="115" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="170" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="225" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="66" y="28" width="20" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="66" y="36" width="32" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="121" y="28" width="24" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="121" y="36" width="28" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="176" y="28" width="18" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="176" y="36" width="30" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="231" y="28" width="22" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="231" y="36" width="26" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <!-- chart area -->
-      <rect x="60" y="50" width="214" height="44" rx="4" fill="rgba(236,72,153,0.06)" stroke="rgba(236,72,153,0.12)" stroke-width="0.5"/>
-      <polyline points="70,82 100,70 130,76 160,60 190,65 220,55 250,62 264,58" stroke="rgba(236,72,153,0.35)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/admin-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Admin Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Admin panel with sidebar navigation, stats cards, data table, and chart placeholders</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">admin</span><span class="tag-chip">dashboard</span><span class="tag-chip">sidebar</span><span class="tag-chip">table</span><span class="tag-chip">tailwind</span></div>
@@ -677,7 +677,8 @@
          data-category="setup"
          data-tags="agent,claude,cursor,windsurf,ai,integration"
          data-filename="agent-integration-guide.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -730,7 +731,8 @@
          data-category="setup"
          data-tags="agents,ai,documentation,codebase,architecture"
          data-filename="agents-md-template.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -783,37 +785,11 @@
          data-category="dashboard"
          data-tags="analytics,kpi,charts,metrics,tailwind"
          data-filename="analytics-dashboard.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="previews/analytics-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- sidebar -->
-      <rect x="6" y="6" width="48" height="88" rx="4" fill="rgba(236,72,153,0.10)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="12" y="12" width="28" height="4" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="12" y="22" width="36" height="3" rx="1" fill="rgba(236,72,153,0.18)"/>
-      <rect x="12" y="29" width="32" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="36" width="34" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="43" width="30" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <!-- header -->
-      <rect x="60" y="6" width="214" height="10" rx="3" fill="rgba(236,72,153,0.08)"/>
-      <rect x="66" y="9" width="60" height="4" rx="1" fill="rgba(236,72,153,0.22)"/>
-      <!-- 4 stat cards -->
-      <rect x="60" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="115" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="170" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="225" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="66" y="28" width="20" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="66" y="36" width="32" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="121" y="28" width="24" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="121" y="36" width="28" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="176" y="28" width="18" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="176" y="36" width="30" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="231" y="28" width="22" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="231" y="36" width="26" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <!-- chart area -->
-      <rect x="60" y="50" width="214" height="44" rx="4" fill="rgba(236,72,153,0.06)" stroke="rgba(236,72,153,0.12)" stroke-width="0.5"/>
-      <polyline points="70,82 100,70 130,76 160,60 190,65 220,55 250,62 264,58" stroke="rgba(236,72,153,0.35)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/analytics-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Analytics Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Analytics dashboard with KPI cards, chart areas, date filters, and metric breakdowns</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">analytics</span><span class="tag-chip">kpi</span><span class="tag-chip">charts</span><span class="tag-chip">metrics</span><span class="tag-chip">tailwind</span></div>
@@ -823,7 +799,8 @@
          data-category="methodology"
          data-tags="api,rest,openapi,pagination,error-handling"
          data-filename="api-design.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -860,35 +837,11 @@
          data-category="landing-pages"
          data-tags="mobile,app,ios,android,tailwind"
          data-filename="app-landing.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/app-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- nav -->
-      <rect x="10" y="6" width="260" height="8" rx="2" fill="rgba(124,58,237,0.18)"/>
-      <rect x="14" y="8" width="24" height="4" rx="1" fill="rgba(124,58,237,0.45)"/>
-      <rect x="220" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <rect x="240" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <!-- hero -->
-      <rect x="70" y="22" width="140" height="6" rx="1.5" fill="rgba(124,58,237,0.35)"/>
-      <rect x="90" y="32" width="100" height="4" rx="1" fill="rgba(124,58,237,0.15)"/>
-      <rect x="110" y="40" width="60" height="8" rx="3" fill="rgba(236,72,153,0.30)"/>
-      <!-- 3 feature boxes -->
-      <rect x="16" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="102" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="188" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="30" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="24" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="24" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="116" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="110" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="110" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="202" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="196" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="196" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <!-- footer -->
-      <rect x="10" y="92" width="260" height="4" rx="1" fill="rgba(124,58,237,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/app-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Mobile App Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Mobile app landing page with app store badges, screenshot mockups, and feature highlights</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">mobile</span><span class="tag-chip">app</span><span class="tag-chip">ios</span><span class="tag-chip">android</span><span class="tag-chip">tailwind</span></div>
@@ -898,36 +851,11 @@
          data-category="components"
          data-tags="cards,ui,tailwind,responsive,glassmorphism"
          data-filename="card-components.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/card-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/card-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Card Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">8 card variants: product, profile, pricing, stat, testimonial, blog, feature, and glass morphism</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">cards</span><span class="tag-chip">ui</span><span class="tag-chip">tailwind</span><span class="tag-chip">responsive</span><span class="tag-chip">glassmorphism</span></div>
@@ -937,7 +865,8 @@
          data-category="methodology"
          data-tags="cicd,github-actions,deployment,automation,devops"
          data-filename="cicd-setup.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -974,7 +903,8 @@
          data-category="setup"
          data-tags="claude,ai,llm,cursor,windsurf,development"
          data-filename="claude-md-template.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1027,7 +957,8 @@
          data-category="methodology"
          data-tags="code-review,security,performance,quality,checklist"
          data-filename="code-review-checklist.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1064,7 +995,8 @@
          data-category="setup"
          data-tags="contributing,templates,open-source,documentation,guide"
          data-filename="community-templates-guide.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1117,37 +1049,11 @@
          data-category="dashboard"
          data-tags="crm,sales,pipeline,contacts,deals"
          data-filename="crm-dashboard.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="previews/crm-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- sidebar -->
-      <rect x="6" y="6" width="48" height="88" rx="4" fill="rgba(236,72,153,0.10)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="12" y="12" width="28" height="4" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="12" y="22" width="36" height="3" rx="1" fill="rgba(236,72,153,0.18)"/>
-      <rect x="12" y="29" width="32" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="36" width="34" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="43" width="30" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <!-- header -->
-      <rect x="60" y="6" width="214" height="10" rx="3" fill="rgba(236,72,153,0.08)"/>
-      <rect x="66" y="9" width="60" height="4" rx="1" fill="rgba(236,72,153,0.22)"/>
-      <!-- 4 stat cards -->
-      <rect x="60" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="115" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="170" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="225" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="66" y="28" width="20" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="66" y="36" width="32" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="121" y="28" width="24" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="121" y="36" width="28" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="176" y="28" width="18" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="176" y="36" width="30" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="231" y="28" width="22" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="231" y="36" width="26" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <!-- chart area -->
-      <rect x="60" y="50" width="214" height="44" rx="4" fill="rgba(236,72,153,0.06)" stroke="rgba(236,72,153,0.12)" stroke-width="0.5"/>
-      <polyline points="70,82 100,70 130,76 160,60 190,65 220,55 250,62 264,58" stroke="rgba(236,72,153,0.35)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/crm-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">CRM Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">CRM dashboard with sales pipeline, contacts list, activities feed, and deal tracking</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">crm</span><span class="tag-chip">sales</span><span class="tag-chip">pipeline</span><span class="tag-chip">contacts</span><span class="tag-chip">deals</span></div>
@@ -1157,7 +1063,8 @@
          data-category="refactoring"
          data-tags="database,migration,schema,rollback,zero-downtime"
          data-filename="db-migration.md"
-         data-difficulty="advanced">
+         data-difficulty="advanced"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-refactoring rounded-lg px-3 py-1 text-xs font-semibold mb-4">Refactoring</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1198,7 +1105,8 @@
          data-category="setup"
          data-tags="docker,compose,postgresql,redis,nginx,devops"
          data-filename="docker-compose-template.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1251,7 +1159,8 @@
          data-category="setup"
          data-tags="env,configuration,secrets,environment,dotenv"
          data-filename="env-template.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1304,36 +1213,11 @@
          data-category="components"
          data-tags="footer,navigation,newsletter,social,tailwind"
          data-filename="footer-components.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/footer-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/footer-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Footer Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Footer patterns: simple, mega footer, newsletter signup, social links, and sitemap footer</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">footer</span><span class="tag-chip">navigation</span><span class="tag-chip">newsletter</span><span class="tag-chip">social</span><span class="tag-chip">tailwind</span></div>
@@ -1343,36 +1227,11 @@
          data-category="components"
          data-tags="forms,login,signup,wizard,validation,tailwind"
          data-filename="form-components.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/form-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/form-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Form Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Form patterns: login, signup, contact, search bar, multi-step wizard, and settings panel</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">forms</span><span class="tag-chip">login</span><span class="tag-chip">signup</span><span class="tag-chip">wizard</span><span class="tag-chip">validation</span></div>
@@ -1382,7 +1241,8 @@
          data-category="methodology"
          data-tags="git,branching,commits,pull-request,workflow"
          data-filename="git-workflow.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1419,36 +1279,11 @@
          data-category="components"
          data-tags="hero,header,above-fold,animation,tailwind"
          data-filename="hero-components.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/hero-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/hero-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Hero Section Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Hero section variants: centered text, split layout, video background, animated gradient, and minimal</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">hero</span><span class="tag-chip">header</span><span class="tag-chip">above-fold</span><span class="tag-chip">animation</span><span class="tag-chip">tailwind</span></div>
@@ -1458,36 +1293,11 @@
          data-category="components"
          data-tags="modal,dialog,toast,popup,tailwind"
          data-filename="modal-components.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="previews/modal-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/modal-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Modal Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Modal patterns: confirm dialog, form modal, image gallery, notification toast, and bottom sheet</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">modal</span><span class="tag-chip">dialog</span><span class="tag-chip">toast</span><span class="tag-chip">popup</span><span class="tag-chip">tailwind</span></div>
@@ -1497,37 +1307,11 @@
          data-category="dashboard"
          data-tags="monitoring,devops,status,uptime,alerts"
          data-filename="monitoring-dashboard.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="previews/monitoring-dashboard.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-dashboard rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dashboard</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- sidebar -->
-      <rect x="6" y="6" width="48" height="88" rx="4" fill="rgba(236,72,153,0.10)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="12" y="12" width="28" height="4" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="12" y="22" width="36" height="3" rx="1" fill="rgba(236,72,153,0.18)"/>
-      <rect x="12" y="29" width="32" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="36" width="34" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <rect x="12" y="43" width="30" height="3" rx="1" fill="rgba(236,72,153,0.12)"/>
-      <!-- header -->
-      <rect x="60" y="6" width="214" height="10" rx="3" fill="rgba(236,72,153,0.08)"/>
-      <rect x="66" y="9" width="60" height="4" rx="1" fill="rgba(236,72,153,0.22)"/>
-      <!-- 4 stat cards -->
-      <rect x="60" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="115" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="170" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="225" y="22" width="48" height="22" rx="3" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.15)" stroke-width="0.5"/>
-      <rect x="66" y="28" width="20" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="66" y="36" width="32" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="121" y="28" width="24" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="121" y="36" width="28" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="176" y="28" width="18" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="176" y="36" width="30" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <rect x="231" y="28" width="22" height="5" rx="1" fill="rgba(236,72,153,0.30)"/>
-      <rect x="231" y="36" width="26" height="2" rx="0.5" fill="rgba(236,72,153,0.12)"/>
-      <!-- chart area -->
-      <rect x="60" y="50" width="214" height="44" rx="4" fill="rgba(236,72,153,0.06)" stroke="rgba(236,72,153,0.12)" stroke-width="0.5"/>
-      <polyline points="70,82 100,70 130,76 160,60 190,65 220,55 250,62 264,58" stroke="rgba(236,72,153,0.35)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/monitoring-dashboard.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">System Monitoring Dashboard</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">System monitoring dashboard with status indicators, uptime metrics, alerts log, and service health</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">monitoring</span><span class="tag-chip">devops</span><span class="tag-chip">status</span><span class="tag-chip">uptime</span><span class="tag-chip">alerts</span></div>
@@ -1537,36 +1321,11 @@
          data-category="components"
          data-tags="navigation,navbar,sidebar,tabs,breadcrumb,tailwind"
          data-filename="navigation-components.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/navigation-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/navigation-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Navigation Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Nav patterns: top bar, sidebar, mobile hamburger, breadcrumb, and tabbed navigation</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">navigation</span><span class="tag-chip">navbar</span><span class="tag-chip">sidebar</span><span class="tag-chip">tabs</span><span class="tag-chip">breadcrumb</span></div>
@@ -1576,7 +1335,8 @@
          data-category="refactoring"
          data-tags="performance,optimization,caching,database,frontend"
          data-filename="performance-checklist.md"
-         data-difficulty="advanced">
+         data-difficulty="advanced"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-refactoring rounded-lg px-3 py-1 text-xs font-semibold mb-4">Refactoring</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1617,35 +1377,11 @@
          data-category="landing-pages"
          data-tags="portfolio,developer,tailwind,responsive,minimal"
          data-filename="portfolio-landing.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/portfolio-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- nav -->
-      <rect x="10" y="6" width="260" height="8" rx="2" fill="rgba(124,58,237,0.18)"/>
-      <rect x="14" y="8" width="24" height="4" rx="1" fill="rgba(124,58,237,0.45)"/>
-      <rect x="220" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <rect x="240" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <!-- hero -->
-      <rect x="70" y="22" width="140" height="6" rx="1.5" fill="rgba(124,58,237,0.35)"/>
-      <rect x="90" y="32" width="100" height="4" rx="1" fill="rgba(124,58,237,0.15)"/>
-      <rect x="110" y="40" width="60" height="8" rx="3" fill="rgba(236,72,153,0.30)"/>
-      <!-- 3 feature boxes -->
-      <rect x="16" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="102" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="188" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="30" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="24" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="24" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="116" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="110" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="110" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="202" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="196" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="196" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <!-- footer -->
-      <rect x="10" y="92" width="260" height="4" rx="1" fill="rgba(124,58,237,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/portfolio-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Developer Portfolio Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Clean developer portfolio with project grid, skills visualization, and contact form</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">portfolio</span><span class="tag-chip">developer</span><span class="tag-chip">tailwind</span><span class="tag-chip">responsive</span><span class="tag-chip">minimal</span></div>
@@ -1655,36 +1391,11 @@
          data-category="components"
          data-tags="pricing,plans,toggle,comparison,tailwind"
          data-filename="pricing-components.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/pricing-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/pricing-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Pricing Table Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Pricing patterns: 3-tier cards, monthly/yearly toggle, feature comparison, and enterprise CTA</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">pricing</span><span class="tag-chip">plans</span><span class="tag-chip">toggle</span><span class="tag-chip">comparison</span><span class="tag-chip">tailwind</span></div>
@@ -1694,35 +1405,11 @@
          data-category="landing-pages"
          data-tags="product,launch,video,testimonials,tailwind"
          data-filename="product-landing.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="previews/product-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- nav -->
-      <rect x="10" y="6" width="260" height="8" rx="2" fill="rgba(124,58,237,0.18)"/>
-      <rect x="14" y="8" width="24" height="4" rx="1" fill="rgba(124,58,237,0.45)"/>
-      <rect x="220" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <rect x="240" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <!-- hero -->
-      <rect x="70" y="22" width="140" height="6" rx="1.5" fill="rgba(124,58,237,0.35)"/>
-      <rect x="90" y="32" width="100" height="4" rx="1" fill="rgba(124,58,237,0.15)"/>
-      <rect x="110" y="40" width="60" height="8" rx="3" fill="rgba(236,72,153,0.30)"/>
-      <!-- 3 feature boxes -->
-      <rect x="16" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="102" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="188" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="30" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="24" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="24" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="116" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="110" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="110" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="202" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="196" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="196" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <!-- footer -->
-      <rect x="10" y="92" width="260" height="4" rx="1" fill="rgba(124,58,237,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/product-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Product Launch Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Product launch page with hero video area, feature carousel, and testimonials</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">product</span><span class="tag-chip">launch</span><span class="tag-chip">video</span><span class="tag-chip">testimonials</span><span class="tag-chip">tailwind</span></div>
@@ -1732,7 +1419,8 @@
          data-category="setup"
          data-tags="readme,documentation,open-source,markdown,badges"
          data-filename="readme-template.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-setup rounded-lg px-3 py-1 text-xs font-semibold mb-4">Project Setup</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1785,35 +1473,11 @@
          data-category="landing-pages"
          data-tags="saas,tailwind,landing,responsive,dark-mode"
          data-filename="saas-landing.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/saas-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- nav -->
-      <rect x="10" y="6" width="260" height="8" rx="2" fill="rgba(124,58,237,0.18)"/>
-      <rect x="14" y="8" width="24" height="4" rx="1" fill="rgba(124,58,237,0.45)"/>
-      <rect x="220" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <rect x="240" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <!-- hero -->
-      <rect x="70" y="22" width="140" height="6" rx="1.5" fill="rgba(124,58,237,0.35)"/>
-      <rect x="90" y="32" width="100" height="4" rx="1" fill="rgba(124,58,237,0.15)"/>
-      <rect x="110" y="40" width="60" height="8" rx="3" fill="rgba(236,72,153,0.30)"/>
-      <!-- 3 feature boxes -->
-      <rect x="16" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="102" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="188" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="30" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="24" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="24" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="116" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="110" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="110" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="202" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="196" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="196" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <!-- footer -->
-      <rect x="10" y="92" width="260" height="4" rx="1" fill="rgba(124,58,237,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/saas-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">SaaS Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Modern SaaS landing page with hero, features, pricing, and CTA sections built with Tailwind CSS</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">saas</span><span class="tag-chip">tailwind</span><span class="tag-chip">landing</span><span class="tag-chip">responsive</span><span class="tag-chip">dark-mode</span></div>
@@ -1823,7 +1487,8 @@
          data-category="refactoring"
          data-tags="security,owasp,authentication,encryption,audit"
          data-filename="security-audit.md"
-         data-difficulty="advanced">
+         data-difficulty="advanced"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-refactoring rounded-lg px-3 py-1 text-xs font-semibold mb-4">Refactoring</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1864,35 +1529,11 @@
          data-category="landing-pages"
          data-tags="startup,pitch,investors,team,tailwind"
          data-filename="startup-landing.md"
-         data-difficulty="beginner">
+         data-difficulty="beginner"
+         data-preview-url="previews/startup-landing.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-landing rounded-lg px-3 py-1 text-xs font-semibold mb-4">Landing Pages</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- nav -->
-      <rect x="10" y="6" width="260" height="8" rx="2" fill="rgba(124,58,237,0.18)"/>
-      <rect x="14" y="8" width="24" height="4" rx="1" fill="rgba(124,58,237,0.45)"/>
-      <rect x="220" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <rect x="240" y="8" width="16" height="4" rx="1" fill="rgba(124,58,237,0.30)"/>
-      <!-- hero -->
-      <rect x="70" y="22" width="140" height="6" rx="1.5" fill="rgba(124,58,237,0.35)"/>
-      <rect x="90" y="32" width="100" height="4" rx="1" fill="rgba(124,58,237,0.15)"/>
-      <rect x="110" y="40" width="60" height="8" rx="3" fill="rgba(236,72,153,0.30)"/>
-      <!-- 3 feature boxes -->
-      <rect x="16" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="102" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="188" y="56" width="76" height="28" rx="4" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.18)" stroke-width="0.5"/>
-      <rect x="30" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="24" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="24" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="116" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="110" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="110" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <rect x="202" y="62" width="48" height="3" rx="1" fill="rgba(124,58,237,0.25)"/>
-      <rect x="196" y="68" width="60" height="2" rx="0.5" fill="rgba(124,58,237,0.12)"/>
-      <rect x="196" y="73" width="52" height="2" rx="0.5" fill="rgba(124,58,237,0.10)"/>
-      <!-- footer -->
-      <rect x="10" y="92" width="260" height="4" rx="1" fill="rgba(124,58,237,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/startup-landing.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Startup Pitch Landing Page</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Startup pitch page with problem/solution framework, team section, and investor highlights</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">startup</span><span class="tag-chip">pitch</span><span class="tag-chip">investors</span><span class="tag-chip">team</span><span class="tag-chip">tailwind</span></div>
@@ -1902,36 +1543,11 @@
          data-category="components"
          data-tags="table,data,sortable,pagination,responsive,tailwind"
          data-filename="table-components.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="previews/table-components.html">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-components rounded-lg px-3 py-1 text-xs font-semibold mb-4">Components</div>
-      <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- top-left: button -->
-      <rect x="12" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="30" y="14" width="60" height="8" rx="4" fill="rgba(34,211,238,0.25)"/>
-      <rect x="24" y="28" width="72" height="3" rx="1" fill="rgba(34,211,238,0.12)"/>
-      <rect x="30" y="34" width="56" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- top-right: input field -->
-      <rect x="148" y="8" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="16" width="100" height="10" rx="3" fill="rgba(34,211,238,0.06)" stroke="rgba(34,211,238,0.18)" stroke-width="0.5"/>
-      <rect x="162" y="19" width="40" height="4" rx="1" fill="rgba(34,211,238,0.15)"/>
-      <rect x="158" y="32" width="60" height="6" rx="3" fill="rgba(34,211,238,0.20)"/>
-      <!-- bottom-left: card -->
-      <rect x="12" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <circle cx="36" cy="68" r="8" fill="rgba(34,211,238,0.15)"/>
-      <rect x="50" y="64" width="60" height="3" rx="1" fill="rgba(34,211,238,0.22)"/>
-      <rect x="50" y="70" width="48" height="2" rx="0.5" fill="rgba(34,211,238,0.10)"/>
-      <rect x="20" y="82" width="96" height="3" rx="1" fill="rgba(34,211,238,0.08)"/>
-      <!-- bottom-right: toggle/badges -->
-      <rect x="148" y="54" width="120" height="38" rx="4" fill="rgba(34,211,238,0.08)" stroke="rgba(34,211,238,0.15)" stroke-width="0.5"/>
-      <rect x="158" y="60" width="28" height="8" rx="4" fill="rgba(34,211,238,0.22)"/>
-      <circle cx="180" cy="64" r="3" fill="rgba(34,211,238,0.45)"/>
-      <rect x="194" y="60" width="36" height="8" rx="4" fill="rgba(34,211,238,0.12)"/>
-      <rect x="158" y="74" width="20" height="6" rx="3" fill="rgba(34,211,238,0.18)"/>
-      <rect x="182" y="74" width="24" height="6" rx="3" fill="rgba(34,211,238,0.14)"/>
-      <rect x="210" y="74" width="18" height="6" rx="3" fill="rgba(34,211,238,0.10)"/>
-      <rect x="158" y="84" width="40" height="2" rx="0.5" fill="rgba(34,211,238,0.08)"/>
-    </svg></div>
+      <div class="card-preview"><iframe src="previews/table-components.html" loading="lazy" sandbox="allow-scripts" scrolling="no" tabindex="-1"></iframe></div>
       <h3 class="card-title text-white font-bold text-lg mb-2">Table Components</h3>
       <p class="card-description text-slate-400 text-sm leading-relaxed mb-4">Table patterns: sortable, filterable, paginated, responsive, and expandable row tables</p>
       <div class="card-tags flex flex-wrap gap-1.5 mb-5"><span class="tag-chip">table</span><span class="tag-chip">data</span><span class="tag-chip">sortable</span><span class="tag-chip">pagination</span><span class="tag-chip">responsive</span></div>
@@ -1941,7 +1557,8 @@
          data-category="methodology"
          data-tags="tdd,testing,red-green-refactor,pytest,jest"
          data-filename="tdd-guide.md"
-         data-difficulty="intermediate">
+         data-difficulty="intermediate"
+         data-preview-url="">
       <div class="card-glow-top"></div>
       <div class="inline-block badge-methodology rounded-lg px-3 py-1 text-xs font-semibold mb-4">Dev Methodology</div>
       <div class="card-preview"><svg viewBox="0 0 280 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2004,6 +1621,7 @@
       <div class="preview-tabs">
         <button class="preview-tab active" data-tab="preview">Preview</button>
         <button class="preview-tab" data-tab="code">Source Code</button>
+        <button class="preview-tab" data-tab="live" id="preview-tab-live" style="display:none;">Live Preview</button>
       </div>
 
       <div class="preview-body" id="preview-body">
@@ -2012,6 +1630,7 @@
         </div>
         <div class="md-rendered" id="preview-content" style="display:none;"></div>
         <div class="code-view" id="preview-code" style="display:none;"></div>
+        <div id="preview-live" style="display:none;"></div>
       </div>
 
       <div class="preview-footer">
@@ -2046,7 +1665,7 @@
         &middot; Part of the <span class="text-slate-400 font-medium">ClawFlux</span> ecosystem
       </p>
       <p class="text-slate-600 text-xs font-mono">
-        Last updated: 2026-03-28 19:26
+        Last updated: 2026-03-29 05:16
       </p>
     </div>
   </footer>
@@ -2304,8 +1923,12 @@
       const downloadBtn  = document.getElementById('preview-download-btn');
       const closeBtn     = document.getElementById('preview-close-btn');
 
+      const liveTab       = document.getElementById('preview-tab-live');
+      const liveEl        = document.getElementById('preview-live');
+
       let currentRawMD = '';
       let currentTab = 'preview';
+      let currentPreviewUrl = '';
 
       // Simple markdown -> HTML renderer (no library)
       function renderMarkdown(md) {
@@ -2398,12 +2021,20 @@
         overlay.querySelectorAll('.preview-tab').forEach(function(t) {
           t.classList.toggle('active', t.dataset.tab === tab);
         });
+        contentEl.style.display = 'none';
+        codeEl.style.display = 'none';
+        liveEl.style.display = 'none';
         if (tab === 'preview') {
           contentEl.style.display = 'block';
-          codeEl.style.display = 'none';
-        } else {
-          contentEl.style.display = 'none';
+        } else if (tab === 'code') {
           codeEl.style.display = 'block';
+        } else if (tab === 'live') {
+          if (currentPreviewUrl) {
+            liveEl.innerHTML = '<iframe class="live-preview-frame" src="' + currentPreviewUrl + '" sandbox="allow-scripts"></iframe>';
+          } else {
+            liveEl.innerHTML = '<div class="live-preview-unavailable">No live preview available for this template</div>';
+          }
+          liveEl.style.display = 'block';
         }
       }
 
@@ -2412,14 +2043,21 @@
         tab.addEventListener('click', function() { showTab(tab.dataset.tab); });
       });
 
-      function openPreview(url, title) {
+      function openPreview(url, title, previewUrl) {
         previewTitle.textContent = title;
         downloadBtn.href = url;
         loadingEl.style.display = 'flex';
         contentEl.style.display = 'none';
         codeEl.style.display = 'none';
+        liveEl.style.display = 'none';
+        liveEl.innerHTML = '';
         currentRawMD = '';
         currentTab = 'preview';
+        currentPreviewUrl = previewUrl || '';
+
+        // Show/hide the Live Preview tab based on whether a preview URL exists
+        liveTab.style.display = currentPreviewUrl ? '' : 'none';
+
         overlay.querySelectorAll('.preview-tab').forEach(function(t) {
           t.classList.toggle('active', t.dataset.tab === 'preview');
         });
@@ -2446,6 +2084,8 @@
 
       function closePreview() {
         overlay.classList.add('fade-out');
+        // Clean up live preview iframe to stop any running scripts
+        liveEl.innerHTML = '';
         setTimeout(function() {
           overlay.classList.remove('open', 'fade-out');
           document.body.style.overflow = '';
@@ -2484,8 +2124,9 @@
 
         var filename = card.dataset.filename;
         var title = (card.querySelector('.card-title') || {}).textContent || 'Template';
+        var previewUrl = card.dataset.previewUrl || '';
         if (filename) {
-          openPreview('templates/' + filename, title);
+          openPreview('templates/' + filename, title, previewUrl);
         }
       });
 
