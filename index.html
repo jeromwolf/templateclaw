@@ -287,6 +287,9 @@
     @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.6); } }
     .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; display: inline-block; animation: pulse-dot 2s ease-in-out infinite; }
 
+    /* -- NEW badge pulse animation -- */
+    @keyframes new-badge-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(236,72,153,0.5); } 50% { box-shadow: 0 0 0 6px rgba(236,72,153,0); } }
+
     /* ========================================================
        PREVIEW MODAL
        ======================================================== */
@@ -550,6 +553,92 @@
         <div class="reveal glass rounded-2xl p-6 text-center">
           <div class="stat-value gradient-text font-mono text-xl">Weekly</div>
           <div class="text-slate-500 text-sm mt-2 font-medium">Updates</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLAUDE CODE PLUGIN INSTALL
+       ============================================================ -->
+  <section class="relative z-10 py-8 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal glass rounded-2xl overflow-hidden" style="border-color: rgba(124,58,237,0.30); background: linear-gradient(135deg, rgba(124,58,237,0.07) 0%, rgba(236,72,153,0.05) 100%);">
+        <div style="height:2px; background: linear-gradient(90deg, #7C3AED, #a855f7, #EC4899, #a855f7, #7C3AED); background-size: 200% 100%; animation: shimmer-move 3s linear infinite;"></div>
+        <div class="p-6 sm:p-8">
+          <!-- Header row -->
+          <div class="flex items-center gap-3 mb-3">
+            <!-- Claude icon -->
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, rgba(124,58,237,0.30), rgba(236,72,153,0.22)); border: 1px solid rgba(124,58,237,0.35);">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <defs><linearGradient id="plugin-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                <path stroke="url(#plugin-grad)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <path stroke="url(#plugin-grad)" d="M8 10h8M8 14h5"/>
+                <circle cx="17" cy="14" r="1.5" fill="#EC4899" stroke="none"/>
+              </svg>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h2 class="text-white font-bold text-lg tracking-tight">Install as Claude Code Plugin</h2>
+              <span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:linear-gradient(135deg,#EC4899,#a855f7);color:#fff;animation:new-badge-pulse 2s ease-in-out infinite;">NEW</span>
+            </div>
+          </div>
+
+          <p class="text-slate-400 text-sm leading-relaxed mb-5">
+            7 skills. One install. Works in Claude Code, Codex, Gemini CLI, and Cursor.
+          </p>
+
+          <!-- Install command block -->
+          <div
+            id="install-cmd-block"
+            onclick="copyInstall(this)"
+            class="group flex items-center justify-between gap-4 rounded-xl px-4 py-3 cursor-pointer transition-all duration-200 mb-5"
+            style="background: rgba(10,14,26,0.75); border: 1px solid rgba(124,58,237,0.18);"
+            onmouseenter="this.style.borderColor='rgba(124,58,237,0.40)'"
+            onmouseleave="this.style.borderColor='rgba(124,58,237,0.18)'"
+            title="Click to copy"
+          >
+            <code class="font-mono text-sm text-brand-300 select-all">/plugin marketplace add jeromwolf/templateclaw</code>
+            <button
+              id="install-copy-btn"
+              class="copy-btn flex-shrink-0 text-xs"
+              style="pointer-events:none;"
+              tabindex="-1"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <span id="install-copy-label">Copy</span>
+            </button>
+          </div>
+
+          <!-- Skill tags -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="tag-chip font-mono">/templateclaw</span>
+            <span class="tag-chip font-mono">/templateclaw-landing</span>
+            <span class="tag-chip font-mono">/templateclaw-dashboard</span>
+            <span class="tag-chip font-mono">/templateclaw-ui</span>
+            <span class="tag-chip font-mono">/templateclaw-setup</span>
+            <span class="tag-chip font-mono">/templateclaw-dev</span>
+            <span class="tag-chip font-mono">/templateclaw-refactor</span>
+          </div>
+
+          <!-- Compatibility badges -->
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium" style="background:rgba(124,58,237,0.10);border:1px solid rgba(124,58,237,0.18);color:#c4b5fd;">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 6l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Claude Code
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium" style="background:rgba(124,58,237,0.10);border:1px solid rgba(124,58,237,0.18);color:#c4b5fd;">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 6l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Codex
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium" style="background:rgba(124,58,237,0.10);border:1px solid rgba(124,58,237,0.18);color:#c4b5fd;">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 6l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Gemini CLI
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium" style="background:rgba(124,58,237,0.10);border:1px solid rgba(124,58,237,0.18);color:#c4b5fd;">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 6l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Cursor
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -3560,7 +3649,7 @@
         &middot; Part of the <span class="text-slate-400 font-medium">ClawFlux</span> ecosystem
       </p>
       <p class="text-slate-600 text-xs font-mono">
-        Last updated: 2026-03-29 11:25
+        Last updated: 2026-03-29 11:46
       </p>
     </div>
   </footer>
@@ -3580,6 +3669,32 @@
   <script>
     // ---- Agent Integration: Copy & Toggle (global scope for onclick) ----
     const AGENT_SNIPPET = `## Template Resources (TemplateClaw)\n\nWhen creating new components, pages, or project files, check TemplateClaw first:\n- **Catalog**: https://jeromwolf.github.io/templateclaw/api.json\n- **Usage**: Fetch the catalog, find relevant template by category/tags,\n  download the .md file, extract the code section, and adapt it.\n- **Categories**: Landing Pages, Dashboard, Components, Dev Methodology,\n  Project Setup, Refactoring`;
+
+    function copyInstall(blockEl) {
+      const cmd = '/plugin marketplace add jeromwolf/templateclaw';
+      navigator.clipboard.writeText(cmd).then(() => {
+        const label = document.getElementById('install-copy-label');
+        const btn = document.getElementById('install-copy-btn');
+        label.textContent = 'Copied!';
+        btn.classList.add('copied');
+        blockEl.style.borderColor = 'rgba(52,211,153,0.40)';
+        setTimeout(() => {
+          label.textContent = 'Copy';
+          btn.classList.remove('copied');
+          blockEl.style.borderColor = 'rgba(124,58,237,0.18)';
+        }, 2000);
+      }).catch(() => {
+        /* fallback for older browsers */
+        const ta = document.createElement('textarea');
+        ta.value = cmd; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        const label = document.getElementById('install-copy-label');
+        label.textContent = 'Copied!';
+        setTimeout(() => { label.textContent = 'Copy'; }, 2000);
+      });
+    }
 
     function copyAgentSnippet() {
       navigator.clipboard.writeText(AGENT_SNIPPET).then(() => {

@@ -1,6 +1,6 @@
 {
   "name": "templateclaw",
-  "description": "Developer-first design & development template toolkit. 32 production-ready templates as Claude Code skills — landing pages, dashboards, UI components, project setup, dev methodology, and refactoring checklists. Type /templateclaw to scaffold any project in seconds.",
+  "description": "32 production-ready templates as Claude Code skills. Landing pages, dashboards, UI components, project setup, dev methodology, refactoring checklists. Type /templateclaw to scaffold any project.",
   "version": "1.0.0",
   "author": {
     "name": "TemplateClaw",
