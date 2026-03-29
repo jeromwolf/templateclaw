@@ -1,0 +1,24 @@
+{
+  "name": "templateclaw",
+  "description": "Developer-first design & development template toolkit. 32 production-ready templates as Claude Code skills — landing pages, dashboards, UI components, project setup, dev methodology, and refactoring checklists. Type /templateclaw to scaffold any project in seconds.",
+  "version": "1.0.0",
+  "author": {
+    "name": "TemplateClaw",
+    "url": "https://github.com/jeromwolf/templateclaw"
+  },
+  "homepage": "https://jeromwolf.github.io/templateclaw/",
+  "repository": "https://github.com/jeromwolf/templateclaw",
+  "license": "MIT",
+  "keywords": [
+    "templates",
+    "design",
+    "developer-tools",
+    "landing-page",
+    "dashboard",
+    "ui-components",
+    "project-setup",
+    "scaffolding",
+    "tailwind",
+    "2026-trends"
+  ]
+}

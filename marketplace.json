@@ -1,0 +1,15 @@
+{
+  "name": "templateclaw-marketplace",
+  "description": "TemplateClaw — Developer Design & Development Template Skills",
+  "owner": {
+    "name": "jeromwolf",
+    "url": "https://github.com/jeromwolf"
+  },
+  "plugins": [
+    {
+      "name": "templateclaw",
+      "source": ".",
+      "description": "32 production-ready templates as Claude Code skills. Landing pages, dashboards, UI components, project setup, dev methodology, and refactoring checklists."
+    }
+  ]
+}
